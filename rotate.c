@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:01:33 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/16 14:03:07 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:23:42 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_rotate(t_list **stack, char c, int flag)
 	t_list	*first;
 
 	if (!stack || !(*stack) || !(*stack)->next)
-		return;
+		return ;
 	first = *stack;
 	*stack = first->next;
 	first->next = NULL;

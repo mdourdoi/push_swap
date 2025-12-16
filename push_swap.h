@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:28:11 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/16 14:05:36 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2025/12/16 16:47:31 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ void	ft_rotate(t_list **stack, char c, int flag);
 void	ft_rotate_both(t_list *a, t_list *b);
 void	ft_reverse_rotate(t_list **stack, char c, int flag);
 void	ft_reverse_rotate_both(t_list *a, t_list *b);
+float	ft_get_disorder(t_list *stack);
+void	ft_selectionsort(t_list **a, t_list **b);
 
 #endif

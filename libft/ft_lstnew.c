@@ -6,13 +6,13 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 12:59:55 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/11/10 13:38:50 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:09:24 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*res;
 

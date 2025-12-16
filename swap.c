@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:29:41 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/16 14:03:15 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:23:14 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	ft_swap(t_list **stack, char c, int flag)
 {
 	t_list	*first;
 	t_list	*second;
-	
+
 	if (!stack || !(*stack) || !(*stack)->next)
-		return;
+		return ;
 	first = *stack;
 	second = first->next;
 	first->next = second->next;

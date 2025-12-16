@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 10:48:35 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/16 14:23:27 by mdourdoi         ###   ########.fr       */
+/*   Created: 2025/12/16 14:08:20 by mdourdoi          #+#    #+#             */
+/*   Updated: 2025/12/16 14:39:51 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push(t_list **stack1, char c1, t_list **stack2)
+float	ft_get_disorder(t_list *stack)
 {
-	t_list	*temp;
+	long		errors;
+	long		pairs;
+	t_list		*rest;
 
-	if (!stack1 || !stack2 || !(*stack2))
-		return ;
-	temp = *stack2;
-	*stack2 = (*stack2)->next;
-	ft_lstadd_front(stack1, temp);
-	ft_printf("p%c\n", c1);
+	if (!stack || !stack->next)
+		return (0.0);
+	pairs = 0;
+	errors = 0;
+	while (stack)
+	{
+		rest = stack->next;
+		while (rest)
+		{
+			pairs++;
+			if (stack->content > rest->content)
+				errors++;
+			rest = rest->next;
+		}
+		stack = stack->next;
+	}
+	return ((float)errors / (float)pairs);
 }
