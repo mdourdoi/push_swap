@@ -21,7 +21,7 @@ void	test_parser(char **str, int ac, int test_nb)
 	int		i = 0;
 
 	printf("\t\t --- Test %d ---\n", test_nb);
-	lst = parse_args(ac, str, &rule);	
+	lst = parse_args(ac, str, &rule);			// This is the main function that will parse all the args and setup rules	
 	if (lst == NULL)
 	{
 		printf("Error : \n");
@@ -58,6 +58,7 @@ int	main()
 	char *str8[] = {"./a.out", "a"};
 	char *str9[] = {"./a.out","1", "5", "2", "2"};
 	char *str10[] = {"./a.out","1", "5", "2a", "2"};
+	char *str11[] = {NULL};
 
 	test_parser(str, 5, 1);
 	test_parser(str2, 5, 2);
@@ -69,6 +70,7 @@ int	main()
 	test_parser(str8, 2, 8);
 	test_parser(str9, 5, 9);
 	test_parser(str10, 5, 10);
+	test_parser(str11, 0, 11);
 
 	return (0);
 }

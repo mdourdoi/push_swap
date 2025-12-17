@@ -135,6 +135,8 @@ t_list	*parse_args(int ac, char **av, t_rule *rule)
 	t_list	*stack;
 	
 	stack = NULL;
+	if (ac == 0 || av == NULL)
+		return (NULL);
 	if (check_for_rules(ac, av, rule) == TRUE)
 		stack = get_stack(av, ac, stack, rule);
 	return (stack);
