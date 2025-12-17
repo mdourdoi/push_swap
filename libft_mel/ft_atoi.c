@@ -36,7 +36,7 @@ static int	check_sign(const char *nptr, int *sign, size_t *i)
 	return (1);
 }
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(char *nptr)
 {
 	size_t	i;
 	int		res;

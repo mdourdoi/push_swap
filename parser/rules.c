@@ -6,7 +6,7 @@
 /*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:36:37 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/17 11:32:24 by melschmi         ###   ########.fr       */
+/*   Updated: 2025/12/17 16:24:48 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "rules.h"
@@ -66,7 +66,10 @@ t_bool	determine_mode(char *av, t_rule *rule)
 		return (TRUE);
 	}
 	if (ft_strcmp(av, "--adaptive") == 0 || is_valid_digit(av) == TRUE)
+	{
+		rule->mode = ADAPTIVE;
 		return (TRUE);
+	}
 	return (FALSE);
 }
 

@@ -15,7 +15,19 @@
 
 #include <stdlib.h>
 
+typedef struct s_list
+{
+	int				content;
+	struct s_list	*next;
+}					t_list;
+
+void	*ft_calloc(size_t nmemb, size_t size);
+void	ft_bzero(void *src, size_t n);
+void	*ft_memset(void *src, int c, size_t n);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+t_list	*ft_lstnew(int content);
 int	ft_isdigit(int c);
-int	ft_atoi(const char *nptr);
+int	ft_isascii(int c);
+int	ft_atoi(char *nptr);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:34:40 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/17 11:36:43 by melschmi         ###   ########.fr       */
+/*   Updated: 2025/12/17 16:33:30 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <stdlib.h>
 #include <limits.h>
-#include "libft_mel/libft.h"
+#include "../libft_mel/libft.h"
 
 // Enum t_mode : For having different mode link with a value,
 // 		so readability of the code is OK for our tiny little eyes
@@ -52,7 +52,10 @@ typedef enum	e_bool
 
 t_bool	determine_mode(char *av, t_rule *rule);
 t_bool	check_for_rules(int ac, char **av, t_rule *rule);
+t_bool	check_double(t_list *stack);
 t_bool	is_valid_digit(char *nb);
-int	ft_strcmp(char *str1, char *str2);
+t_list	*parse_args(int ac, char **av, t_rule *rule);
+void	*clear_stack(t_list *stack);
+int		ft_strcmp(char *str1, char *str2);
 
 #endif

@@ -6,12 +6,11 @@
 /*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:20:33 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/17 11:39:30 by melschmi         ###   ########.fr       */
+/*   Updated: 2025/12/17 16:21:37 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "libft_mel/libft.h"
+#include "../libft_mel/libft.h"
 #include "rules.h"
 
 // Parsing section :
@@ -28,7 +27,45 @@
 // 			--adaptive the algorithm is based on the state of disorder of the stack
 
 
-void	*clear_stack()
+// Clear_stack : 
+//
+// 		This function will clear the stack && return NULL
+
+void	*clear_stack(t_list *stack)
+{
+	t_list	*tmp;
+
+	while (stack != NULL)
+	{
+		tmp = stack;
+		stack = stack->next;
+		free(tmp);
+	}
+	return (NULL);
+}
+//
+// Check_double : 
+//
+// 		This function will if there's double value in the stack 
+// 			by checking a dictionary using hash set algorithm
+//
+// 		return (TRUE) if double exist 
+// 		return (FALSE) if everything is fine
+
+t_bool	check_double(t_list *stack)
+{
+	int	value;
+
+	value = stack->content;
+	stack = stack->next;
+	while (stack != NULL)
+	{
+		if ((stack->content) == value)
+			return (TRUE);
+		stack = stack->next;
+	}
+	return (FALSE);
+}
 
 //	Check_stack_creation : 
 //
@@ -41,25 +78,24 @@ void	*clear_stack()
 //		return NULL if the stack is false
 //
 
-t_list	*check_stack_creation(t_list *stack, int ac, char **av)
+t_list	*check_stack_creation(t_list *stack, int ac, char **av, t_rule *rule)
 {
 	size_t	len;
-	t_bool	dict[UINT_MAX];
+	t_bool	dict[ac];
+	t_list	*test;
 
 	len = 0;
-	if (is_valid_digit(av[ac - 1]) == FALSE)
-		ac--;
-	while (stack->next != NULL)
+	test = stack;
+	while (test != NULL)
 	{
-		if (dict[(stack->content) + INT_MAX] != TRUE)
-			dict[(stack->content) + INT_MAX] = TRUE;
-		else
-		 	return (clear_stack(stack));
-		stack = stack->next;
+		if (check_double(test) == TRUE)
+		 	return (clear_stack(test));
+		test = test->next;
 		len++;
 	}
 	if (len != ac - 1)
-		return (clear_stack(stack));
+		return (clear_stack(test));
+	rule->nb_element = len;
 	return (stack);
 }
 
@@ -70,18 +106,20 @@ t_list	*check_stack_creation(t_list *stack, int ac, char **av)
 //		return a pointer to the first node of the stack if everything is fine
 //		return NULL if an error occur 
 
-t_list	*get_stack(char **av, int ac)
+t_list	*get_stack(char **av, int ac, t_list *stack, t_rule *rule)
 {
 	size_t	i;
-	t_list	*stack;
 
-	i = 0;
+	i = 1;
+	stack = NULL;
 	while (is_valid_digit(av[i]) == TRUE)
 	{
 		ft_lstadd_back(&stack, ft_lstnew(ft_atoi(av[i])));
 		i++;
 	}
-	return (check_stack_creation(stack, ac));
+	if (is_valid_digit(av[ac - 1]) == FALSE)
+		ac--;
+	return (check_stack_creation(stack, ac, av, rule));
 }
 
 // Parse_args : 
@@ -92,12 +130,12 @@ t_list	*get_stack(char **av, int ac)
 // 			t_list **stack if everything is fine
 // 			NULL if the stack is empty or an error occur
 
-t_list	**parse_args(int ac, char **av, t_rule *rule)
+t_list	*parse_args(int ac, char **av, t_rule *rule)
 {
-	t_list	**stack;
+	t_list	*stack;
 	
 	stack = NULL;
 	if (check_for_rules(ac, av, rule) == TRUE)
-		*stack = get_stack(av, ac);
+		stack = get_stack(av, ac, stack, rule);
 	return (stack);
 }
