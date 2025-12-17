@@ -6,7 +6,7 @@
 /*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:20:33 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/17 16:21:37 by melschmi         ###   ########.fr       */
+/*   Updated: 2025/12/17 16:58:09 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ t_list	*get_stack(char **av, int ac, t_list *stack, t_rule *rule)
 
 	i = 1;
 	stack = NULL;
-	while (is_valid_digit(av[i]) == TRUE)
+	while ((i < ac) && (is_valid_digit(av[i]) == TRUE))
 	{
 		ft_lstadd_back(&stack, ft_lstnew(ft_atoi(av[i])));
 		i++;

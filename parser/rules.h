@@ -6,7 +6,7 @@
 /*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:34:40 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/17 16:33:30 by melschmi         ###   ########.fr       */
+/*   Updated: 2025/12/17 17:10:14 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 
 typedef enum	e_mode
 {
-	ADAPTIVE,
-	SIMPLE,
-	MEDIUM,
-	COMPLEX
+	ADAPTIVE = 1,
+	SIMPLE = 2,
+	MEDIUM = 3,
+	COMPLEX = 4 
 
 }	t_mode;
 
