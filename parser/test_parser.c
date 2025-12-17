@@ -18,7 +18,7 @@ void	test_parser(char **str, int ac, int test_nb)
 	t_list	*lst;
 	t_list	*tmp;
 	t_rule	rule;
-	size_t	i = 0;
+	int		i = 0;
 
 	printf("\t\t --- Test %d ---\n", test_nb);
 	lst = parse_args(ac, str, &rule);	
@@ -49,24 +49,24 @@ void	test_parser(char **str, int ac, int test_nb)
 int	main()
 {
 	char *str[] = {"./a.out","1", "5", "2", "--adaptive"};
-	char *str2[] = {"./a.out","1", "5", "2"};
-	char *str3[] = {"./a.out"};
-	char *str4[] = {"./a.out", "a"};
-	char *str5[] = {"./a.out","1", "5", "2" "2"};
-	char *str6[] = {"./a.out","1", "5", "2a" "2"};
-	char *str7[] = {"./a.out","1", "5", "2", "--simple"};
-	char *str8[] = {"./a.out","1", "5", "2", "--complex"};
-	char *str9[] = {"./a.out","1", "5", "2", "--medium"};
-	char *str10[] = {"./a.out","1", "5", "2", "--error"};
+	char *str2[] = {"./a.out","1", "5", "2", "--simple"};
+	char *str3[] = {"./a.out","1", "5", "2", "--complex"};
+	char *str4[] = {"./a.out","1", "5", "2", "--medium"};
+	char *str5[] = {"./a.out","1", "5", "2", "--error"};
+	char *str6[] = {"./a.out","1", "5", "2"};
+	char *str7[] = {"./a.out"};
+	char *str8[] = {"./a.out", "a"};
+	char *str9[] = {"./a.out","1", "5", "2", "2"};
+	char *str10[] = {"./a.out","1", "5", "2a", "2"};
 
 	test_parser(str, 5, 1);
-	test_parser(str2, 4, 2);
-	test_parser(str3, 4, 3);
-	test_parser(str4, 2, 4);
+	test_parser(str2, 5, 2);
+	test_parser(str3, 5, 3);
+	test_parser(str4, 5, 4);
 	test_parser(str5, 5, 5);
-	test_parser(str6, 5, 6);
-	test_parser(str7, 5, 7);
-	test_parser(str8, 5, 8);
+	test_parser(str6, 4, 6);
+	test_parser(str7, 4, 7);
+	test_parser(str8, 2, 8);
 	test_parser(str9, 5, 9);
 	test_parser(str10, 5, 10);
 

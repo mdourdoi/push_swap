@@ -41,6 +41,7 @@ void	*clear_stack(t_list *stack)
 		stack = stack->next;
 		free(tmp);
 	}
+	free(stack);
 	return (NULL);
 }
 //
@@ -78,10 +79,9 @@ t_bool	check_double(t_list *stack)
 //		return NULL if the stack is false
 //
 
-t_list	*check_stack_creation(t_list *stack, int ac, char **av, t_rule *rule)
+t_list	*check_stack_creation(t_list *stack, int ac, t_rule *rule)
 {
-	size_t	len;
-	t_bool	dict[ac];
+	int	len;
 	t_list	*test;
 
 	len = 0;
@@ -108,7 +108,7 @@ t_list	*check_stack_creation(t_list *stack, int ac, char **av, t_rule *rule)
 
 t_list	*get_stack(char **av, int ac, t_list *stack, t_rule *rule)
 {
-	size_t	i;
+	int	i;
 
 	i = 1;
 	stack = NULL;
@@ -119,7 +119,7 @@ t_list	*get_stack(char **av, int ac, t_list *stack, t_rule *rule)
 	}
 	if (is_valid_digit(av[ac - 1]) == FALSE)
 		ac--;
-	return (check_stack_creation(stack, ac, av, rule));
+	return (check_stack_creation(stack, ac, rule));
 }
 
 // Parse_args : 
