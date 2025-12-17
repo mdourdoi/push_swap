@@ -89,12 +89,12 @@ t_list	*check_stack_creation(t_list *stack, int ac, t_rule *rule)
 	while (test != NULL)
 	{
 		if (check_double(test) == TRUE)
-		 	return (clear_stack(test));
+		 	return (clear_stack(stack));
 		test = test->next;
 		len++;
 	}
 	if (len != ac - 1)
-		return (clear_stack(test));
+		return (clear_stack(stack));
 	rule->nb_element = len;
 	return (stack);
 }
@@ -135,7 +135,7 @@ t_list	*parse_args(int ac, char **av, t_rule *rule)
 	t_list	*stack;
 	
 	stack = NULL;
-	if (ac == 0 || av == NULL)
+	if (ac == 0 || av == NULL || av[0] == NULL)
 		return (NULL);
 	if (check_for_rules(ac, av, rule) == TRUE)
 		stack = get_stack(av, ac, stack, rule);

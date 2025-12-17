@@ -13,10 +13,18 @@
 #include <stdio.h>
 #include "rules.h"
 
+void	print_stack(t_list *lst)
+{
+	while (lst != NULL)
+	{
+		printf("%d\n", lst->content);
+		lst = lst->next;
+	}
+}
+
 void	test_parser(char **str, int ac, int test_nb)
 {
 	t_list	*lst;
-	t_list	*tmp;
 	t_rule	rule;
 	int		i = 0;
 
@@ -25,6 +33,7 @@ void	test_parser(char **str, int ac, int test_nb)
 	if (lst == NULL)
 	{
 		printf("Error : \n");
+		lst = clear_stack(lst);
 		return ;
 	}
 	printf("\t\t--- argv --- \n");
@@ -34,12 +43,8 @@ void	test_parser(char **str, int ac, int test_nb)
 		i++;
 	}
 	printf("\t\t--- lst --- \n");
-	tmp = lst;
-	while (tmp != NULL)
-	{
-		printf("%d\n", tmp->content);
-		tmp = tmp->next;
-	}
+	print_stack(lst);
+
 	printf("mode = %d\n", rule.mode);
 	printf("size = %lu\n", rule.nb_element);
 	printf("clearing stack...\n");
@@ -66,11 +71,12 @@ int	main()
 	test_parser(str4, 5, 4);
 	test_parser(str5, 5, 5);
 	test_parser(str6, 4, 6);
-	test_parser(str7, 4, 7);
+	test_parser(str7, 1, 7);
 	test_parser(str8, 2, 8);
 	test_parser(str9, 5, 9);
 	test_parser(str10, 5, 10);
 	test_parser(str11, 0, 11);
+	test_parser(str11, 1, 12);
 
 	return (0);
 }
