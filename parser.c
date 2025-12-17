@@ -6,13 +6,13 @@
 /*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:20:33 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/16 18:37:12 by melschmi         ###   ########.fr       */
+/*   Updated: 2025/12/17 11:39:30 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+#include "libft_mel/libft.h"
 #include "rules.h"
-#include "push_swap.h"
 
 // Parsing section :
 // 		Must parse and verify the entry from the user : 
@@ -28,6 +28,61 @@
 // 			--adaptive the algorithm is based on the state of disorder of the stack
 
 
+void	*clear_stack()
+
+//	Check_stack_creation : 
+//
+//		This function will check if the stack created from the user input is correct
+//		A correct stack :
+//			Has no double element number
+//			Has the correct number of element 
+//
+//		return the stack if everything is fine 
+//		return NULL if the stack is false
+//
+
+t_list	*check_stack_creation(t_list *stack, int ac, char **av)
+{
+	size_t	len;
+	t_bool	dict[UINT_MAX];
+
+	len = 0;
+	if (is_valid_digit(av[ac - 1]) == FALSE)
+		ac--;
+	while (stack->next != NULL)
+	{
+		if (dict[(stack->content) + INT_MAX] != TRUE)
+			dict[(stack->content) + INT_MAX] = TRUE;
+		else
+		 	return (clear_stack(stack));
+		stack = stack->next;
+		len++;
+	}
+	if (len != ac - 1)
+		return (clear_stack(stack));
+	return (stack);
+}
+
+//	Get_stack : 
+//
+//		This function create the stack using the args given by the user
+//
+//		return a pointer to the first node of the stack if everything is fine
+//		return NULL if an error occur 
+
+t_list	*get_stack(char **av, int ac)
+{
+	size_t	i;
+	t_list	*stack;
+
+	i = 0;
+	while (is_valid_digit(av[i]) == TRUE)
+	{
+		ft_lstadd_back(&stack, ft_lstnew(ft_atoi(av[i])));
+		i++;
+	}
+	return (check_stack_creation(stack, ac));
+}
 
 // Parse_args : 
 //
@@ -43,9 +98,6 @@ t_list	**parse_args(int ac, char **av, t_rule *rule)
 	
 	stack = NULL;
 	if (check_for_rules(ac, av, rule) == TRUE)
-	{
-		// Start parsing	
-	}
-	else 
-		return (stack);
+		*stack = get_stack(av, ac);
+	return (stack);
 }

@@ -6,7 +6,7 @@
 /*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:34:40 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/16 18:36:28 by melschmi         ###   ########.fr       */
+/*   Updated: 2025/12/17 11:36:43 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define RULES_H
 
 #include <stdlib.h>
+#include <limits.h>
+#include "libft_mel/libft.h"
 
 // Enum t_mode : For having different mode link with a value,
 // 		so readability of the code is OK for our tiny little eyes
@@ -50,5 +52,7 @@ typedef enum	e_bool
 
 t_bool	determine_mode(char *av, t_rule *rule);
 t_bool	check_for_rules(int ac, char **av, t_rule *rule);
+t_bool	is_valid_digit(char *nb);
+int	ft_strcmp(char *str1, char *str2);
 
 #endif
