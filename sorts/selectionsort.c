@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minmax.c                                           :+:      :+:    :+:   */
+/*   selectionsort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 14:56:33 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/16 16:38:12 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2025/12/17 12:54:35 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int		ft_maxpos(t_list *a)
+static int	ft_maxpos(t_list *a)
 {
 	int	max;
-	int pos;
-	int pos_max;
+	int	pos;
+	int	pos_max;
 
 	max = a->content;
 	pos = 0;
@@ -39,12 +39,14 @@ void	ft_selectionsort(t_list **a, t_list **b)
 	int		rot;
 	int		rev_rot;
 	int		len;
-	
+
+	if (ft_issorted(*a))
+		return ;
 	while (*a)
 	{
 		rot = ft_maxpos(*a);
 		len = ft_lstsize(*a);
-		rev_rot = (len - rot) % len; 
+		rev_rot = (len - rot) % len;
 		if (rot > rev_rot)
 		{
 			while (rev_rot-- > 0)
