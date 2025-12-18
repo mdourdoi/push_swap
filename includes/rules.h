@@ -6,7 +6,7 @@
 /*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:34:40 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/17 17:10:14 by melschmi         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:08:16 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ t_bool	check_double(t_list *stack);
 t_bool	is_valid_digit(char *nb);
 t_list	*parse_args(int ac, char **av, t_rule *rule);
 void	*clear_stack(t_list *stack);
+void	gateway(t_rule *rule, t_list **a, t_list **b);
+void	check_disorder(t_rule *rule);
 int		ft_strcmp(char *str1, char *str2);
 
 #endif

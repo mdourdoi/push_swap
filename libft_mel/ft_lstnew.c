@@ -20,5 +20,6 @@ t_list	*ft_lstnew(int content)
 	if (!res)
 		return (NULL);
 	res->content = content;
+	res->index = -1;
 	return (res);
 }
