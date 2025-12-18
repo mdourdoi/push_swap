@@ -7,6 +7,7 @@ FLAGS=-Wall -Wextra -Werror
 SRC_TEST=../parser/ft_strcmp.c \
 	../parser/parser.c \
 	../parser/rules.c \
+	../parser/rules_set.c \
 	../primitives/push.c \
 	../primitives/reverse_rotate.c \
 	../primitives/rotate.c \

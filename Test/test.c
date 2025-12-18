@@ -6,7 +6,7 @@
 /*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:50:49 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/18 15:36:01 by melschmi         ###   ########.fr       */
+/*   Updated: 2025/12/18 17:04:54 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ void	print_stack(t_list *lst)
 	}
 }
 
+void	print_rules(t_rule *rule)
+{
+	printf("=========== RULES ============\n");
+	printf("mode : %d\n", rule->mode);
+	printf("bench : %d\n", rule->bench);
+	printf("disorder : %.2f\n", rule->disorder);
+	printf("elem : %zu\n", rule->nb_element);
+	printf("==============================\n");
+}
+
 int	main(int ac, char **av)
 {
 	t_list	*a;
@@ -32,12 +42,13 @@ int	main(int ac, char **av)
 	t_rule	rule;
 
 	a = parse_args(ac, av, &rule);
+	rule.disorder = ft_get_disorder(a);
+	print_rules(&rule);
 	if (a == NULL)
 		return 0;
 	printf("Init \n");
 	print_stack(a);
 	b = ft_calloc(1, sizeof(t_list *));
-	rule.disorder = ft_get_disorder(a);
 	gateway(&rule, &a, b);
 	printf("final: \n");
 	print_stack(a);

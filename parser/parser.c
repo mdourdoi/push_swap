@@ -6,7 +6,7 @@
 /*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:20:33 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/17 16:58:09 by melschmi         ###   ########.fr       */
+/*   Updated: 2025/12/18 17:03:48 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	*clear_stack(t_list *stack)
 	free(stack);
 	return (NULL);
 }
-//
+
 // Check_double : 
 //
 // 		This function will if there's double value in the stack 
@@ -79,7 +79,7 @@ t_bool	check_double(t_list *stack)
 //		return NULL if the stack is false
 //
 
-t_list	*check_stack_creation(t_list *stack, int ac, t_rule *rule)
+t_list	*check_stack_creation(t_list *stack, int nb_elem, t_rule *rule)
 {
 	int	len;
 	t_list	*test;
@@ -93,7 +93,7 @@ t_list	*check_stack_creation(t_list *stack, int ac, t_rule *rule)
 		test = test->next;
 		len++;
 	}
-	if (len != ac - 1)
+	if (len != nb_elem)
 		return (clear_stack(stack));
 	rule->nb_element = len;
 	return (stack);
@@ -112,14 +112,13 @@ t_list	*get_stack(char **av, int ac, t_list *stack, t_rule *rule)
 
 	i = 1;
 	stack = NULL;
-	while ((i < ac) && (is_valid_digit(av[i]) == TRUE))
+	while (av[i])
 	{
+		if (is_valid_digit(av[i]) == TRUE)
 		ft_lstadd_back(&stack, ft_lstnew(ft_atoi(av[i])));
 		i++;
 	}
-	if (is_valid_digit(av[ac - 1]) == FALSE)
-		ac--;
-	return (check_stack_creation(stack, ac, rule));
+	return (check_stack_creation(stack, number_of_elem(rule, ac), rule));
 }
 
 // Parse_args : 
@@ -137,7 +136,7 @@ t_list	*parse_args(int ac, char **av, t_rule *rule)
 	stack = NULL;
 	if (ac == 0 || av == NULL || av[0] == NULL)
 		return (NULL);
-	if (check_for_rules(ac, av, rule) == TRUE)
+	if (check_for_rules(av, rule) == TRUE)
 		stack = get_stack(av, ac, stack, rule);
 	return (stack);
 }
