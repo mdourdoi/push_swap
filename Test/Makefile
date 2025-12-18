@@ -30,11 +30,16 @@ SRC_TEST=../parser/ft_strcmp.c \
 	../ft_printf/ft_printf.c \
 	../sorts/is_sorted.c \
 	../sorts/selectionsort.c \
+	../gateway/gateway.c \
+	../disorder.c \
 		test.c
 
 OBJ=$(SRC_TEST:.c=.o)
 
 all: $(EXEC)
+
+$(EXEC): $(OBJ)
+	$(CC) $(FLAGS) -I$(INCLUDES) $^ -o $@
 
 $(TEST): $(OBJ)
 	$(CC) -g $(FLAGS) -I$(INCLUDES) $^ -o $@
@@ -44,3 +49,9 @@ $(TEST): $(OBJ)
 
 clean: 
 	rm -rf $(OBJ)
+
+fclean: clean
+	rm -rf $(EXEC) $(TEST)
+
+re: fclean
+	make all

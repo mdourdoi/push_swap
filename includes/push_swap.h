@@ -6,14 +6,14 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:28:11 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/17 12:52:07 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:19:02 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
+#include <stdio.h>
 # include "libft.h"
 # include "ft_printf.h"
 
@@ -28,14 +28,5 @@ float	ft_get_disorder(t_list *stack);
 void	ft_selectionsort(t_list **a, t_list **b);
 int		ft_issorted(t_list *a);
 void	print_stack(t_list *lst);
-
-void	print_stack(t_list *lst)
-{
-	while (lst != NULL)
-	{
-		printf("%d\n", lst->content);
-		lst = lst->next;
-	}
-}
 
 #endif
