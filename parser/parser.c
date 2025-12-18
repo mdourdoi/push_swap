@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft_mel/libft.h"
+#include "libft_mel.h"
 #include "rules.h"
 
 // Parsing section :

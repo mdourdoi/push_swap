@@ -13,14 +13,14 @@
 #include <stdio.h>
 #include "rules.h"
 
-void	print_stack(t_list *lst)
+/*void	print_stack(t_list *lst)
 {
 	while (lst != NULL)
 	{
 		printf("%d\n", lst->content);
 		lst = lst->next;
 	}
-}
+}*/
 
 void	test_parser(char **str, int ac, int test_nb)
 {
