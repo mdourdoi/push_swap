@@ -6,7 +6,7 @@
 /*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:36:37 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/16 18:46:04 by melschmi         ###   ########.fr       */
+/*   Updated: 2025/12/17 17:14:21 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "rules.h"
@@ -41,7 +41,7 @@ t_bool	is_valid_digit(char *nb)
 	return (TRUE);
 }
 
-// determone_mode : 
+// determine_mode : 
 // 		This function will determine the mode given 
 // 			by the user and set it into rules
 //
@@ -66,7 +66,10 @@ t_bool	determine_mode(char *av, t_rule *rule)
 		return (TRUE);
 	}
 	if (ft_strcmp(av, "--adaptive") == 0 || is_valid_digit(av) == TRUE)
+	{
+		rule->mode = ADAPTIVE;
 		return (TRUE);
+	}
 	return (FALSE);
 }
 
@@ -81,8 +84,11 @@ t_bool	determine_mode(char *av, t_rule *rule)
 t_bool	check_for_rules(int ac, char **av, t_rule *rule)
 {
 	if (av[ac - 1][0] == '-')
-	{
 		return (determine_mode(av[ac - 1], rule));
+	if (is_valid_digit(av[ac-1]) == TRUE)
+	{
+		rule->mode = ADAPTIVE;
+		return (TRUE);
 	}
 	return (FALSE);
 }
