@@ -6,11 +6,11 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 12:59:07 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/18 14:16:07 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2025/12/20 11:50:33 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap.h"https://profile.intra.42.fr/
 
 static void	set_to_first(t_list **a)
 {
