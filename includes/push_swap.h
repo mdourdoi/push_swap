@@ -13,6 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <stdio.h>
 # include "libft.h"
 # include "ft_printf.h"
 
@@ -26,6 +27,7 @@ void	ft_reverse_rotate_both(t_list *a, t_list *b);
 float	ft_get_disorder(t_list *stack);
 void	ft_selectionsort(t_list **a, t_list **b);
 int		ft_issorted(t_list *a);
+void	print_stack(t_list *lst);
 
 void	print_stack(t_list *lst)
 {

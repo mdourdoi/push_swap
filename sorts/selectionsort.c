@@ -12,27 +12,28 @@
 
 #include "push_swap.h"
 
-static int	ft_maxpos(t_list *a)
+static int	ft_minpos(t_list *a)
 {
-	int	max;
+	int	min;
 	int	pos;
-	int	pos_max;
+	int	pos_min;
 
-	max = a->content;
+	min = a->content;
 	pos = 0;
-	pos_max = 0;
+	pos_min = 0;
 	while (a)
 	{
-		if (a->content > max)
+		if (a->content < min)
 		{
-			max = a->content;
-			pos_max = pos;
+			min = a->content;
+			pos_min = pos;
 		}
 		a = a->next;
 		pos++;
 	}
-	return (pos_max);
+	return (pos_min);
 }
+
 
 void	ft_selectionsort(t_list **a, t_list **b)
 {
@@ -44,7 +45,7 @@ void	ft_selectionsort(t_list **a, t_list **b)
 		return ;
 	while (*a)
 	{
-		rot = ft_maxpos(*a);
+		rot = ft_minpos(*a);
 		len = ft_lstsize(*a);
 		rev_rot = (len - rot) % len;
 		if (rot > rev_rot)
