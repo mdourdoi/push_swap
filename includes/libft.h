@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 21:57:33 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/16 14:09:02 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2025/12/18 14:16:31 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_list
 {
 	int				content;
+	int				index; 
 	struct s_list	*next;
 }					t_list;
 
