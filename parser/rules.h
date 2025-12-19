@@ -17,6 +17,25 @@
 # include <limits.h>
 # include "libft_mel.h"
 
+// Enum t_oper : 
+// 		to enumerate the index of the operation list in 
+// 			rule->operation[]
+
+typedef	enum	e_oper
+{
+	SA = 0,
+	SB = 1,
+	SS = 2,
+	PA = 3,
+	PB = 4,
+	RA = 5,
+	RB = 6,
+	RR = 7,
+	RRA = 8,
+	RRB = 9,
+	RRR = 10
+}	t_oper;
+
 // Enum t_mode : For having different mode link with a value,
 // 		so readability of the code is OK for our tiny little eyes
 
@@ -42,6 +61,9 @@ typedef enum	e_bool
 //
 // 		For saving state, program mode, the entropy level 
 // 		and the number of element in the initial stack
+//
+// 		operation[] will store each operation, by increasing
+// 			the number stored in his corresponding key
 
 typedef struct	s_rule
 {
@@ -50,6 +72,7 @@ typedef struct	s_rule
 	t_bool	flags;
 	float	disorder;
 	size_t	nb_element;
+	int		operation[11];	//This part is where the operations are stored in bench mod
 }	t_rule;
 
 
@@ -65,6 +88,7 @@ t_bool	check_double(t_list *stack);
 t_bool	is_valid_digit(char *nb);
 t_list	*parse_args(int ac, char **av, t_rule *rule);
 void	*clear_stack(t_list *stack);
+void	init_rule(t_rule *rule);
 int		ft_strcmp(char *str1, char *str2);
 int		number_of_elem(t_rule *rule, int ac);
 

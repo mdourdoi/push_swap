@@ -6,27 +6,28 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:28:11 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/18 15:19:02 by melschmi         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:19:41 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdio.h>
 # include "libft.h"
 # include "ft_printf.h"
+# include "rules.h"
 
-void	ft_swap(t_list **stack, char c, int flag);
-void	ft_swap_both(t_list *a, t_list *b);
-void	ft_push(t_list **stack1, char c1, t_list **stack2);
-void	ft_rotate(t_list **stack, char c, int flag);
-void	ft_rotate_both(t_list *a, t_list *b);
-void	ft_reverse_rotate(t_list **stack, char c, int flag);
-void	ft_reverse_rotate_both(t_list *a, t_list *b);
+void	ft_swap(t_list **stack, char c, int flag, t_rule *rule);
+void	ft_swap_both(t_list *a, t_list *b, t_rule *rule);
+void	ft_push(t_list **stack1, char c1, t_list **stack2, t_rule *rule);
+void	ft_rotate(t_list **stack, char c, int flag, t_rule *rule);
+void	ft_rotate_both(t_list *a, t_list *b, t_rule *rule);
+void	ft_reverse_rotate(t_list **stack, char c, int flag, t_rule *rule);
+void	ft_reverse_rotate_both(t_list *a, t_list *b, t_rule *rule);
 float	ft_get_disorder(t_list *stack);
-void	ft_selectionsort(t_list **a, t_list **b);
+void	ft_selectionsort(t_list **a, t_list **b, t_rule *rule);
 int		ft_issorted(t_list *a);
-void	print_stack(t_list *lst);
+void	set_index(t_list *a);
+void	gateway(t_rule *rule, t_list **a, t_list **b);
 
 #endif

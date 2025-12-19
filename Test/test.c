@@ -41,6 +41,7 @@ int	main(int ac, char **av)
 	t_list	**b;
 	t_rule	rule;
 
+	init_rule(&rule);
 	a = parse_args(ac, av, &rule);
 	rule.disorder = ft_get_disorder(a);
 	print_rules(&rule);

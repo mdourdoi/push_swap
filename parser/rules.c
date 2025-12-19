@@ -11,6 +11,27 @@
 /* ************************************************************************** */
 #include "rules.h"
 
+// Init_rule : 
+//
+// This function will initialize the rule struct correctly
+
+void	init_rule(t_rule *rule)
+{
+	size_t	i;
+
+	i = 0;
+	rule->mode = ADAPTIVE;
+	rule->bench = FALSE;
+	rule->flags = FALSE;
+	rule->disorder = 0;
+	rule->nb_element = 0;
+	while (i < 11)
+	{
+		rule->operation[i] = 0;
+		i++;
+	}
+}
+
 // Is_valid_digit : 
 // 		check if the current string is a valid digit for the programm
 // 			a valid digit is a string representing a int (32bit)

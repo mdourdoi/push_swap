@@ -15,16 +15,17 @@
 
 # include "libft.h"
 # include "ft_printf.h"
+# include "rules.h"
 
-void	ft_swap(t_list **stack, char c, int flag);
-void	ft_swap_both(t_list *a, t_list *b);
-void	ft_push(t_list **stack1, char c1, t_list **stack2);
-void	ft_rotate(t_list **stack, char c, int flag);
-void	ft_rotate_both(t_list *a, t_list *b);
-void	ft_reverse_rotate(t_list **stack, char c, int flag);
-void	ft_reverse_rotate_both(t_list *a, t_list *b);
+void	ft_swap(t_list **stack, char c, int flag, t_rule *rule);
+void	ft_swap_both(t_list *a, t_list *b, t_rule *rule);
+void	ft_push(t_list **stack1, char c1, t_list **stack2, t_rule *rule);
+void	ft_rotate(t_list **stack, char c, int flag, t_rule *rule);
+void	ft_rotate_both(t_list *a, t_list *b, t_rule *rule);
+void	ft_reverse_rotate(t_list **stack, char c, int flag, t_rule *rule);
+void	ft_reverse_rotate_both(t_list *a, t_list *b, t_rule *rule);
 float	ft_get_disorder(t_list *stack);
-void	ft_selectionsort(t_list **a, t_list **b);
+void	ft_selectionsort(t_list **a, t_list **b, t_rule *rule);
 int		ft_issorted(t_list *a);
 void	set_index(t_list *a);
 

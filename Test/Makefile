@@ -8,10 +8,10 @@ SRC_TEST=../parser/ft_strcmp.c \
 	../parser/parser.c \
 	../parser/rules.c \
 	../parser/rules_set.c \
-	../primitives/push.c \
-	../primitives/reverse_rotate.c \
-	../primitives/rotate.c \
-	../primitives/swap.c \
+	primitive_cpy/push.c \
+	primitive_cpy/reverse_rotate.c \
+	primitive_cpy/rotate.c \
+	primitive_cpy/swap.c \
 	../libft_mel/ft_atoi.c \
 	../libft_mel/ft_bzero.c \
 	../libft_mel/ft_calloc.c \
@@ -29,8 +29,8 @@ SRC_TEST=../parser/ft_strcmp.c \
 	../ft_printf/ft_printf_voidp.c \
 	../ft_printf/ft_printf_utils.c \
 	../ft_printf/ft_printf.c \
-	../sorts/is_sorted.c \
-	../sorts/selectionsort.c \
+	sort_cpy/is_sorted.c \
+	sort_cpy/selectionsort.c \
 	../gateway/gateway.c \
 	../disorder.c \
 		test.c
