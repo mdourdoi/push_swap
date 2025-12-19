@@ -71,18 +71,6 @@ t_bool	determine_mode(char *av, t_rule *rule, t_bool *mode, t_bool *bench)
 // 		return (TRUE) if everything is fine 
 // 		return (FALSE) if an error occur
 
-/*t_bool	check_for_rules(int ac, char **av, t_rule *rule)
-{
-	if (av[ac - 1][0] == '-')
-		return (determine_mode(av[ac - 1], rule));
-	if (is_valid_digit(av[ac-1]) == TRUE)
-	{
-		rule->mode = ADAPTIVE;
-		return (TRUE);
-	}
-	return (FALSE);
-}*/
-
 t_bool	check_for_rules(char **av, t_rule *rule)
 {
 	size_t	i;

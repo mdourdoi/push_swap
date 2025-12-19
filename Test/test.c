@@ -45,7 +45,10 @@ int	main(int ac, char **av)
 	rule.disorder = ft_get_disorder(a);
 	print_rules(&rule);
 	if (a == NULL)
-		return 0;
+	{
+		printf("error");
+		return (0);
+	}
 	printf("Init \n");
 	print_stack(a);
 	b = ft_calloc(1, sizeof(t_list *));
