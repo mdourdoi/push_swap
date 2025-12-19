@@ -13,9 +13,9 @@
 #ifndef RULES_H
 # define RULES_H
 
-#include <stdlib.h>
-#include <limits.h>
-#include "libft_mel.h"
+# include <stdlib.h>
+# include <limits.h>
+# include "libft_mel.h"
 
 // Enum t_mode : For having different mode link with a value,
 // 		so readability of the code is OK for our tiny little eyes
@@ -40,7 +40,8 @@ typedef enum	e_bool
 
 // Struct t_rule : 
 //
-// 		For saving state, program mode, the entropy level and the number of element in the initial stack
+// 		For saving state, program mode, the entropy level 
+// 		and the number of element in the initial stack
 
 typedef struct	s_rule
 {

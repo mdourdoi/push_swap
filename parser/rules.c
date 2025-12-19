@@ -20,8 +20,8 @@
 
 t_bool	is_valid_digit(char *nb)
 {
-	size_t	i;
-	short int count;
+	size_t		i;
+	short int	count;
 
 	i = 0;
 	count = 0;
@@ -74,8 +74,8 @@ t_bool	determine_mode(char *av, t_rule *rule, t_bool *mode, t_bool *bench)
 t_bool	check_for_rules(char **av, t_rule *rule)
 {
 	size_t	i;
-	t_bool mode;
-	t_bool bench;
+	t_bool	mode;
+	t_bool	bench;
 
 	i = 0;
 	mode = FALSE;
@@ -95,7 +95,7 @@ t_bool	check_for_rules(char **av, t_rule *rule)
 // 	This function will set the theorical number of elem in the stack
 // 		by looking at the rule and the argument count variable
 
-int number_of_elem(t_rule *rule, int ac)
+int	number_of_elem(t_rule *rule, int ac)
 {
 	if (rule->bench == TRUE)
 		ac--;
