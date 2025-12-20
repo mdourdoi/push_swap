@@ -29,6 +29,7 @@ SRC_TEST=../parser/ft_strcmp.c \
 	../ft_printf/ft_printf_voidp.c \
 	../ft_printf/ft_printf_utils.c \
 	../ft_printf/ft_printf.c \
+	../bench/bench.c \
 	sort_cpy/is_sorted.c \
 	sort_cpy/selectionsort.c \
 	../gateway/gateway.c \

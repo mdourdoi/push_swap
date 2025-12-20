@@ -16,6 +16,7 @@
 # include "libft.h"
 # include "ft_printf.h"
 # include "rules.h"
+# include "bench.h"
 
 void	ft_swap(t_list **stack, char c, int flag, t_rule *rule);
 void	ft_swap_both(t_list *a, t_list *b, t_rule *rule);
