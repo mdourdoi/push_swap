@@ -6,11 +6,11 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 12:59:07 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/20 11:50:33 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2025/12/20 17:06:21 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"https://profile.intra.42.fr/
+#include "push_swap.h"
 
 static void	set_to_first(t_list **a)
 {
@@ -20,7 +20,7 @@ static void	set_to_first(t_list **a)
 
 static void	set_min(t_list *a, int to_set)
 {
-	int 	current_min;
+	int		current_min;
 	t_list	*best;
 
 	set_to_first(&a);
@@ -43,8 +43,8 @@ static void	set_min(t_list *a, int to_set)
 
 void	set_index(t_list *a)
 {
-	int 	i;
-	int 	len;
+	int	i;
+	int	len;
 
 	i = -1;
 	len = ft_lstsize(a);

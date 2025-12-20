@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:14:50 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/20 15:05:43 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2025/12/20 17:05:55 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_maxpos(t_list *a)
 
 int	ft_get_first_index(t_list *a, int low, int high)
 {
-	int pos;
+	int	pos;
 
 	pos = 0;
 	while (a)
@@ -73,7 +73,7 @@ int	ft_get_first_index(t_list *a, int low, int high)
 
 int	ft_get_last_index(t_list *a, int low, int high)
 {
-	int pos;
+	int	pos;
 	int	max_pos;
 
 	pos = 0;

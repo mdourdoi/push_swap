@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 14:44:51 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/20 14:47:43 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2025/12/20 17:06:54 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ int	ft_sqrt_round(int n)
 void	ft_select_rot(t_list **stack, char str_stack, int rot, int rev_rot)
 {
 	if (rot > rev_rot)
-		{
-			while (rev_rot-- > 0)
-				ft_reverse_rotate(stack, str_stack, 1);
-		}
-		else
-		{
-			while (rot-- > 0)
-				ft_rotate(stack, str_stack, 1);
-		}
+	{
+		while (rev_rot-- > 0)
+			ft_reverse_rotate(stack, str_stack, 1);
+	}
+	else
+	{
+		while (rot-- > 0)
+			ft_rotate(stack, str_stack, 1);
+	}
 }
