@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 11:27:38 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/17 11:30:29 by melschmi         ###   ########.fr       */
+/*   Created: 2025/12/17 12:45:57 by mdourdoi          #+#    #+#             */
+/*   Updated: 2025/12/17 12:56:49 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rules.h"
+#include "push_swap.h"
 
-int	ft_strcmp(char *str1, char *str2)
+int	ft_issorted(t_list *a)
 {
-	size_t	i;
-
-	i = 0;
-	while (str1[i] || str2[i])
+	if (!a)
+		return (1);
+	while (a->next)
 	{
-		if (str1[i] != str2[i])
-			return (str1[i] - str2[i]);
-		i++;
+		if (a->content > (a->next)->content)
+			return (0);
+		a = a->next;
 	}
-	return (0);
+	return (1);
 }

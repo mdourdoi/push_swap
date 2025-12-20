@@ -12,6 +12,7 @@
 
 #include "rules.h"
 #include "push_swap.h"
+#include <stdio.h>
 
 // Check_disorder : 
 //
@@ -38,7 +39,7 @@ void	gateway(t_rule *rule, t_list **a, t_list **b)
 	if (rule->mode == ADAPTIVE)
 		check_disorder(rule);
 	if (rule->mode == SIMPLE)
-		ft_selectionsort(a, b);
+		ft_selectionsort(a, b, rule);
 	if (rule->mode == MEDIUM)
 		printf("Medium algorithm selected...\n"); // <-- replace this section by sort algorithm
 	if (rule->mode == COMPLEX)
