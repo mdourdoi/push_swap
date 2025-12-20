@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:28:11 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/18 15:19:41 by melschmi         ###   ########.fr       */
+/*   Updated: 2025/12/20 17:08:44 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,11 @@ float	ft_get_disorder(t_list *stack);
 void	ft_selectionsort(t_list **a, t_list **b);
 int		ft_issorted(t_list *a);
 void	set_index(t_list *a);
+int		ft_minpos(t_list *a);
+int		ft_maxpos(t_list *a);
+int		ft_get_first_index(t_list *a, int low, int high);
+int		ft_get_last_index(t_list *a, int low, int high);
+int		ft_sqrt_round(int n);
+void	ft_select_rot(t_list **stack, char str_stack, int rot, int rev_rot);
 
 #endif

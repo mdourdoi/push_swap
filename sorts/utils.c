@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   selectionsort.c                                    :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 14:56:33 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/20 14:48:34 by mdourdoi         ###   ########.fr       */
+/*   Created: 2025/12/20 14:44:51 by mdourdoi          #+#    #+#             */
+/*   Updated: 2025/12/20 17:06:54 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_selectionsort(t_list **a, t_list **b)
+int	ft_sqrt_round(int n)
 {
-	int		rot;
-	int		rev_rot;
-	int		len;
+	int	x;
 
-	if (ft_issorted(*a))
-		return ;
-	while (*a)
+	x = 0;
+	while ((x + 1) * (x + 1) <= n)
+		x++;
+	return (x);
+}
+
+void	ft_select_rot(t_list **stack, char str_stack, int rot, int rev_rot)
+{
+	if (rot > rev_rot)
 	{
-		rot = ft_minpos(*a);
-		len = ft_lstsize(*a);
-		rev_rot = (len - rot) % len;
-		ft_select_rot(a, 'a', rot, rev_rot);
-		ft_push(b, 'b', a);
+		while (rev_rot-- > 0)
+			ft_reverse_rotate(stack, str_stack, 1);
 	}
-	while (*b)
-		ft_push(a, 'a', b);
+	else
+	{
+		while (rot-- > 0)
+			ft_rotate(stack, str_stack, 1);
+	}
 }
