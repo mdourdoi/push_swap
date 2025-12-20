@@ -23,7 +23,7 @@ void    print_op(int *op)
     ft_printf("[bench] sa:  %d  sb:  %d", op[SA], op[SB]);
     ft_printf("  ss:  %d  pa:  %d  pb:  %d\n", op[SS], op[PA], op[PB]);
     ft_printf("[bench] ra:  %d  rb:  %d", op[RA], op[RB]);
-    ft_printf("  rr:  %d  rra:  %d   rrb:  %d", op[RR], op[RRA], op[RRB]);
+    ft_printf("  rr:  %d  rra:  %d   rrb:  %d\n", op[RR], op[RRA], op[RRB]);
 }
 
 // Get_total_op : 
