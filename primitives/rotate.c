@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_rotate(t_list **stack, char c, int flag)
+void	ft_rotate(t_list **stack, char c, int flag, t_rule *rule)
 {
 	t_list	*first;
 
@@ -23,12 +23,25 @@ void	ft_rotate(t_list **stack, char c, int flag)
 	first->next = NULL;
 	(ft_lstlast(*stack))->next = first;
 	if (flag)
-		ft_printf("r%c\n", c);
+	{
+		if (rule->bench == FALSE)
+			ft_printf("r%c\n", c);
+		else 
+		{
+			if (c == 'a')
+				rule->operation[RA] += 1;
+			else
+				rule->operation[RB] += 1;
+		}
+	}
 }
 
-void	ft_rotate_both(t_list *a, t_list *b)
+void	ft_rotate_both(t_list *a, t_list *b, t_rule *rule)
 {
-	ft_rotate(&a, 0, 0);
-	ft_rotate(&b, 0, 0);
-	ft_printf("rr");
+	ft_rotate(&a, 0, 0, rule);
+	ft_rotate(&b, 0, 0, rule);
+	if (rule->bench == FALSE)
+		ft_printf("rr");
+	else 
+		rule->operation[RR] += 1;
 }

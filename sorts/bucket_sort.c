@@ -18,7 +18,7 @@ static void	ft_switch_bucket(int *j, int size, int *step)
 	*step += size;
 }
 
-static void	ft_fill_b(t_list **a, t_list **b, int size)
+static void	ft_fill_b(t_list **a, t_list **b, int size, t_rule *rules)
 {
 	int		j;
 	int		step;
@@ -35,15 +35,15 @@ static void	ft_fill_b(t_list **a, t_list **b, int size)
 		rev_rot = ft_lstsize(*a) - ft_get_last_index(*a, step - size, step);
 		if (rot >= 0)
 		{
-			ft_select_rot(a, 'a', rot, rev_rot);
-			ft_push(b, 'b', a);
+			ft_select_rot(a, 'a', rot, rev_rot, rules);
+			ft_push(b, 'b', a, rules);
 		}
 		else
 			ft_switch_bucket(&j, size, &step);
 	}
 }
 
-void	ft_bucketsort(t_list **a, t_list **b)
+void	ft_bucketsort(t_list **a, t_list **b, t_rule *rules)
 {
 	int		len;
 	int		sqrt;
@@ -54,13 +54,13 @@ void	ft_bucketsort(t_list **a, t_list **b)
 		return ;
 	set_index(*a);
 	sqrt = ft_sqrt_round(ft_lstsize(*a));
-	ft_fill_b(a, b, sqrt);
+	ft_fill_b(a, b, sqrt, rules);
 	while (*b)
 	{
-		len = ft_lstsize(b);
+		len = ft_lstsize(*b);
 		rot = ft_maxpos(*b);
 		rev_rot = (len - rot) % len;
-		ft_select_rot(b, 'b', rot, rev_rot);
-		ft_push(a, 'a', b);
+		ft_select_rot(b, 'b', rot, rev_rot, rules);
+		ft_push(a, 'a', b, rules);
 	}
 }

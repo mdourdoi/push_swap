@@ -30,5 +30,12 @@ void	ft_selectionsort(t_list **a, t_list **b, t_rule *rule);
 int		ft_issorted(t_list *a);
 void	set_index(t_list *a);
 void	gateway(t_rule *rule, t_list **a, t_list **b);
+int		ft_minpos(t_list *a);
+int		ft_maxpos(t_list *a);
+int		ft_get_first_index(t_list *a, int low, int high);
+int		ft_get_last_index(t_list *a, int low, int high);
+int		ft_sqrt_round(int n);
+void	ft_select_rot(t_list **stack, char str_stack, int rot, int rev_rot, t_rule *rules);
+void	ft_bucketsort(t_list **a, t_list **b, t_rule *rules);
 
 #endif
