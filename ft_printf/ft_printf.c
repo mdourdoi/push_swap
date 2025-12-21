@@ -39,6 +39,8 @@ static int	ft_handler(char type, va_list args)
 		return (ft_putnb_u(va_arg(args, unsigned int), "0123456789abcdef", 16));
 	if (type == 'X')
 		return (ft_putnb_u(va_arg(args, unsigned int), "0123456789ABCDEF", 16));
+	if (type == 'f')
+		return (print_float(va_arg(args, double)));
 	return (0);
 }
 

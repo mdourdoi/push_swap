@@ -66,7 +66,7 @@ void    print_strategy(t_mode mode)
 
 void	display_benchmark(t_rule *rule)
 {
-	ft_printf("[bench] disorder: float%%\n");
+	ft_printf("[bench] disorder: %f%%\n", rule->disorder);
     print_strategy(rule->mode);
 	ft_printf("[bench] total_ops: %d\n", get_total_op(rule->operation));
 	print_op(rule->operation);

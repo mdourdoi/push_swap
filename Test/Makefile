@@ -28,6 +28,7 @@ SRC_TEST=../parser/ft_strcmp.c \
 	../ft_printf/ft_printf_nbrs_unsigned.c \
 	../ft_printf/ft_printf_voidp.c \
 	../ft_printf/ft_printf_utils.c \
+	../ft_printf/float.c \
 	../ft_printf/ft_printf.c \
 	../bench/bench.c \
 	../sorts/scans.c \
