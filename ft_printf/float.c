@@ -1,25 +1,50 @@
 #include "ft_printf.h"
-// print_float : 
-//
-//      this function only work for this project (float number)
-//          with 2 digits max after the '.'
-//      So don't use it as a real float converter (because it's hard af)
-//      return the number of char print by the function
+#include "libft.h"
 
-int    print_float(float nbr)
+static void    set_res(char *res)
 {
-    int res;
-    int count;
+    size_t  i;
 
-    res = nbr * 100;
-    if (res < 100)
-        count = ft_putstr("0.");
-    else 
-        count = ft_putstr("1.");
-    if (res > 0)
-        count += ft_putnb(res, "0123456789", 10);
-    else
-        count = ft_putstr("00");
-    return(count);
+    i = 0;
+
+    while (i < 5)
+    {
+        res[i] = '0';
+        i++;
+    }
+    res[i] = '\0';
 }
 
+static void    recursion(int nb, char *res, int index, int count)
+{
+    if (count == 2)
+    {
+        res[index] = '.';
+        recursion(nb, res, index - 1, count + 1);
+        return ;
+    }
+    if (nb >= 10)
+    {
+        res[index] = (nb % 10) + '0';
+        recursion(nb/10, res, index - 1, count + 1);
+        return ;
+    }
+    res[index] = nb + '0';
+}
+
+int print_float(float nb)
+{
+    char    res[6];
+    int nbr;
+
+    nbr = nb * 10000;
+    set_res(res);
+    
+    if (nb == 1)
+        return (ft_putstr("100.00%"));
+    if (nbr == 0)
+        return (ft_putstr("00.00"));
+    recursion(nbr, res, 4, 0);
+    return (ft_putstr(res));
+
+}
