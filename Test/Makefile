@@ -8,11 +8,11 @@ SRC_TEST=../parser/ft_strcmp.c \
 	../parser/parser.c \
 	../parser/rules.c \
 	../parser/rules_set.c \
+	../parser/ft_atoi.c \
 	../primitives/push.c \
 	../primitives/reverse_rotate.c \
 	../primitives/rotate.c \
 	../primitives/swap.c \
-	../libft_mel/ft_atoi.c \
 	../libft_mel/ft_bzero.c \
 	../libft_mel/ft_calloc.c \
 	../libft_mel/ft_isascii.c \
@@ -62,3 +62,6 @@ fclean: clean
 
 re: fclean
 	make all
+
+retest: fclean
+	make test

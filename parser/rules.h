@@ -87,6 +87,7 @@ t_bool	determine_mode(char *av, t_rule *rule, t_bool *mode, t_bool *bench);
 t_bool	check_for_rules(char **av, t_rule *rule);
 t_bool	check_double(t_list *stack);
 t_bool	is_valid_digit(char *nb);
+t_bool	ft_atoi(char *nptr, int *value);
 t_list	*parse_args(int ac, char **av, t_rule *rule);
 void	*clear_stack(t_list *stack);
 void	init_rule(t_rule *rule);

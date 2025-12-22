@@ -109,13 +109,14 @@ t_list	*check_stack_creation(t_list *stack, int nb_elem, t_rule *rule)
 t_list	*get_stack(char **av, int ac, t_list *stack, t_rule *rule)
 {
 	int	i;
+    int content;
 
 	i = 1;
 	stack = NULL;
 	while (av[i])
 	{
-		if (is_valid_digit(av[i]) == TRUE)
-		ft_lstadd_back(&stack, ft_lstnew(ft_atoi(av[i])));
+		if (is_valid_digit(av[i]) == TRUE && ft_atoi(av[i], &content) == TRUE)
+		ft_lstadd_back(&stack, ft_lstnew(content));
 		i++;
 	}
 	return (check_stack_creation(stack, number_of_elem(rule, ac), rule));

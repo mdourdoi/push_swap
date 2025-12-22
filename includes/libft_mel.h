@@ -29,6 +29,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstnew(int content);
 int	ft_isdigit(int c);
 int	ft_isascii(int c);
-int	ft_atoi(char *nptr);
 
 #endif
