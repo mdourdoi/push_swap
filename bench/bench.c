@@ -52,7 +52,7 @@ void    check_adaptive(t_rule *rule)
     if (rule->mode == SIMPLE)
 	    ft_printf("O(n%s)\n", "\u00B2");
     if (rule->mode == MEDIUM)
-	    ft_printf("O(%sn)\n", "\u221A");
+	    ft_printf("O(n%sn)\n", "\u221A");
     if (rule->mode == COMPLEX)
 	    ft_printf("O(nlog(n))\n");
 }
