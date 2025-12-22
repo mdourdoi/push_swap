@@ -46,11 +46,25 @@ int get_total_op(int *op)
     return (total);
 }
 
+void    check_adaptive(t_rule *rule)
+{
+	ft_printf("Adaptive | ");
+    if (rule->mode == SIMPLE)
+	    ft_printf("O(n%s)\n", "\u00B2");
+    if (rule->mode == MEDIUM)
+	    ft_printf("O(%sn)\n", "\u221A");
+    if (rule->mode == COMPLEX)
+	    ft_printf("O(%sn)\n", "\u221A");
+}
+
 void    print_strategy(t_rule *rule)
 {
     ft_printf("[bench] strategy: ");
     if (rule->adaptive == TRUE)
-	    ft_printf("Adaptive | ");
+    {
+        check_adaptive(rule);
+        return ;
+    }
     if (rule->mode == SIMPLE)
 	    ft_printf("SIMPLE\n");
     if (rule->mode == MEDIUM)

@@ -79,10 +79,7 @@ t_bool	determine_mode(char *av, t_rule *rule, t_bool *mode, t_bool *bench)
 	if (ft_strcmp(av, "--complex") == 0 && *mode == FALSE)
 		return (set_complex(mode, rule));
 	if (ft_strcmp(av, "--adaptive") == 0 && *mode == FALSE)
-    {
-        rule->adaptive = TRUE;
 		return (set_adaptive(mode, rule));
-    }
 	if (ft_strcmp(av, "--bench") == 0 && *bench == FALSE)
 		return (set_bench(bench, rule));
 	return (FALSE);
@@ -113,6 +110,10 @@ t_bool	check_for_rules(char **av, t_rule *rule)
 				return (FALSE);
 		i++;
 	}
+    if (rule->mode == ADAPTIVE)
+    {
+        rule->adaptive = TRUE;
+    }
 	return (TRUE);
 }
 // Number_of_elem : 
