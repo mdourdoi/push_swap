@@ -12,9 +12,6 @@
 
 #include "push_swap.h"
 
-void	print_stack(t_list *lst);
-#include <stdio.h>
-
 static void	ft_switch_bucket(int *j, int size, int *step)
 {
 	*j = 0;
