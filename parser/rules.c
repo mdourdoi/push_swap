@@ -23,6 +23,7 @@ void	init_rule(t_rule *rule)
 	rule->mode = ADAPTIVE;
 	rule->bench = FALSE;
 	rule->flags = FALSE;
+	rule->adaptive = FALSE;
 	rule->disorder = 0;
 	rule->nb_element = 0;
 	while (i < 11)
@@ -78,7 +79,10 @@ t_bool	determine_mode(char *av, t_rule *rule, t_bool *mode, t_bool *bench)
 	if (ft_strcmp(av, "--complex") == 0 && *mode == FALSE)
 		return (set_complex(mode, rule));
 	if (ft_strcmp(av, "--adaptive") == 0 && *mode == FALSE)
+    {
+        rule->adaptive = TRUE;
 		return (set_adaptive(mode, rule));
+    }
 	if (ft_strcmp(av, "--bench") == 0 && *bench == FALSE)
 		return (set_bench(bench, rule));
 	return (FALSE);

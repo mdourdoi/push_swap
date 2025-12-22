@@ -70,6 +70,7 @@ typedef struct	s_rule
 	t_mode	mode;
 	t_bool	bench;
 	t_bool	flags;
+	t_bool	adaptive;
 	float	disorder;
 	size_t	nb_element;
 	int		operation[11];	//This part is where the operations are stored in bench mod

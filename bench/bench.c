@@ -46,16 +46,17 @@ int get_total_op(int *op)
     return (total);
 }
 
-void    print_strategy(t_mode mode)
+void    print_strategy(t_rule *rule)
 {
-    if (mode == ADAPTIVE)
-	    ft_printf("[bench] strategy: ADAPTIVE\n");
-    if (mode == SIMPLE)
-	    ft_printf("[bench] strategy: SIMPLE\n");
-    if (mode == MEDIUM)
-	    ft_printf("[bench] strategy: MEDIUM\n");
-    if (mode == COMPLEX)
-	    ft_printf("[bench] strategy: COMPLEX\n");
+    ft_printf("[bench] strategy: ");
+    if (rule->adaptive == TRUE)
+	    ft_printf("Adaptive | ");
+    if (rule->mode == SIMPLE)
+	    ft_printf("SIMPLE\n");
+    if (rule->mode == MEDIUM)
+	    ft_printf("MEDIUM\n");
+    if (rule->mode == COMPLEX)
+	    ft_printf("COMPLEX\n");
         
 }
 
@@ -67,7 +68,7 @@ void    print_strategy(t_mode mode)
 void	display_benchmark(t_rule *rule)
 {
 	ft_printf("[bench] disorder: %f%%\n", rule->disorder);
-    print_strategy(rule->mode);
+    print_strategy(rule);
 	ft_printf("[bench] total_ops: %d\n", get_total_op(rule->operation));
 	print_op(rule->operation);
 }
