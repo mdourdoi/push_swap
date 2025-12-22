@@ -41,7 +41,8 @@ void	gateway(t_rule *rule, t_list **a, t_list **b)
 	if (rule->mode == SIMPLE)
 		ft_selectionsort(a, b, rule);
 	if (rule->mode == MEDIUM)
-		printf("Medium algorithm selected...\n"); // <-- replace this section by sort algorithm
+	    ft_bucketsort(a, b, rule);
+//		ft_selectionsort(a, b, rule);
 	if (rule->mode == COMPLEX)
 		printf("Complex algorithm selected...\n"); // <--replace this section by sort algorithm
 }

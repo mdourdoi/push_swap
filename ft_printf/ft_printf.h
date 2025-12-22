@@ -26,6 +26,7 @@ int		ft_putnb_u(unsigned int n, char *str_base, unsigned int base);
 int		ft_voidp_writer(void *vp);
 int		ft_putchar(char arg);
 int		ft_putstr(char *arg);
+int     print_float(float nbr);
 int		ft_printf(const char *s, ...);
 
 #endif

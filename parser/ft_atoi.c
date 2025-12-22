@@ -11,6 +11,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft_mel.h"
+#include "rules.h"
+#include <limits.h>
 
 static int	ft_isspace(int c)
 {
@@ -36,10 +38,10 @@ static int	check_sign(const char *nptr, int *sign, size_t *i)
 	return (1);
 }
 
-int	ft_atoi(char *nptr)
+t_bool	ft_atoi(char *nptr, int *value)
 {
 	size_t	i;
-	int		res;
+	long int		res;
 	int		sign;
 
 	i = 0;
@@ -57,7 +59,10 @@ int	ft_atoi(char *nptr)
 	{
 		res *= 10;
 		res += nptr[i] - '0';
+        if ( res * sign < INT_MIN || res * sign > INT_MAX)
+            return (FALSE);
 		i++;
 	}
-	return (res * sign);
+    *value = res * sign;
+	return (TRUE);
 }

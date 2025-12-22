@@ -23,7 +23,7 @@ void    print_op(int *op)
     ft_printf("[bench] sa:  %d  sb:  %d", op[SA], op[SB]);
     ft_printf("  ss:  %d  pa:  %d  pb:  %d\n", op[SS], op[PA], op[PB]);
     ft_printf("[bench] ra:  %d  rb:  %d", op[RA], op[RB]);
-    ft_printf("  rr:  %d  rra:  %d   rrb:  %d", op[RR], op[RRA], op[RRB]);
+    ft_printf("  rr:  %d  rra:  %d   rrb:  %d\n", op[RR], op[RRA], op[RRB]);
 }
 
 // Get_total_op : 
@@ -46,16 +46,31 @@ int get_total_op(int *op)
     return (total);
 }
 
-void    print_strategy(t_mode mode)
+void    check_adaptive(t_rule *rule)
 {
-    if (mode == ADAPTIVE)
-	    ft_printf("[bench] strategy: ADAPTIVE\n");
-    if (mode == SIMPLE)
-	    ft_printf("[bench] strategy: SIMPLE\n");
-    if (mode == MEDIUM)
-	    ft_printf("[bench] strategy: MEDIUM\n");
-    if (mode == COMPLEX)
-	    ft_printf("[bench] strategy: COMPLEX\n");
+	ft_printf("Adaptive | ");
+    if (rule->mode == SIMPLE)
+	    ft_printf("O(n%s)\n", "\u00B2");
+    if (rule->mode == MEDIUM)
+	    ft_printf("O(n%sn)\n", "\u221A");
+    if (rule->mode == COMPLEX)
+	    ft_printf("O(nlog(n))\n");
+}
+
+void    print_strategy(t_rule *rule)
+{
+    ft_printf("[bench] strategy: ");
+    if (rule->adaptive == TRUE)
+    {
+        check_adaptive(rule);
+        return ;
+    }
+    if (rule->mode == SIMPLE)
+	    ft_printf("SIMPLE\n");
+    if (rule->mode == MEDIUM)
+	    ft_printf("MEDIUM\n");
+    if (rule->mode == COMPLEX)
+	    ft_printf("COMPLEX\n");
         
 }
 
@@ -66,8 +81,8 @@ void    print_strategy(t_mode mode)
 
 void	display_benchmark(t_rule *rule)
 {
-	ft_printf("[bench] disorder: float%%\n");
-    print_strategy(rule->mode);
+	ft_printf("[bench] disorder: %f%%\n", rule->disorder);
+    print_strategy(rule);
 	ft_printf("[bench] total_ops: %d\n", get_total_op(rule->operation));
 	print_op(rule->operation);
 }

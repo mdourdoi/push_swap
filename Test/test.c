@@ -57,7 +57,9 @@ int	main(int ac, char **av)
 	printf("final: \n");
 	print_stack(a);
 	print_stack(*b);
-    display_benchmark(&rule);
+    if(rule.bench == TRUE) {
+        display_benchmark(&rule);
+    }
 	clear_stack(a);
 	clear_stack(*b);
 	free(b);

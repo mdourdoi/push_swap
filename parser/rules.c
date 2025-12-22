@@ -23,6 +23,7 @@ void	init_rule(t_rule *rule)
 	rule->mode = ADAPTIVE;
 	rule->bench = FALSE;
 	rule->flags = FALSE;
+	rule->adaptive = FALSE;
 	rule->disorder = 0;
 	rule->nb_element = 0;
 	while (i < 11)
@@ -109,6 +110,10 @@ t_bool	check_for_rules(char **av, t_rule *rule)
 				return (FALSE);
 		i++;
 	}
+    if (rule->mode == ADAPTIVE)
+    {
+        rule->adaptive = TRUE;
+    }
 	return (TRUE);
 }
 // Number_of_elem : 

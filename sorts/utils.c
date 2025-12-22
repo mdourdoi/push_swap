@@ -22,16 +22,16 @@ int	ft_sqrt_round(int n)
 	return (x);
 }
 
-void	ft_select_rot(t_list **stack, char str_stack, int rot, int rev_rot)
+void	ft_select_rot(t_list **stack, char str_stack, int rot, int rev_rot, t_rule *rules)
 {
 	if (rot > rev_rot)
 	{
 		while (rev_rot-- > 0)
-			ft_reverse_rotate(stack, str_stack, 1);
+			ft_reverse_rotate(stack, str_stack, 1, rules);
 	}
 	else
 	{
 		while (rot-- > 0)
-			ft_rotate(stack, str_stack, 1);
+			ft_rotate(stack, str_stack, 1, rules);
 	}
 }

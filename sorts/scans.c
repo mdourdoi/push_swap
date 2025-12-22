@@ -45,7 +45,7 @@ int	ft_maxpos(t_list *a)
 	pos_max = 0;
 	while (a)
 	{
-		if (a->content < max)
+		if (a->content > max)
 		{
 			max = a->content;
 			pos_max = pos;

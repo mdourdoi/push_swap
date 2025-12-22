@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_selectionsort(t_list **a, t_list **b)
+void	ft_selectionsort(t_list **a, t_list **b, t_rule *rules)
 {
 	int		rot;
 	int		rev_rot;
@@ -25,9 +25,9 @@ void	ft_selectionsort(t_list **a, t_list **b)
 		rot = ft_minpos(*a);
 		len = ft_lstsize(*a);
 		rev_rot = (len - rot) % len;
-		ft_select_rot(a, 'a', rot, rev_rot);
-		ft_push(b, 'b', a);
+		ft_select_rot(a, 'a', rot, rev_rot, rules);
+		ft_push(b, 'b', a, rules);
 	}
 	while (*b)
-		ft_push(a, 'a', b);
+		ft_push(a, 'a', b, rules);
 }

@@ -8,11 +8,11 @@ SRC_TEST=../parser/ft_strcmp.c \
 	../parser/parser.c \
 	../parser/rules.c \
 	../parser/rules_set.c \
-	primitive_cpy/push.c \
-	primitive_cpy/reverse_rotate.c \
-	primitive_cpy/rotate.c \
-	primitive_cpy/swap.c \
-	../libft_mel/ft_atoi.c \
+	../parser/ft_atoi.c \
+	../primitives/push.c \
+	../primitives/reverse_rotate.c \
+	../primitives/rotate.c \
+	../primitives/swap.c \
 	../libft_mel/ft_bzero.c \
 	../libft_mel/ft_calloc.c \
 	../libft_mel/ft_isascii.c \
@@ -28,10 +28,15 @@ SRC_TEST=../parser/ft_strcmp.c \
 	../ft_printf/ft_printf_nbrs_unsigned.c \
 	../ft_printf/ft_printf_voidp.c \
 	../ft_printf/ft_printf_utils.c \
+	../ft_printf/float.c \
 	../ft_printf/ft_printf.c \
 	../bench/bench.c \
-	sort_cpy/is_sorted.c \
-	sort_cpy/selectionsort.c \
+	../sorts/scans.c \
+	../sorts/utils.c \
+	../sorts/set_index.c \
+	../sorts/bucket_sort.c \
+	../sorts/is_sorted.c \
+	../sorts/selectionsort.c \
 	../gateway/gateway.c \
 	../disorder.c \
 		test.c
@@ -57,3 +62,6 @@ fclean: clean
 
 re: fclean
 	make all
+
+retest: fclean
+	make test
