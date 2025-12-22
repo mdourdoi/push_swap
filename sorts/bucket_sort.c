@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
+void	print_stack(t_list *lst);
+#include <stdio.h>
+
 static void	ft_switch_bucket(int *j, int size, int *step)
 {
 	*j = 0;
@@ -29,7 +32,7 @@ static void	ft_fill_b(t_list **a, t_list **b, int size, t_rule *rules)
 	step = size - 1;
 	while (*a)
 	{
-		if (++j == size)
+		if (j == size)
 			ft_switch_bucket(&j, size, &step);
 		rot = ft_get_first_index(*a, step - size, step);
 		rev_rot = (ft_lstsize(*a) - ft_get_last_index(*a, step - size, step))
