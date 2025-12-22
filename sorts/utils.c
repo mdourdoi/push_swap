@@ -19,7 +19,7 @@ int	ft_sqrt_round(int n)
 	x = 0;
 	while ((x + 1) * (x + 1) <= n)
 		x++;
-	return (x);
+	return (x + 1);
 }
 
 void	ft_select_rot(t_list **stack, char str_stack, int rot, int rev_rot, t_rule *rules)
