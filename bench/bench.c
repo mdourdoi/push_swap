@@ -54,7 +54,7 @@ void    check_adaptive(t_rule *rule)
     if (rule->mode == MEDIUM)
 	    ft_printf("O(%sn)\n", "\u221A");
     if (rule->mode == COMPLEX)
-	    ft_printf("O(%sn)\n", "\u221A");
+	    ft_printf("O(nlog(n))\n");
 }
 
 void    print_strategy(t_rule *rule)
