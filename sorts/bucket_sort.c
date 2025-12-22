@@ -32,7 +32,8 @@ static void	ft_fill_b(t_list **a, t_list **b, int size, t_rule *rules)
 		if (++j == size)
 			ft_switch_bucket(&j, size, &step);
 		rot = ft_get_first_index(*a, step - size, step);
-		rev_rot = ft_lstsize(*a) - ft_get_last_index(*a, step - size, step);
+		rev_rot = (ft_lstsize(*a) - ft_get_last_index(*a, step - size, step))
+			% ft_lstsize(*a);
 		if (rot >= 0)
 		{
 			ft_select_rot(a, 'a', rot, rev_rot, rules);
