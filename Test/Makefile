@@ -51,7 +51,7 @@ OBJ=$(SRC_TEST:.c=.o)
 
 all: $(EXEC)
 
-$(EXEC): $(OBJ)
+$(EXEC): $(OBJ) 
 	$(CC) $(FLAGS) -I$(INCLUDES) $^ -o $@
 
 $(TEST): $(OBJ)
