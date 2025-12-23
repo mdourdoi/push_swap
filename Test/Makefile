@@ -9,6 +9,7 @@ SRC_TEST=../parser/ft_strcmp.c \
 	../parser/rules.c \
 	../parser/rules_set.c \
 	../parser/ft_atoi.c \
+	../parser/gateway.c \
 	../primitives/push.c \
 	../primitives/reverse_rotate.c \
 	../primitives/rotate.c \
@@ -30,6 +31,12 @@ SRC_TEST=../parser/ft_strcmp.c \
 	../ft_printf/ft_printf_utils.c \
 	../ft_printf/float.c \
 	../ft_printf/ft_printf.c \
+	../print_errf/print_errf_chars.c \
+	../print_errf/print_errf_nbrs.c \
+	../print_errf/print_errf_nbrs_unsigned.c \
+	../print_errf/print_errf_voidp.c \
+	../print_errf/print_errfloat.c \
+	../print_errf/print_errf.c \
 	../bench/bench.c \
 	../sorts/scans.c \
 	../sorts/utils.c \
@@ -37,7 +44,6 @@ SRC_TEST=../parser/ft_strcmp.c \
 	../sorts/bucket_sort.c \
 	../sorts/is_sorted.c \
 	../sorts/selectionsort.c \
-	../gateway/gateway.c \
 	../disorder.c \
 		test.c
 
