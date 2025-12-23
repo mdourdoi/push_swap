@@ -91,6 +91,8 @@ t_bool	ft_atoi(char *nptr, int *value);
 t_list	*parse_args(int ac, char **av, t_rule *rule);
 void	*clear_stack(t_list *stack);
 void	init_rule(t_rule *rule);
+char    **harmonize_args(char **argv);
+int     args_len(char **args);
 int		ft_strcmp(char *str1, char *str2);
 int		number_of_elem(t_rule *rule, int ac);
 

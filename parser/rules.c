@@ -127,5 +127,5 @@ int	number_of_elem(t_rule *rule, int ac)
 		ac--;
 	if (rule->flags == TRUE)
 		ac--;
-	return (ac - 1);
+	return (ac);
 }

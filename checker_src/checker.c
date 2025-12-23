@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-int main()
+int main(int argc, char **argv)
 {
     char *str;
     int i = 0;

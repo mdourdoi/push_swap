@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 15:36:37 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/11/28 16:20:11 by mdourdoi         ###   ########.fr       */
+/*   Created: 2025/11/10 12:55:16 by melschmi          #+#    #+#             */
+/*   Updated: 2025/11/10 12:56:30 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft_mel.h"
 
-#include "ft_printf.h"
-
-size_t	ft_strlen_upto(char const *s, char end)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
 	i = 0;
-	if (s)
-	{
-		while (s[i] && s[i] != end)
-			i++;
-	}
+    if (str == NULL)
+    {
+        return (0);
+    }
+	while (str[i])
+		i++;
 	return (i);
 }

@@ -10,6 +10,7 @@ SRC_TEST=../parser/ft_strcmp.c \
 	../parser/rules_set.c \
 	../parser/ft_atoi.c \
 	../parser/gateway.c \
+	../parser/harmonizer.c \
 	../primitives/push.c \
 	../primitives/reverse_rotate.c \
 	../primitives/rotate.c \
@@ -21,6 +22,8 @@ SRC_TEST=../parser/ft_strcmp.c \
 	../libft_mel/ft_lstadd_back.c \
 	../libft_mel/ft_lstnew.c \
 	../libft_mel/ft_memset.c \
+	../libft_mel/ft_strlen.c \
+	../libft_mel/ft_split.c \
 	../libft/ft_lstadd_front.c \
 	../libft/ft_lstlast.c \
 	../libft/ft_lstsize.c \

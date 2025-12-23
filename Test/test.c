@@ -35,33 +35,52 @@ void	print_rules(t_rule *rule)
 	printf("==============================\n");
 }
 
+void    free_args(char **args)
+{
+    size_t  i;
+
+    i = 0;
+    while (args[i])
+    {
+        if (args[i])
+            free(args[i]);
+        i++;
+    }
+    if (args)
+        free(args);
+}
+
 int	main(int ac, char **av)
 {
 	t_list	*a;
 	t_list	**b;
 	t_rule	rule;
+    char **args;
 
+    ac += 1;
 	init_rule(&rule);
-	a = parse_args(ac, av, &rule);
+    args = harmonize_args(av);
+	a = parse_args(args_len(args), args, &rule);
 	rule.disorder = ft_get_disorder(a);
-//	print_rules(&rule);
+	print_rules(&rule);
 	if (a == NULL)
 	{
 		printf("error");
 		return (0);
 	}
-//	printf("Init \n");
-//	print_stack(a);
+	printf("Init \n");
+	print_stack(a);
 	b = ft_calloc(1, sizeof(t_list *));
 	gateway(&rule, &a, b);
-//	printf("final: \n");
-//	print_stack(a);
-//	print_stack(*b);
+	printf("final: \n");
+	print_stack(a);
+	print_stack(*b);
     if(rule.bench == TRUE) {
         display_benchmark(&rule);
     }
 	clear_stack(a);
 	clear_stack(*b);
+    free_args(args);
 	free(b);
 	return (0);
 }
