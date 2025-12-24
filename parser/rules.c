@@ -103,7 +103,7 @@ t_bool	check_for_rules(char **av, t_rule *rule)
 	mode = FALSE;
 	bench = FALSE;
 	rule->mode = ADAPTIVE;
-	while (av[i])
+	while (av[i] && i < 2)
 	{
 		if (av[i][0] == '-' && av[i][1] == '-')
 			if (determine_mode(av[i], rule, &mode, &bench) == FALSE)
