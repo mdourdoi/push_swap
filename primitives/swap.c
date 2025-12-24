@@ -26,9 +26,10 @@ void	ft_swap(t_list **stack, char c, int flag, t_rule *rule)
 	*stack = second;
 	if (flag)
 	{
-		if (rule->bench == FALSE)
+		if (rule->checker == FALSE)
 			ft_printf("s%c\n", c);
-		else {
+		if (rule->bench == TRUE)
+        {
 			if (c == 'a')
 				rule->operation[SA] += 1;
 			else

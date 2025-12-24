@@ -22,6 +22,7 @@ void	init_rule(t_rule *rule)
 	i = 0;
 	rule->mode = ADAPTIVE;
 	rule->bench = FALSE;
+	rule->checker = FALSE;
 	rule->flags = FALSE;
 	rule->adaptive = FALSE;
 	rule->disorder = 0;

@@ -69,6 +69,7 @@ typedef struct	s_rule
 {
 	t_mode	mode;
 	t_bool	bench;
+	t_bool	checker;
 	t_bool	flags;
 	t_bool	adaptive;
 	float	disorder;

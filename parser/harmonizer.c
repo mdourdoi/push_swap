@@ -71,7 +71,7 @@ int args_len(char **args)
         return (0);
     while (args[i])
         i++;
-    return (i);
+    return (i + 1);
 }
 
 // Harmonize_args : 
@@ -96,16 +96,3 @@ char    **harmonize_args(char **argv)
         free(str);
     return (res);
 }
-
-/*int main(int ac, char **av)
-{
-    char **grid;
-    size_t  i = 0;
-
-    grid = harmonize_args(av);
-    while (grid[i])
-    {
-        printf("%s\n", grid[i]);
-        i++;
-    }
-}*/
