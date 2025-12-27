@@ -49,10 +49,10 @@ int main(int argc, char **argv)
     t_rule  rules;
     t_list  *a;
     t_list  **b;
-    int fd;
+    int fd = 0;
     //void (*functions[10]) (t_list **a, t_list **b, t_rule *rules);
 
-    fd = open("sample.txt", O_RDONLY);
+//    fd = open("sample.txt", O_RDONLY);
     argc++; 
     a = NULL;
 	b = ft_calloc(1, sizeof(t_list *));
