@@ -56,7 +56,7 @@ void	move_data(char *file)
 {
 	size_t		i;
 	size_t		j;
-	t_bool		first_new_line;
+	t_file		first_new_line;
 
 	i = 0;
 	j = 0;

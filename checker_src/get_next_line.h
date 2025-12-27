@@ -21,13 +21,13 @@
 #  define BUFFER_SIZE	6
 # endif
 
-typedef enum e_bool
+typedef enum e_file
 {
 	HAS_CONTENT,
 	NEW_LINE,
 	FILE_NULL,
 	IS_EMPTY
-}	t_bool;
+}	t_file;
 
 char	*get_next_line(int fd);
 char	*ft_realloc(size_t size, char *line);

@@ -27,6 +27,8 @@ void	*ft_memset(void *src, int c, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	ft_bzero(void *src, size_t n);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(int content);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	**ft_split(char const *s, char c);

@@ -1,10 +1,10 @@
 #include "get_next_line.h"
 #include "rules.h"
+#include "checker.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-
 
 void    free_args(char **args)
 {
@@ -21,15 +21,26 @@ void    free_args(char **args)
         free(args);
 }
 
-void    init_checker(t_list *a, char **av, t_rules *rules)
+t_list    *init_checker(char **av, t_rule *rules)
 {
     char    **args;
+    t_list  *a;
 
-    args = harmonize_args(argv);
-    init_rule(&rules)
+    a = NULL;
+    args = harmonize_args(av);
+    init_rule(rules);
     rules->checker = true;
-	a = parse_args(args_len(args), args, &rules);
+	a = parse_args(args_len(args), args, rules);
     free_args(args);
+    return (a);
+}
+
+t_bool  check_stack_b(t_list *b)
+{
+    if (b == NULL)
+        return (TRUE);
+    else
+        return (FALSE);
 }
 
 int main(int argc, char **argv)
@@ -38,23 +49,32 @@ int main(int argc, char **argv)
     t_rule  rules;
     t_list  *a;
     t_list  **b;
+    int fd;
+    //void (*functions[10]) (t_list **a, t_list **b, t_rule *rules);
 
-    
-    init_checker(a, argv, &rules);
-    op = get_next_line(0);
-    printf("%d - ", i);
-    printf("%s", op);
+    fd = open("sample.txt", O_RDONLY);
+    argc++; 
+    a = NULL;
+	b = ft_calloc(1, sizeof(t_list *));
+    a = init_checker(argv, &rules);
+   // init_table(functions);
+
+    op = get_next_line(fd);
+    check_error(&a, b, op);
+    //functions[get_index(op)] (a, b, rules);
+    execute(op, &a, b, &rules);
     while(op)
     {
-        i++;
         if (op)
             free(op);
-        op = get_next_line(0);
+        op = get_next_line(fd);
         if (op) {
-            execute_op(&a, b, &rules, op);
-            printf("%d - ", i);
-            printf("%s", op);
+            check_error(&a, b, op);
+            //functions[get_index(op)] (a, b, rules);
+            execute(op, &a, b, &rules);
         }
     }
+    if ((check_stack_b(*b) == TRUE) && (ft_issorted(a) == 1))
+        ft_printf("OK\n");
     return (0);
 }

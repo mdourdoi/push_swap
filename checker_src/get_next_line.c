@@ -12,10 +12,10 @@
 
 #include "get_next_line.h"
 
-t_bool	check_file(char *file)
+t_file	check_file(char *file)
 {
 	size_t	i;
-	t_bool	res;
+	t_file	res;
 
 	i = 0;
 	res = IS_EMPTY;
