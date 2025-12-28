@@ -15,16 +15,17 @@
 #include "libft_mel.h"
 #include <stdio.h>
 
+#ifdef DEBUG
 void	print_stack(t_list *lst)
 
 {
 	while (lst != NULL)
 	{
-		printf("%d\n", lst->content);
+		print_errf("%d\n", lst->content);
 		lst = lst->next;
 	}
 }
-
+#endif
 void	print_rules(t_rule *rule)
 {
 	printf("=========== RULES ============\n");
@@ -68,13 +69,17 @@ int	main(int ac, char **av)
 		printf("error");
 		return (0);
 	}
+#ifdef DEBUG
 	printf("Init \n");
 	print_stack(a);
+#endif
 	b = ft_calloc(1, sizeof(t_list *));
 	gateway(&rule, &a, b);
+#ifdef DEBUG
 	printf("final: \n");
 	print_stack(a);
 	print_stack(*b);
+#endif
     if(rule.bench == TRUE) {
         display_benchmark(&rule);
     }

@@ -6,6 +6,17 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+#ifdef DEBUG
+void	print_stack(t_list *lst)
+{
+	while (lst != NULL)
+	{
+		print_errf("%d\n", lst->content);
+		lst = lst->next;
+	}
+}
+#endif
+
 void    free_args(char **args)
 {
     size_t  i;
@@ -43,38 +54,47 @@ t_bool  check_stack_b(t_list *b)
         return (FALSE);
 }
 
-int main(int argc, char **argv)
-{
+void    processing(t_list *a, t_list **b, t_rule *rules){
     char *op;
-    t_rule  rules;
-    t_list  *a;
-    t_list  **b;
-    int fd = 0;
-    //void (*functions[10]) (t_list **a, t_list **b, t_rule *rules);
 
-//    fd = open("sample.txt", O_RDONLY);
-    argc++; 
-    a = NULL;
-	b = ft_calloc(1, sizeof(t_list *));
-    a = init_checker(argv, &rules);
-   // init_table(functions);
-
-    op = get_next_line(fd);
+    op = get_next_line(0);
     check_error(&a, b, op);
     //functions[get_index(op)] (a, b, rules);
-    execute(op, &a, b, &rules);
+    execute(op, &a, b, rules);
     while(op)
     {
         if (op)
             free(op);
-        op = get_next_line(fd);
+        op = get_next_line(0);
         if (op) {
             check_error(&a, b, op);
             //functions[get_index(op)] (a, b, rules);
-            execute(op, &a, b, &rules);
+            execute(op, &a, b, rules);
         }
     }
+}
+
+int main(int argc, char **argv)
+{
+    t_rule  rules;
+    t_list  *a;
+    t_list  **b;
+    //void (*functions[10]) (t_list **a, t_list **b, t_rule *rules);
+
+    argc++; 
+    a = NULL;
+	b = ft_calloc(1, sizeof(t_list *));
+    a = init_checker(argv, &rules);
+    if (a == NULL)
+        panic_exit(&a, b, NULL);
+    #ifdef DEBUG
+        print_stack(a);
+    #endif
+    processing(a, b, &rules);
     if ((check_stack_b(*b) == TRUE) && (ft_issorted(a) == 1))
         ft_printf("OK\n");
+    #ifdef DEBUG 
+        print_stack(a);
+    #endif
     return (0);
 }

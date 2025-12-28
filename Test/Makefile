@@ -1,9 +1,11 @@
 EXEC=push_swap
-TEST=test
+EXEC_TEST=push_swap_test
 CHECKER=checker
+CHECKER_TEST=checker_test
 
 INCLUDES=../includes/
 FLAGS=-Wall -Wextra -Werror 
+DEBUG=-g -DDEBUG
 
 SRCS_CHKR=	../libft_mel/ft_bzero.c \
 		../libft_mel/ft_calloc.c \
@@ -98,23 +100,28 @@ OBJ_CHKR=$(SRCS_CHKR:.c=.o)
 
 all: $(EXEC) $(CHECKER)
 
+test: $(EXEC_TEST) $(CHECKER_TEST)
+
 $(CHECKER): $(OBJ_CHKR)
 	$(CC) $(FLAGS) -I$(INCLUDES) $^ -o $@
 
 $(EXEC): $(OBJ) 
 	$(CC) $(FLAGS) -I$(INCLUDES) $^ -o $@
 
-$(TEST): $(OBJ)
-	$(CC) -g $(FLAGS) -I$(INCLUDES) $^ -o $@
+$(CHECKER_TEST): $(OBJ_CHKR)
+	$(CC) $(DEBUG) $(FLAGS) -I$(INCLUDES) $^ -o $@
+
+$(EXEC_TEST): $(OBJ)
+	$(CC) $(DEBUG) $(FLAGS) -I$(INCLUDES) $^ -o $@
 
 %.o: %.c
-	$(CC) -g $(FLAGS) -I$(INCLUDES) -c $< -o $@
+	$(CC) $(FLAGS) -I$(INCLUDES) -c $< -o $@
 
 clean: 
 	rm -rf $(OBJ) $(OBJ_CHKR)
 
 fclean: clean
-	rm -rf $(EXEC) $(TEST) $(CHECKER)
+	rm -rf $(EXEC) $(EXEC_TEST) $(CHECKER) $(CHECKER_TEST)
 
 re: fclean
 	make all
