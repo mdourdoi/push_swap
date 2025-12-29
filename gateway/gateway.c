@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gateway.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:31:50 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/18 15:06:19 by melschmi         ###   ########.fr       */
+/*   Updated: 2025/12/29 16:15:01 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ void	gateway(t_rule *rule, t_list **a, t_list **b)
 	    ft_bucketsort(a, b, rule);
 //		ft_selectionsort(a, b, rule);
 	if (rule->mode == COMPLEX)
-		printf("Complex algorithm selected...\n"); // <--replace this section by sort algorithm
+		ft_radix_sort(a, b, rule);
 }

@@ -35,6 +35,7 @@ SRC_TEST=../parser/ft_strcmp.c \
 	../sorts/utils.c \
 	../sorts/set_index.c \
 	../sorts/bucket_sort.c \
+	../sorts/radix_sort.c \
 	../sorts/is_sorted.c \
 	../sorts/selectionsort.c \
 	../gateway/gateway.c \

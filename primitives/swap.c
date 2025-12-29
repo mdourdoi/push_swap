@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:29:41 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/16 14:23:14 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2025/12/29 17:12:48 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	ft_swap(t_list **stack, char c, int flag, t_rule *rule)
 	{
 		if (rule->bench == FALSE)
 			ft_printf("s%c\n", c);
-		else {
+		else
+		{
 			if (c == 'a')
 				rule->operation[SA] += 1;
 			else
