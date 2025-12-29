@@ -13,7 +13,6 @@
 #ifndef BENCH_H
 # define BENCH_H
 
-
 void	display_benchmark(t_rule *rule);
 
 #endif

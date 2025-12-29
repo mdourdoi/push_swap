@@ -84,14 +84,14 @@ t_list	*check_stack_creation(t_list *stack, int nb_elem, t_rule *rule)
 	int	len;
 	t_list	*test;
 
-	len = 0;
+	len = 1;
 	test = stack;
 	while (test != NULL)
 	{
 		if (check_double(test) == TRUE)
 		 	return (clear_stack(stack));
-		test = test->next;
 		len++;
+		test = test->next;
 	}
 	if (len != nb_elem)
 		return (clear_stack(stack));
@@ -111,7 +111,7 @@ t_list	*get_stack(char **av, int ac, t_list *stack, t_rule *rule)
 	int	i;
     int content;
 
-	i = 1;
+	i = 0;
 	stack = NULL;
 	while (av[i])
 	{

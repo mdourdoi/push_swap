@@ -24,9 +24,9 @@ void	ft_rotate(t_list **stack, char c, int flag, t_rule *rule)
 	(ft_lstlast(*stack))->next = first;
 	if (flag)
 	{
-		if (rule->bench == FALSE)
+		if (rule->checker == FALSE)
 			ft_printf("r%c\n", c);
-		else 
+		if (rule->bench == TRUE)
 		{
 			if (c == 'a')
 				rule->operation[RA] += 1;

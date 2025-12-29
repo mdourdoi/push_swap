@@ -3,3 +3,5 @@ test
 *.o
 *.txt
 push_swap
+push_swap_test
+checker_test

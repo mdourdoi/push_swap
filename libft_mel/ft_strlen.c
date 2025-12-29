@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 12:45:57 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/17 12:56:49 by mdourdoi         ###   ########.fr       */
+/*   Created: 2025/11/10 12:55:16 by melschmi          #+#    #+#             */
+/*   Updated: 2025/11/10 12:56:30 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft_mel.h"
 
-#include "push_swap.h"
-
-int	ft_issorted(t_list *a)
+size_t	ft_strlen(const char *str)
 {
-	if (!a)
-		return (1);
-	while (a->next)
-	{
-		if (a->content > (a->next)->content)
-			return (0);
-		a = a->next;
-	}
-	return (1);
+	size_t	i;
+
+	i = 0;
+    if (str == NULL)
+    {
+        return (0);
+    }
+	while (str[i])
+		i++;
+	return (i);
 }

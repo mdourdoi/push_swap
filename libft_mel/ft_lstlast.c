@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 15:36:37 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/11/28 16:20:11 by mdourdoi         ###   ########.fr       */
+/*   Created: 2025/11/10 13:55:28 by mdourdoi          #+#    #+#             */
+/*   Updated: 2025/11/10 14:01:26 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft_mel.h"
 
-size_t	ft_strlen_upto(char const *s, char end)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-
-	i = 0;
-	if (s)
-	{
-		while (s[i] && s[i] != end)
-			i++;
-	}
-	return (i);
+	if (!lst)
+		return (lst);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }
