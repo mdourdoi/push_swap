@@ -11,30 +11,14 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "print_errf.h"
 #include "rules.h"
 #include "libft_mel.h"
 #include <stdio.h>
 
-#ifdef DEBUG
-void	print_stack(t_list *lst)
-
-{
-	while (lst != NULL)
-	{
-		print_errf("%d\n", lst->content);
-		lst = lst->next;
-	}
-}
+#ifdef DEBUG_MODE_
+#include "debug.h"
 #endif
-void	print_rules(t_rule *rule)
-{
-	printf("=========== RULES ============\n");
-	printf("mode : %d\n", rule->mode);
-	printf("bench : %d\n", rule->bench);
-	printf("disorder : %.2f\n", rule->disorder);
-	printf("elem : %zu\n", rule->nb_element);
-	printf("==============================\n");
-}
 
 void    free_args(char **args)
 {
@@ -61,24 +45,29 @@ int	main(int ac, char **av)
     ac += 1;
 	init_rule(&rule);
     args = harmonize_args(av);
+#ifdef DEBUG_MODE_
+    print_args(args, PUSH_SWP);
+#endif
 	a = parse_args(args_len(args), args, &rule);
 	rule.disorder = ft_get_disorder(a);
-	print_rules(&rule);
+#ifdef DEBUG_MODE_
+	print_rules(&rule, PUSH_SWP);
+#endif
 	if (a == NULL)
 	{
 		printf("error");
 		return (0);
 	}
-#ifdef DEBUG
-	printf("Init \n");
-	print_stack(a);
+#ifdef DEBUG_MODE_
+	printf("\x1b[32m[DEBUG]\x1b[0m Init \n");
+	print_stack(a, PUSH_SWP);
 #endif
 	b = ft_calloc(1, sizeof(t_list *));
 	gateway(&rule, &a, b);
-#ifdef DEBUG
-	printf("final: \n");
-	print_stack(a);
-	print_stack(*b);
+#ifdef DEBUG_MODE_
+	printf("\x1b[32m[DEBUG]\x1b[0m final: \n");
+	print_stack(a, PUSH_SWP);
+	print_stack(*b, PUSH_SWP);
 #endif
     if(rule.bench == TRUE) {
         display_benchmark(&rule);

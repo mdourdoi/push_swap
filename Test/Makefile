@@ -4,10 +4,12 @@ CHECKER=checker
 CHECKER_TEST=checker_test
 
 INCLUDES=../includes/
-FLAGS=-Wall -Wextra -Werror 
-DEBUG=-g -DDEBUG
+FLAGS=-Wall -Wextra -Werror -o3
+FLAGS_TEST=-g -Wall -Wextra -Werror -D DEBUG_MODE_=1
 
-SRCS_CHKR=	../libft_mel/ft_bzero.c \
+DEBUG_SRC=../test_src/debug.c
+
+SRCS_CHKR=../libft_mel/ft_bzero.c \
 		../libft_mel/ft_calloc.c \
 		../libft_mel/ft_isascii.c \
 		../libft_mel/ft_isdigit.c \
@@ -44,7 +46,6 @@ SRCS_CHKR=	../libft_mel/ft_bzero.c \
 		../sorts/is_sorted.c \
 		../checker_src/error.c \
 		../checker_src/execution.c \
-		../checker_src/execution_2.c \
 		../checker_src/get_next_line.c \
 	  	../checker_src/get_next_line_utils.c \
 	  	../checker_src/checker.c
@@ -93,10 +94,14 @@ SRC_TEST=../parser/ft_strcmp.c \
 	../sorts/is_sorted.c \
 	../sorts/selectionsort.c \
 	../disorder.c \
-		test.c
+	test.c
 
 OBJ=$(SRC_TEST:.c=.o)
 OBJ_CHKR=$(SRCS_CHKR:.c=.o)
+OBJ_DEBUG=$(DEBUG_SRC:.c=.o)
+
+$(EXEC_TEST): FLAGS := $(FLAGS_TEST)
+$(CHECKER_TEST): FLAGS := $(FLAGS_TEST)
 
 all: $(EXEC) $(CHECKER)
 
@@ -105,20 +110,20 @@ test: $(EXEC_TEST) $(CHECKER_TEST)
 $(CHECKER): $(OBJ_CHKR)
 	$(CC) $(FLAGS) -I$(INCLUDES) $^ -o $@
 
+$(CHECKER_TEST): $(OBJ_CHKR) $(OBJ_DEBUG)
+	$(CC) $(FLAGS) -I$(INCLUDES) $^ -o $@
+
 $(EXEC): $(OBJ) 
 	$(CC) $(FLAGS) -I$(INCLUDES) $^ -o $@
 
-$(CHECKER_TEST): $(OBJ_CHKR)
-	$(CC) $(DEBUG) $(FLAGS) -I$(INCLUDES) $^ -o $@
-
-$(EXEC_TEST): $(OBJ)
-	$(CC) $(DEBUG) $(FLAGS) -I$(INCLUDES) $^ -o $@
+$(EXEC_TEST): $(OBJ) $(OBJ_DEBUG)
+	$(CC) $(FLAGS) -I$(INCLUDES) $^ -o $@
 
 %.o: %.c
 	$(CC) $(FLAGS) -I$(INCLUDES) -c $< -o $@
 
 clean: 
-	rm -rf $(OBJ) $(OBJ_CHKR)
+	rm -rf $(OBJ) $(OBJ_CHKR) $(OBJ_DEBUG)
 
 fclean: clean
 	rm -rf $(EXEC) $(EXEC_TEST) $(CHECKER) $(CHECKER_TEST)

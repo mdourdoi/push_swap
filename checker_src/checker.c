@@ -1,20 +1,14 @@
 #include "get_next_line.h"
 #include "rules.h"
 #include "checker.h"
+#include "print_errf.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
 
-#ifdef DEBUG
-void	print_stack(t_list *lst)
-{
-	while (lst != NULL)
-	{
-		print_errf("%d\n", lst->content);
-		lst = lst->next;
-	}
-}
+#ifdef DEBUG_MODE_
+#include "debug.h"
 #endif
 
 void    free_args(char **args)
@@ -39,8 +33,13 @@ t_list    *init_checker(char **av, t_rule *rules)
 
     a = NULL;
     args = harmonize_args(av);
+
     init_rule(rules);
     rules->checker = true;
+    #ifdef DEBUG_MODE_
+        print_args(args, CHECKER);
+        print_rules(rules, CHECKER);
+    #endif
 	a = parse_args(args_len(args), args, rules);
     free_args(args);
     return (a);
@@ -58,17 +57,22 @@ void    processing(t_list *a, t_list **b, t_rule *rules){
     char *op;
 
     op = get_next_line(0);
+#ifdef DEBUG_MODE_
+        print_op_dbg(op, CHECKER);
+#endif
     check_error(&a, b, op);
-    //functions[get_index(op)] (a, b, rules);
     execute(op, &a, b, rules);
     while(op)
     {
         if (op)
             free(op);
         op = get_next_line(0);
-        if (op) {
+        if (op) 
+        {
+            #ifdef DEBUG_MODE_
+                print_op_dbg(op, CHECKER);
+            #endif
             check_error(&a, b, op);
-            //functions[get_index(op)] (a, b, rules);
             execute(op, &a, b, rules);
         }
     }
@@ -79,7 +83,6 @@ int main(int argc, char **argv)
     t_rule  rules;
     t_list  *a;
     t_list  **b;
-    //void (*functions[10]) (t_list **a, t_list **b, t_rule *rules);
 
     argc++; 
     a = NULL;
@@ -87,14 +90,14 @@ int main(int argc, char **argv)
     a = init_checker(argv, &rules);
     if (a == NULL)
         panic_exit(&a, b, NULL);
-    #ifdef DEBUG
-        print_stack(a);
+    #ifdef DEBUG_MODE_
+        print_stack(a, CHECKER);
     #endif
     processing(a, b, &rules);
     if ((check_stack_b(*b) == TRUE) && (ft_issorted(a) == 1))
         ft_printf("OK\n");
-    #ifdef DEBUG 
-        print_stack(a);
+    #ifdef DEBUG_MODE_ 
+        print_stack(a, CHECKER);
     #endif
     return (0);
 }
