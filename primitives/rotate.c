@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:01:33 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/16 14:23:42 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2025/12/29 17:12:31 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_rotate(t_list **stack, char c, int flag, t_rule *rule)
 	{
 		if (rule->bench == FALSE)
 			ft_printf("r%c\n", c);
-		else 
+		else
 		{
 			if (c == 'a')
 				rule->operation[RA] += 1;
@@ -42,6 +42,6 @@ void	ft_rotate_both(t_list *a, t_list *b, t_rule *rule)
 	ft_rotate(&b, 0, 0, rule);
 	if (rule->bench == FALSE)
 		ft_printf("rr");
-	else 
+	else
 		rule->operation[RR] += 1;
 }
