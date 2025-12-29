@@ -59,13 +59,13 @@ int	main(int ac, char **av)
 		return (0);
 	}
 #ifdef DEBUG_MODE_
-	printf("\x1b[32m[DEBUG]\x1b[0m Init \n");
+	print_errf("\x1b[32m[DEBUG]\x1b[0m Init \n");
 	print_stack(a, PUSH_SWP);
 #endif
 	b = ft_calloc(1, sizeof(t_list *));
 	gateway(&rule, &a, b);
 #ifdef DEBUG_MODE_
-	printf("\x1b[32m[DEBUG]\x1b[0m final: \n");
+	print_errf("\x1b[32m[DEBUG]\x1b[0m final: \n");
 	print_stack(a, PUSH_SWP);
 	print_stack(*b, PUSH_SWP);
 #endif
