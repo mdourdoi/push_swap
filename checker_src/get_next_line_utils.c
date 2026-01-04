@@ -80,7 +80,7 @@ void	move_data(char *file)
 
 void	*free_line(char *line)
 {
-    if (line)
-        free(line);
-    return (NULL);
+	if (line)
+		free(line);
+	return (NULL);
 }

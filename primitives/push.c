@@ -24,7 +24,7 @@ void	ft_push(t_list **stack1, char c1, t_list **stack2, t_rule *rule)
 	if (rule->checker == FALSE)
 		ft_printf("p%c\n", c1);
 	if (rule->bench == TRUE)
-    {
+	{
 		if (c1 == 'a')
 			rule->operation[PA] += 1;
 		if (c1 == 'b')

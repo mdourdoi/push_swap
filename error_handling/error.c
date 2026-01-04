@@ -5,8 +5,8 @@
 //
 //      This function print a string into stderror
 
-void    print_error(char *str)
+void	print_error(char *str)
 {
-    write(2, str, ft_strlen(str));
-    exit(EXIT_FAILURE);
+	write(2, str, ft_strlen(str));
+	exit(EXIT_FAILURE);
 }

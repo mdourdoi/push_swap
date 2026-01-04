@@ -111,10 +111,10 @@ t_bool	check_for_rules(char **av, t_rule *rule)
 				return (FALSE);
 		i++;
 	}
-    if (rule->mode == ADAPTIVE)
-    {
-        rule->adaptive = TRUE;
-    }
+	if (rule->mode == ADAPTIVE)
+	{
+		rule->adaptive = TRUE;
+	}
 	return (TRUE);
 }
 // Number_of_elem : 

@@ -96,8 +96,7 @@ char	*get_next_line(int fd)
 	line = NULL;
 	if (fd < 0)
 		return (NULL);
-	if (check_file(file) == HAS_CONTENT
-			|| check_file(file) == NEW_LINE)
+	if (check_file(file) == HAS_CONTENT || check_file(file) == NEW_LINE)
 		line = get_line_(line, file);
 	line = process_gnl(file, line, fd);
 	move_data(file);
