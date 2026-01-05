@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 13:30:59 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/01 10:35:07 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:31:52 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 size_t	ft_strlen_upto(char const *s, char end);
 size_t	ft_strlen(const char *c);
-int print_float(float nb);
+int		print_float(float nb);
 int		ft_putnb(int n, char *str_base, int base);
 int		ft_putnb_u(unsigned int n, char *str_base, unsigned int base);
 int		ft_voidp_writer(void *vp);
