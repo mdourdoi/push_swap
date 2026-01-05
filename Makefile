@@ -99,9 +99,9 @@ SRC_TEST=parser/parser.c \
 OBJ=$(SRC_TEST:.c=.o)
 OBJ_CHKR=$(SRCS_CHKR:.c=.o)
 
-all: $(EXEC) $(CHECKER)
+all: $(EXEC)
 
-cheker: $(CHECKER)
+checker: $(CHECKER)
 
 $(CHECKER): $(OBJ_CHKR)
 	$(CC) $(FLAGS) -I$(INCLUDES) $^ -o $@

@@ -55,9 +55,9 @@ int	main(int ac, char **av)
 		panic_exit(&a, b, NULL);
 	if (rules.disorder > 0)
 		gateway(&rules, &a, b);
-    if (rules.bench == TRUE)
+	if (rules.bench == TRUE)
 	{
-        display_benchmark(&rules);
+		display_benchmark(&rules);
 	}
 	exit_program(a, b);
 	return (0);

@@ -19,6 +19,9 @@
 # include <unistd.h>
 # include <stdint.h>
 
+# define HEX_DICT "0123456789abcdef"
+# define UHEX_DICT "0123456789abcdef"
+
 size_t	ft_strlen_upto(char const *s, char end);
 size_t	ft_strlen(const char *c);
 int		ft_puterr_nb(int n, char *str_base, int base);

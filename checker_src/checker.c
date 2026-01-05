@@ -37,7 +37,6 @@ t_list	*init_checker(char **av, t_rule *rules)
 
 	a = NULL;
 	args = harmonize_args(av);
-
 	init_rule(rules);
 	rules->checker = TRUE;
 	a = parse_args(args_len(args), args, rules);
@@ -53,7 +52,8 @@ t_bool	check_stack_b(t_list *b)
 		return (FALSE);
 }
 
-void	processing(t_list *a, t_list **b, t_rule *rules){
+void	processing(t_list *a, t_list **b, t_rule *rules)
+{
 	char	*op;
 
 	op = get_next_line(0);
@@ -64,7 +64,7 @@ void	processing(t_list *a, t_list **b, t_rule *rules){
 		if (op)
 			free(op);
 		op = get_next_line(0);
-		if (op) 
+		if (op)
 		{
 			check_error(&a, b, op);
 			execute(op, &a, b, rules);
@@ -78,7 +78,7 @@ int	main(int argc, char **argv)
 	t_list	*a;
 	t_list	**b;
 
-	argc++; 
+	argc++;
 	a = NULL;
 	b = ft_calloc(1, sizeof(t_list *));
 	a = init_checker(argv, &rules);
