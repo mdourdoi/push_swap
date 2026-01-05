@@ -34,12 +34,6 @@ static size_t	get_args_len(char **argv)
 	return (i + len - 1);
 }
 
-/*
- ft_strcat : 
-
-      because strlcat is shitty function
-*/
-
 static size_t	ft_strcat(char *dest, char *src)
 {
 	size_t	i;
