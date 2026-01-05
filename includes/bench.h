@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   bench.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 15:38:29 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/19 15:39:21 by melschmi         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:30:18 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BENCH_H
 # define BENCH_H
-
 
 void	display_benchmark(t_rule *rule);
 

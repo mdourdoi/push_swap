@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 21:57:33 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/05 11:32:56 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:32:48 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 typedef struct s_list
 {
 	int				content;
-	int				index; 
+	int				index;
 	struct s_list	*next;
 }					t_list;
 
 //Enum t_bool : 
 //	for easier readeable function return 
 
-typedef enum	e_bool
+typedef enum e_bool
 {
 	FALSE,
 	TRUE
@@ -36,8 +36,8 @@ typedef enum	e_bool
 t_bool	ft_atoi(char *nptr, int *value);
 void	ft_bzero(void *src, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
-int	    ft_isascii(int c);
-int	    ft_isdigit(int c);
+int		ft_isascii(int c);
+int		ft_isdigit(int c);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(void *));

@@ -1,13 +1,12 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 12:51:36 by melschmi          #+#    #+#             */
-/*   Updated: 2025/11/10 12:56:30 by melschmi         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:35:59 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +39,9 @@ static int	check_sign(const char *nptr, int *sign, size_t *i)
 
 t_bool	ft_atoi(char *nptr, int *value)
 {
-	size_t	i;
-	long int		res;
-	int		sign;
+	size_t		i;
+	long int	res;
+	int			sign;
 
 	i = 0;
 	res = 0;
@@ -59,7 +58,7 @@ t_bool	ft_atoi(char *nptr, int *value)
 	{
 		res *= 10;
 		res += nptr[i] - '0';
-		if ( res * sign < INT_MIN || res * sign > INT_MAX)
+		if (res * sign < INT_MIN || res * sign > INT_MAX)
 			return (FALSE);
 		i++;
 	}
