@@ -4,24 +4,25 @@ CHECKER=checker
 CHECKER_TEST=checker_test
 
 INCLUDES=../includes/
-FLAGS=-Wall -Wextra -Werror -o3
+FLAGS=-Wall -Wextra -Werror -g
 FLAGS_TEST=-g -Wall -Wextra -Werror -D DEBUG_MODE_=1
 
 DEBUG_SRC=../test_src/debug.c
 
-SRCS_CHKR=../libft_mel/ft_bzero.c \
-		../libft_mel/ft_calloc.c \
-		../libft_mel/ft_isascii.c \
-		../libft_mel/ft_isdigit.c \
-		../libft_mel/ft_lstadd_back.c \
-		../libft_mel/ft_lstadd_front.c \
-		../libft_mel/ft_lstlast.c \
-		../libft_mel/ft_lstnew.c \
-		../libft_mel/ft_memset.c \
-		../libft_mel/ft_strlen.c \
-		../libft_mel/ft_split.c \
-		../parser/ft_atoi.c \
-		../parser/ft_strcmp.c \
+SRCS_CHKR=../libft/ft_atoi.c \
+		../libft/ft_bzero.c \
+		../libft/ft_calloc.c \
+		../libft/ft_isascii.c \
+		../libft/ft_isdigit.c \
+		../libft/ft_lstadd_back.c \
+		../libft/ft_lstadd_front.c \
+		../libft/ft_lstlast.c \
+		../libft/ft_lstnew.c \
+		../libft/ft_memset.c \
+		../libft/ft_strlen.c \
+		../libft/ft_split.c \
+		../libft/ft_strcmp.c \
+		../libft/ft_substr.c \
 		../parser/parser.c \
 		../parser/rules.c \
 		../parser/rules_set.c \
@@ -50,29 +51,30 @@ SRCS_CHKR=../libft_mel/ft_bzero.c \
 	  	../checker_src/get_next_line_utils.c \
 	  	../checker_src/checker.c
 
-SRC_TEST=../parser/ft_strcmp.c \
-	../parser/parser.c \
+SRC_TEST=../parser/parser.c \
 	../parser/rules.c \
 	../parser/rules_set.c \
-	../parser/ft_atoi.c \
 	../parser/gateway.c \
 	../parser/harmonizer.c \
 	../primitives/push.c \
 	../primitives/reverse_rotate.c \
 	../primitives/rotate.c \
 	../primitives/swap.c \
-	../libft_mel/ft_bzero.c \
-	../libft_mel/ft_calloc.c \
-	../libft_mel/ft_isascii.c \
-	../libft_mel/ft_isdigit.c \
-	../libft_mel/ft_lstadd_back.c \
-	../libft_mel/ft_lstnew.c \
-	../libft_mel/ft_memset.c \
-	../libft_mel/ft_strlen.c \
-	../libft_mel/ft_split.c \
+	../libft/ft_atoi.c \
+	../libft/ft_bzero.c \
+	../libft/ft_calloc.c \
+	../libft/ft_isascii.c \
+	../libft/ft_isdigit.c \
+	../libft/ft_lstadd_back.c \
+	../libft/ft_lstnew.c \
+	../libft/ft_memset.c \
+	../libft/ft_strlen.c \
+	../libft/ft_strcmp.c \
+	../libft/ft_split.c \
 	../libft/ft_lstadd_front.c \
 	../libft/ft_lstlast.c \
 	../libft/ft_lstsize.c \
+	../libft/ft_substr.c \
 	../ft_printf/ft_printf_chars.c \
 	../ft_printf/ft_printf_nbrs.c \
 	../ft_printf/ft_printf_nbrs_unsigned.c \
@@ -134,3 +136,5 @@ re: fclean
 
 retest: fclean
 	make test
+
+.PHONY : all test clean fclean re retest

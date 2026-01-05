@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:50:49 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/18 17:04:54 by melschmi         ###   ########.fr       */
+/*   Updated: 2026/01/05 12:46:25 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "print_errf.h"
 #include "rules.h"
-#include "libft_mel.h"
-#include <stdio.h>
+#include "libft.h"
+#include "ft_printf.h"
 
 #ifdef DEBUG_MODE_
 #include "debug.h"
@@ -55,7 +55,7 @@ int	main(int ac, char **av)
 #endif
 	if (a == NULL)
 	{
-		printf("error");
+		ft_printf("error");
 		return (0);
 	}
 #ifdef DEBUG_MODE_
