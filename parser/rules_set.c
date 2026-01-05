@@ -12,10 +12,12 @@
 
 #include "rules.h"
 
-// Set_function : 
-//
-// 		These following function will set the rule variable 
-// 			corresponding to their respectives mode 
+/*
+	Set_function : 
+
+ 		These following function will set the rule variable 
+ 			corresponding to their respectives mode 
+*/
 
 t_bool	set_simple(t_bool *mode, t_rule *rule)
 {

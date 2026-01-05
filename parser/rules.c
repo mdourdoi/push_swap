@@ -12,9 +12,11 @@
 
 #include "rules.h"
 
-// Init_rule : 
-//
-// This function will initialize the rule struct correctly
+/*
+ Init_rule : 
+
+ This function will initialize the rule struct correctly
+*/
 
 void	init_rule(t_rule *rule)
 {
@@ -35,12 +37,14 @@ void	init_rule(t_rule *rule)
 	}
 }
 
-// Is_valid_digit : 
-// 		check if the current string is a valid digit for the programm
-// 			a valid digit is a string representing a int (32bit)
-//
-// 		return TRUE if yes
-// 		return FALSE if no
+/*
+ Is_valid_digit : 
+ 		check if the current string is a valid digit for the programm
+ 			a valid digit is a string representing a int (32bit)
+
+ 		return TRUE if yes
+ 		return FALSE if no
+*/
 
 t_bool	is_valid_digit(char *nb)
 {
@@ -65,12 +69,14 @@ t_bool	is_valid_digit(char *nb)
 	return (TRUE);
 }
 
-// determine_mode : 
-// 		This function will determine the mode given 
-// 			by the user and set it into rules
-//
-// 		return TRUE if everything is fine 
-// 		return FALSE if an error occur
+/*
+ determine_mode : 
+ 		This function will determine the mode given 
+ 			by the user and set it into rules
+
+ 		return TRUE if everything is fine 
+ 		return FALSE if an error occur
+*/
 
 t_bool	determine_mode(char *av, t_rule *rule, t_bool *mode, t_bool *bench)
 {
@@ -87,13 +93,15 @@ t_bool	determine_mode(char *av, t_rule *rule, t_bool *mode, t_bool *bench)
 	return (FALSE);
 }
 
-// Check_for_rules : 
-//
-// 		this function will verify if the last argument is a 
-// 			mode given by the user
-//
-// 		return (TRUE) if everything is fine 
-// 		return (FALSE) if an error occur
+/*
+ Check_for_rules : 
+
+ 		this function will verify if the last argument is a 
+ 			mode given by the user
+
+ 		return (TRUE) if everything is fine 
+ 		return (FALSE) if an error occur
+*/
 
 t_bool	check_for_rules(char **av, t_rule *rule)
 {
@@ -118,10 +126,13 @@ t_bool	check_for_rules(char **av, t_rule *rule)
 	}
 	return (TRUE);
 }
-// Number_of_elem : 
-//
-// 	This function will set the theorical number of elem in the stack
-// 		by looking at the rule and the argument count variable
+
+/*
+ Number_of_elem : 
+
+ 	This function will set the theorical number of elem in the stack
+ 		by looking at the rule and the argument count variable
+*/
 
 int	number_of_elem(t_rule *rule, int ac)
 {

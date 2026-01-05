@@ -3,7 +3,7 @@ EXEC=push_swap
 CHECKER=checker
 
 INCLUDES=includes/
-FLAGS=-Wall -Wextra -Werror -g
+FLAGS=-Wall -Wextra -Werror
 
 SRCS_CHKR=libft/ft_atoi.c \
 		libft/ft_bzero.c \
@@ -121,4 +121,4 @@ fclean: clean
 re: fclean
 	make all
 
-.PHONY : all clean fclean re
+.PHONY : all checker clean fclean re

@@ -13,10 +13,12 @@
 #include "rules.h"
 #include "push_swap.h"
 
-// Check_disorder : 
-//
-// 		This function will set the mode by checking the disorder
-// 			of the stack a
+/*
+	Check_disorder : 
+
+ 		This function will set the mode by checking the disorder
+ 			of the stack a
+*/
 
 void	check_disorder(t_rule *rule)
 {
@@ -28,10 +30,12 @@ void	check_disorder(t_rule *rule)
 		rule->mode = COMPLEX;
 }
 
-// Gateway : 
-//
-// 		This function will choose the correct sort algorithm 
-// 			by checking the rules struct
+/*
+ Gateway : 
+
+ 		This function will choose the correct sort algorithm 
+ 			by checking the rules struct
+*/
 
 void	gateway(t_rule *rule, t_list **a, t_list **b)
 {

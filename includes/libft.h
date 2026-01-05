@@ -24,8 +24,10 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-//Enum t_bool : 
-//	for easier readeable function return 
+/*
+	Enum t_bool : 
+		for easier readeable function return 
+*/
 
 typedef enum e_bool
 {

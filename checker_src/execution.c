@@ -18,7 +18,7 @@
  *		This function will read the actual operation
  *			sent in stdin and will execution the corresponding
  *		operation
- * */
+ */
 
 void	execute(char *op, t_list **a, t_list **b, t_rule *rules)
 {

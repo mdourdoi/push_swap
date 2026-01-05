@@ -13,7 +13,7 @@
 #include "libft.h"
 
 /*
- Get_args_len : 
+ 	Get_args_len : 
 
       This function will count the total of char + space needed for 
           the concatenation
@@ -51,7 +51,7 @@ static size_t	ft_strcat(char *dest, char *src)
 }
 
 /*
- Concatenate : 
+ 	Concatenate : 
 
       This will concatenate multiple strings into one string,
           each string will be separated by a space
@@ -71,7 +71,9 @@ static void	concatenate(char **argv, char *str)
 	}
 }
 
-/* Args_len : 
+/* 
+	Args_len :
+
       return the number of args
 */
 
@@ -87,7 +89,8 @@ int	args_len(char **args)
 	return (i + 1);
 }
 
-/* Harmonize_args : 
+/* 
+	Harmonize_args : 
 
       The purpose of this function is to harmonize 
           the args given by the user so they can follow the same
