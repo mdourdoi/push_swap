@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 12:59:55 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/16 14:09:24 by mdourdoi         ###   ########.fr       */
+/*   Created: 2026/01/05 11:06:19 by mdourdoi          #+#    #+#             */
+/*   Updated: 2026/01/05 11:06:27 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_mel.h"
+#include "libft.h"
 
-t_list	*ft_lstnew(int content)
+// Print error : 
+//
+//      This function print a string into stderror
+
+void	print_error(char *str)
 {
-	t_list	*res;
-
-	res = ft_calloc(1, sizeof(t_list));
-	if (!res)
-		return (NULL);
-	res->content = content;
-	res->index = -1;
-	return (res);
+	write(2, str, ft_strlen(str));
+	exit(EXIT_FAILURE);
 }

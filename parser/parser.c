@@ -3,29 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:20:33 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/18 17:03:48 by melschmi         ###   ########.fr       */
+/*   Updated: 2026/01/05 11:03:53 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_mel.h"
+#include "libft.h"
 #include "rules.h"
-
-// Parsing section :
-// 		Must parse and verify the entry from the user : 
-//
-// 		There are 2 types of entry that must be parsed : 
-// 			- The numbers given as a string and must be integer values
-// 			- The Mode that specify the strategy choosed for the sorting 
-//
-// 		Mode : 
-// 			--simple for O(n^2) algorithm
-// 			--medium for O(nVn) algorithm
-// 			--complex for O(nlog(n)) algorithm
-// 			--adaptive the algorithm is based on the state of disorder of the stack
-
 
 // Clear_stack : 
 //
@@ -70,7 +56,8 @@ t_bool	check_double(t_list *stack)
 
 //	Check_stack_creation : 
 //
-//		This function will check if the stack created from the user input is correct
+//		This function will check if the stack created from 
+//			the user input is correct
 //		A correct stack :
 //			Has no double element number
 //			Has the correct number of element 
@@ -81,17 +68,17 @@ t_bool	check_double(t_list *stack)
 
 t_list	*check_stack_creation(t_list *stack, int nb_elem, t_rule *rule)
 {
-	int	len;
+	int		len;
 	t_list	*test;
 
-	len = 0;
+	len = 1;
 	test = stack;
 	while (test != NULL)
 	{
 		if (check_double(test) == TRUE)
-		 	return (clear_stack(stack));
-		test = test->next;
+			return (clear_stack(stack));
 		len++;
+		test = test->next;
 	}
 	if (len != nb_elem)
 		return (clear_stack(stack));
@@ -109,14 +96,14 @@ t_list	*check_stack_creation(t_list *stack, int nb_elem, t_rule *rule)
 t_list	*get_stack(char **av, int ac, t_list *stack, t_rule *rule)
 {
 	int	i;
-    int content;
+	int	content;
 
-	i = 1;
+	i = 0;
 	stack = NULL;
 	while (av[i])
 	{
 		if (is_valid_digit(av[i]) == TRUE && ft_atoi(av[i], &content) == TRUE)
-		ft_lstadd_back(&stack, ft_lstnew(content));
+			ft_lstadd_back(&stack, ft_lstnew(content));
 		i++;
 	}
 	return (check_stack_creation(stack, number_of_elem(rule, ac), rule));
@@ -133,7 +120,7 @@ t_list	*get_stack(char **av, int ac, t_list *stack, t_rule *rule)
 t_list	*parse_args(int ac, char **av, t_rule *rule)
 {
 	t_list	*stack;
-	
+
 	stack = NULL;
 	if (ac == 0 || av == NULL || av[0] == NULL)
 		return (NULL);

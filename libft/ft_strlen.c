@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/06 10:40:02 by melschmi          #+#    #+#             */
-/*   Updated: 2025/11/06 10:44:24 by melschmi         ###   ########lyon.fr   */
+/*   Created: 2025/11/10 12:55:16 by melschmi          #+#    #+#             */
+/*   Updated: 2026/01/05 10:42:19 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft_mel.h"
 
-int	ft_isdigit(int c)
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	size_t	i;
+
+	i = 0;
+	if (str == NULL)
+	{
+		return (0);
+	}
+	while (str[i])
+		i++;
+	return (i);
 }

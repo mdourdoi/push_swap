@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   ft_printf_nbrs_unsigned.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 12:45:57 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/17 12:56:49 by mdourdoi         ###   ########.fr       */
+/*   Created: 2025/11/25 15:36:37 by mdourdoi          #+#    #+#             */
+/*   Updated: 2025/11/28 16:08:07 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "print_errf.h"
 
-int	ft_issorted(t_list *a)
+int	ft_puterr_nb_u(unsigned int n, char *str_base, unsigned int base)
 {
-	if (!a)
-		return (1);
-	while (a->next)
-	{
-		if (a->content > (a->next)->content)
-			return (0);
-		a = a->next;
-	}
-	return (1);
+	unsigned int	div;
+	unsigned int	mod;
+	unsigned int	ret;
+
+	div = n / base;
+	mod = n % base;
+	if (div == 0)
+		return (write(2, &str_base[mod], 1));
+	ret = ft_puterr_nb_u(div, str_base, base);
+	write(2, &str_base[mod], 1);
+	return (ret + 1);
 }

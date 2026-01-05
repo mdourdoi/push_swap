@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   checker_rules.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 14:02:08 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/16 11:57:06 by mdourdoi         ###   ########.fr       */
+/*   Created: 2026/01/05 11:11:10 by mdourdoi          #+#    #+#             */
+/*   Updated: 2026/01/05 11:12:08 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_mel.h"
+#include "checker.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	init_checker_rules(t_rule *rules)
 {
-	t_list	*temp;
-
-	if (!lst)
-		return ;
-	if (!(*lst))
-	{
-		*lst = new;
-		return ;
-	}
-	temp = *lst;
-	while (temp->next)
-		temp = temp->next;
-	temp->next = new;
+	rules->checker = TRUE;
 }

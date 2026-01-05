@@ -10,9 +10,9 @@
 /*   Updated: 2025/11/10 12:56:30 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft_mel.h"
+
+#include "libft.h"
 #include "rules.h"
-#include <limits.h>
 
 static int	ft_isspace(int c)
 {
@@ -59,10 +59,10 @@ t_bool	ft_atoi(char *nptr, int *value)
 	{
 		res *= 10;
 		res += nptr[i] - '0';
-        if ( res * sign < INT_MIN || res * sign > INT_MAX)
-            return (FALSE);
+		if ( res * sign < INT_MIN || res * sign > INT_MAX)
+			return (FALSE);
 		i++;
 	}
-    *value = res * sign;
+	*value = res * sign;
 	return (TRUE);
 }

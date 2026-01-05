@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:48:35 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/29 17:11:47 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/05 10:21:08 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	ft_push(t_list **stack1, char c1, t_list **stack2, t_rule *rule)
 	temp = *stack2;
 	*stack2 = (*stack2)->next;
 	ft_lstadd_front(stack1, temp);
-	if (rule->bench == FALSE)
+	if (rule->checker == FALSE)
 		ft_printf("p%c\n", c1);
-	else
+	if (rule->bench == TRUE)
 	{
 		if (c1 == 'a')
 			rule->operation[PA] += 1;

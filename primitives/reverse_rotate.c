@@ -27,9 +27,9 @@ void	ft_reverse_rotate(t_list **stack, char c, int flag, t_rule *rule)
 	ft_lstadd_front(stack, last);
 	if (flag)
 	{
-		if (rule->bench == FALSE)
+		if (rule->checker == FALSE)
 			ft_printf("rr%c\n", c);
-		else
+		if (rule->bench == TRUE)
 		{
 			if (c == 'a')
 				rule->operation[RRA] += 1;

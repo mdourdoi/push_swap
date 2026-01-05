@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   rules.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:36:37 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/18 17:11:00 by melschmi         ###   ########.fr       */
+/*   Updated: 2026/01/05 11:26:47 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "rules.h"
 
 // Init_rule : 
@@ -22,6 +23,7 @@ void	init_rule(t_rule *rule)
 	i = 0;
 	rule->mode = ADAPTIVE;
 	rule->bench = FALSE;
+	rule->checker = FALSE;
 	rule->flags = FALSE;
 	rule->adaptive = FALSE;
 	rule->disorder = 0;
@@ -103,17 +105,17 @@ t_bool	check_for_rules(char **av, t_rule *rule)
 	mode = FALSE;
 	bench = FALSE;
 	rule->mode = ADAPTIVE;
-	while (av[i])
+	while (av[i] && i < 2)
 	{
 		if (av[i][0] == '-' && av[i][1] == '-')
 			if (determine_mode(av[i], rule, &mode, &bench) == FALSE)
 				return (FALSE);
 		i++;
 	}
-    if (rule->mode == ADAPTIVE)
-    {
-        rule->adaptive = TRUE;
-    }
+	if (rule->mode == ADAPTIVE)
+	{
+		rule->adaptive = TRUE;
+	}
 	return (TRUE);
 }
 // Number_of_elem : 
@@ -127,5 +129,5 @@ int	number_of_elem(t_rule *rule, int ac)
 		ac--;
 	if (rule->flags == TRUE)
 		ac--;
-	return (ac - 1);
+	return (ac);
 }

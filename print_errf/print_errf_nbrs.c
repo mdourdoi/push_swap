@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_printf_nbrs.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 17:35:22 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/11/05 11:11:36 by mdourdoi         ###   ########.fr       */
+/*   Created: 2025/11/25 15:36:37 by mdourdoi          #+#    #+#             */
+/*   Updated: 2025/12/01 10:46:30 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_mel.h"
+#include "print_errf.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_puterr_nb(int n, char *str_base, int base)
 {
-	void	*ptr;
-	size_t	ret_size;
+	int		div;
+	int		mod;
+	int		ret;
+	int		sign;
+	long	nb;
 
-	if (!nmemb || !size)
-		ret_size = 1;
-	else
-		ret_size = nmemb * size;
-	if (ret_size > 2147483647)
-		return (NULL);
-	ptr = malloc(ret_size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, ret_size);
-	return (ptr);
+	nb = n;
+	sign = 0;
+	if (n < 0)
+	{
+		write(2, "-", 1);
+		nb *= -1;
+		sign++;
+	}
+	div = nb / base;
+	mod = nb % base;
+	if (div == 0)
+		return (write(2, &str_base[mod], 1) + sign);
+	ret = ft_puterr_nb(div, str_base, base);
+	write(2, &str_base[mod], 1);
+	return (ret + 1 + sign);
 }
