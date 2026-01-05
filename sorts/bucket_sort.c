@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 12:58:49 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/05 13:49:57 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/05 14:04:42 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,6 @@ static void	ft_fill_b(t_list **a, t_list **b, int size, t_rule *rules)
 		}
 		else
 			step += size;
-	}
-}
-
-static void	print_stack_index(t_list *lst)
-{
-	while (lst != NULL)
-	{
-		printf("content : %d index : %d\n",  lst->content, lst->index);
-		lst = lst->next;
 	}
 }
 
