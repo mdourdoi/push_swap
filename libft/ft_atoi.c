@@ -39,9 +39,9 @@ static int	check_sign(const char *nptr, int *sign, size_t *i)
 
 t_bool	ft_atoi(char *nptr, int *value)
 {
-	size_t		i;
-	long int	res;
-	int			sign;
+	size_t			i;
+	long int		res;
+	int				sign;
 
 	i = 0;
 	res = 0;
