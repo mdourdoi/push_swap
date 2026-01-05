@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 11:25:36 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/17 11:27:14 by melschmi         ###   ########.fr       */
+/*   Created: 2025/11/10 12:55:16 by melschmi          #+#    #+#             */
+/*   Updated: 2025/11/10 12:56:30 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft_mel.h"
 
-#ifndef LIBFT_H
-# define LIBFT_H
-
-#include <stdlib.h>
-
-typedef struct s_list
+size_t	ft_strlen(const char *str)
 {
-	int				content;
-	int				index; 
-	struct s_list	*next;
-}					t_list;
+	size_t	i;
 
-void	*ft_calloc(size_t nmemb, size_t size);
-void	ft_bzero(void *src, size_t n);
-void	*ft_memset(void *src, int c, size_t n);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-t_list	*ft_lstnew(int content);
-int	ft_isdigit(int c);
-int	ft_isascii(int c);
-
-#endif
+	i = 0;
+	if (str == NULL)
+	{
+		return (0);
+	}
+	while (str[i])
+		i++;
+	return (i);
+}

@@ -59,10 +59,10 @@ t_bool	ft_atoi(char *nptr, int *value)
 	{
 		res *= 10;
 		res += nptr[i] - '0';
-        if ( res * sign < INT_MIN || res * sign > INT_MAX)
-            return (FALSE);
+		if ( res * sign < INT_MIN || res * sign > INT_MAX)
+			return (FALSE);
 		i++;
 	}
-    *value = res * sign;
+	*value = res * sign;
 	return (TRUE);
 }

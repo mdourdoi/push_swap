@@ -1,0 +1,103 @@
+#include "get_next_line.h"
+#include "rules.h"
+#include "checker.h"
+#include "print_errf.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+
+#ifdef DEBUG_MODE_
+# include "debug.h"
+#endif
+
+void	free_args(char **args)
+{
+	size_t	i;
+
+	i = 0;
+	while (args[i])
+	{
+		if (args[i])
+			free(args[i]);
+		i++;
+	}
+	if (args)
+		free(args);
+}
+
+t_list	*init_checker(char **av, t_rule *rules)
+{
+	char	**args;
+	t_list	*a;
+
+	a = NULL;
+	args = harmonize_args(av);
+
+	init_rule(rules);
+	rules->checker = true;
+	# ifdef DEBUG_MODE_
+		print_args(args, CHECKER);
+		print_rules(rules, CHECKER);
+	# endif
+	a = parse_args(args_len(args), args, rules);
+	free_args(args);
+	return (a);
+}
+
+t_bool	check_stack_b(t_list *b)
+{
+	if (b == NULL)
+		return (TRUE);
+	else
+		return (FALSE);
+}
+
+void	processing(t_list *a, t_list **b, t_rule *rules){
+	char	*op;
+
+	op = get_next_line(0);
+# ifdef DEBUG_MODE_
+        print_op_dbg(op, CHECKER);
+# endif
+	check_error(&a, b, op);
+	execute(op, &a, b, rules);
+	while (op)
+	{
+		if (op)
+			free(op);
+		op = get_next_line(0);
+		if (op) 
+		{
+			#ifdef DEBUG_MODE_
+				print_op_dbg(op, CHECKER);
+			#endif
+			check_error(&a, b, op);
+			execute(op, &a, b, rules);
+		}
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	t_rule	rules;
+	t_list	*a;
+	t_list	**b;
+
+	argc++; 
+	a = NULL;
+	b = ft_calloc(1, sizeof(t_list *));
+	a = init_checker(argv, &rules);
+	if (a == NULL)
+		panic_exit(&a, b, NULL);
+	#ifdef DEBUG_MODE_
+		print_stack(a, CHECKER);
+	#endif
+	processing(a, b, &rules);
+	if ((check_stack_b(*b) == TRUE) && (ft_issorted(a) == 1))
+		ft_printf("OK\n");
+	#ifdef DEBUG_MODE_ 
+		print_stack(a, CHECKER);
+	#endif
+	return (0);
+}

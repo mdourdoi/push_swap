@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_printf_nbrs.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 15:36:37 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/11/28 16:20:11 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2025/12/01 10:46:30 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "print_errf.h"
 
-size_t	ft_strlen_upto(char const *s, char end)
+int	ft_puterr_nb(int n, char *str_base, int base)
 {
-	size_t	i;
+	int		div;
+	int		mod;
+	int		ret;
+	int		sign;
+	long	nb;
 
-	i = 0;
-	if (s)
+	nb = n;
+	sign = 0;
+	if (n < 0)
 	{
-		while (s[i] && s[i] != end)
-			i++;
+		write(2, "-", 1);
+		nb *= -1;
+		sign++;
 	}
-	return (i);
+	div = nb / base;
+	mod = nb % base;
+	if (div == 0)
+		return (write(2, &str_base[mod], 1) + sign);
+	ret = ft_puterr_nb(div, str_base, base);
+	write(2, &str_base[mod], 1);
+	return (ret + 1 + sign);
 }

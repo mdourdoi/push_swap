@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 12:45:57 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/17 12:56:49 by mdourdoi         ###   ########.fr       */
+/*   Created: 2025/11/10 13:12:07 by mdourdoi          #+#    #+#             */
+/*   Updated: 2025/12/16 16:45:21 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft_mel.h"
 
-int	ft_issorted(t_list *a)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!a)
-		return (1);
-	while (a->next)
-	{
-		if (a->content > (a->next)->content)
-			return (0);
-		a = a->next;
-	}
-	return (1);
+	if (!lst || !new)
+		return ;
+	new->next = (*lst);
+	*lst = new;
 }

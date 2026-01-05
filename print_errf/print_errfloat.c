@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "print_errf.h"
 #include "libft.h"
 
 static void	set_res(char *res)
@@ -31,7 +31,7 @@ static void	recursion(int nb, char *res, int index, int count)
 	res[index] = nb + '0';
 }
 
-int	print_float(float nb)
+int	printerr_float(float nb)
 {
 	char	res[6];
 	int		nbr;
@@ -39,9 +39,9 @@ int	print_float(float nb)
 	nbr = nb * 10000;
 	set_res(res);
 	if (nb == 1)
-		return (ft_putstr("100.00%"));
+		return (ft_put_err_str("100.00%"));
 	if (nbr == 0)
-		return (ft_putstr("00.00"));
+		return (ft_put_err_str("00.00"));
 	recursion(nbr, res, 4, 0);
-	return (ft_putstr(res));
+	return (ft_put_err_str(res));
 }

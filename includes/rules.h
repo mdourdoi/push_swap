@@ -69,6 +69,7 @@ typedef struct	s_rule
 {
 	t_mode	mode;
 	t_bool	bench;
+	t_bool	checker;
 	t_bool	flags;
 	t_bool	adaptive;
 	float	disorder;
@@ -89,6 +90,8 @@ t_bool	check_double(t_list *stack);
 t_bool	is_valid_digit(char *nb);
 t_bool	ft_atoi(char *nptr, int *value);
 t_list	*parse_args(int ac, char **av, t_rule *rule);
+char    **harmonize_args(char **argv);
+int     args_len(char **args);
 void	*clear_stack(t_list *stack);
 void	init_rule(t_rule *rule);
 int		ft_strcmp(char *str1, char *str2);

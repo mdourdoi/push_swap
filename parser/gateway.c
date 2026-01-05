@@ -41,8 +41,7 @@ void	gateway(t_rule *rule, t_list **a, t_list **b)
 	if (rule->mode == SIMPLE)
 		ft_selectionsort(a, b, rule);
 	if (rule->mode == MEDIUM)
-	    ft_bucketsort(a, b, rule);
-//		ft_selectionsort(a, b, rule);
+		ft_bucketsort(a, b, rule);
 	if (rule->mode == COMPLEX)
 		ft_radix_sort(a, b, rule);
 }

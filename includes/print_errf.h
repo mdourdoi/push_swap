@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef PRINT_ERRF_H
+# define PRINT_ERRF_H
 
 # include <stdarg.h>
 # include <stddef.h>
@@ -21,12 +21,12 @@
 
 size_t	ft_strlen_upto(char const *s, char end);
 size_t	ft_strlen(const char *c);
-int		ft_putnb(int n, char *str_base, int base);
-int		ft_putnb_u(unsigned int n, char *str_base, unsigned int base);
-int		ft_voidp_writer(void *vp);
-int		ft_putchar(char arg);
-int		ft_putstr(char *arg);
-int     print_float(float nbr);
-int		ft_printf(const char *s, ...);
+int		ft_puterr_nb(int n, char *str_base, int base);
+int		ft_puterr_nb_u(unsigned int n, char *str_base, unsigned int base);
+int		ft_voidperr_writer(void *vp);
+int		ft_put_err_char(char arg);
+int		ft_put_err_str(char *arg);
+int     printerr_float(float nbr);
+int		print_errf(const char *s, ...);
 
 #endif
