@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 12:59:55 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/18 14:16:40 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/05 14:07:17 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ t_list	*ft_lstnew(int content)
 	if (!res)
 		return (NULL);
 	res->content = content;
+	res->index = -1;
 	return (res);
 }
