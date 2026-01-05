@@ -1,11 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/05 10:55:45 by mdourdoi          #+#    #+#             */
+/*   Updated: 2026/01/05 11:08:10 by mdourdoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 #include "rules.h"
 #include "checker.h"
 #include "print_errf.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 
 #ifdef DEBUG_MODE_
 # include "debug.h"
@@ -35,7 +43,7 @@ t_list	*init_checker(char **av, t_rule *rules)
 	args = harmonize_args(av);
 
 	init_rule(rules);
-	rules->checker = true;
+	rules->checker = TRUE;
 	# ifdef DEBUG_MODE_
 		print_args(args, CHECKER);
 		print_rules(rules, CHECKER);

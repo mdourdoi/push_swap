@@ -10,9 +10,9 @@
 /*   Updated: 2025/11/10 12:56:30 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft_mel.h"
+
+#include "libft.h"
 #include "rules.h"
-#include <limits.h>
 
 static int	ft_isspace(int c)
 {

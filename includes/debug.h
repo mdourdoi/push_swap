@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   debug.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/05 11:09:51 by mdourdoi          #+#    #+#             */
+/*   Updated: 2026/01/05 11:09:55 by mdourdoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef DEBUG_H
 # define DEBUG_H
 
 #include "print_errf.h"
-#include "libft_mel.h"
+#include "libft.h"
 #include "rules.h"
 
 #define CHECKER "Checker"

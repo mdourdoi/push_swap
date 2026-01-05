@@ -6,13 +6,12 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:31:50 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/29 16:15:01 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/05 11:26:18 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rules.h"
 #include "push_swap.h"
-#include <stdio.h>
 
 // Check_disorder : 
 //

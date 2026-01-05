@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   rules.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:36:37 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/18 17:11:00 by melschmi         ###   ########.fr       */
+/*   Updated: 2026/01/05 11:26:47 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "rules.h"
 
 // Init_rule : 

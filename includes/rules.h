@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   rules.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:34:40 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/18 17:03:10 by melschmi         ###   ########.fr       */
+/*   Updated: 2026/01/05 11:31:45 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RULES_H
 # define RULES_H
 
-# include <stdlib.h>
+# include "libft.h"
 # include <limits.h>
-#include "libft_mel.h"
 
 // Enum t_oper : 
 // 		to enumerate the index of the operation list in 
@@ -48,15 +47,6 @@ typedef enum	e_mode
 
 }	t_mode;
 
-//Enum t_bool : 
-//	for easier readeable function return 
-
-typedef enum	e_bool
-{
-	FALSE,
-	TRUE
-}	t_bool;
-
 // Struct t_rule : 
 //
 // 		For saving state, program mode, the entropy level 
@@ -88,7 +78,6 @@ t_bool	determine_mode(char *av, t_rule *rule, t_bool *mode, t_bool *bench);
 t_bool	check_for_rules(char **av, t_rule *rule);
 t_bool	check_double(t_list *stack);
 t_bool	is_valid_digit(char *nb);
-t_bool	ft_atoi(char *nptr, int *value);
 t_list	*parse_args(int ac, char **av, t_rule *rule);
 char    **harmonize_args(char **argv);
 int     args_len(char **args);

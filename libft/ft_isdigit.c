@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 13:12:07 by mdourdoi          #+#    #+#             */
-/*   Updated: 2025/12/16 16:45:21 by mdourdoi         ###   ########.fr       */
+/*   Created: 2025/11/06 10:40:02 by melschmi          #+#    #+#             */
+/*   Updated: 2026/01/05 10:42:11 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_mel.h"
+#include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_isdigit(int c)
 {
-	if (!lst || !new)
-		return ;
-	new->next = (*lst);
-	*lst = new;
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
