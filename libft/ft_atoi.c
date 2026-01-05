@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -40,9 +39,9 @@ static int	check_sign(const char *nptr, int *sign, size_t *i)
 
 t_bool	ft_atoi(char *nptr, int *value)
 {
-	size_t	i;
+	size_t			i;
 	long int		res;
-	int		sign;
+	int				sign;
 
 	i = 0;
 	res = 0;
@@ -59,7 +58,7 @@ t_bool	ft_atoi(char *nptr, int *value)
 	{
 		res *= 10;
 		res += nptr[i] - '0';
-		if ( res * sign < INT_MIN || res * sign > INT_MAX)
+		if (res * sign < INT_MIN || res * sign > INT_MAX)
 			return (FALSE);
 		i++;
 	}

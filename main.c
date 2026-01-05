@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bench.h                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 15:38:29 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/19 15:39:21 by melschmi         ###   ########.fr       */
+/*   Created: 2026/01/05 12:31:03 by melschmi          #+#    #+#             */
+/*   Updated: 2026/01/05 12:31:08 by melschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BENCH_H
-# define BENCH_H
-
-void	display_benchmark(t_rule *rule);
-
-#endif
+int	main(int ac, char **av)
+{
+	return (0);
+}

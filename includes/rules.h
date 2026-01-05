@@ -43,8 +43,7 @@ typedef enum	e_mode
 	ADAPTIVE = 1,
 	SIMPLE = 2,
 	MEDIUM = 3,
-	COMPLEX = 4 
-
+	COMPLEX = 4
 }	t_mode;
 
 // Struct t_rule : 
@@ -64,10 +63,8 @@ typedef struct	s_rule
 	t_bool	adaptive;
 	float	disorder;
 	size_t	nb_element;
-	int		operation[11];	//This part is where the operations are stored in bench mod
+	int		operation[11];
 }	t_rule;
-
-
 
 t_bool	set_simple(t_bool *mode, t_rule *rule);
 t_bool	set_medium(t_bool *mode, t_rule *rule);
@@ -79,8 +76,8 @@ t_bool	check_for_rules(char **av, t_rule *rule);
 t_bool	check_double(t_list *stack);
 t_bool	is_valid_digit(char *nb);
 t_list	*parse_args(int ac, char **av, t_rule *rule);
-char    **harmonize_args(char **argv);
-int     args_len(char **args);
+char	**harmonize_args(char **argv);
+int		args_len(char **args);
 void	*clear_stack(t_list *stack);
 void	init_rule(t_rule *rule);
 int		ft_strcmp(char *str1, char *str2);

@@ -109,13 +109,16 @@ t_list	*get_stack(char **av, int ac, t_list *stack, t_rule *rule)
 	return (check_stack_creation(stack, number_of_elem(rule, ac), rule));
 }
 
-// Parse_args : 
-//
-// 		This function will verify, parse and return a pointer to the stack list of element
-// 			
-// 		return value : 
-// 			t_list **stack if everything is fine
-// 			NULL if the stack is empty or an error occur
+/*
+ Parse_args : 
+
+ 		This function will verify, parse and return a pointer 
+ 			to the stack list of element
+ 			
+ 		return value : 
+ 			t_list **stack if everything is fine
+ 			NULL if the stack is empty or an error occur
+*/
 
 t_list	*parse_args(int ac, char **av, t_rule *rule)
 {

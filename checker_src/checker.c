@@ -101,11 +101,15 @@ int	main(int argc, char **argv)
 	#ifdef DEBUG_MODE_
 		print_stack(a, CHECKER);
 	#endif
-	processing(a, b, &rules);
+	if (ft_issorted(a) != 1)
+		processing(a, b, &rules);
 	if ((check_stack_b(*b) == TRUE) && (ft_issorted(a) == 1))
 		ft_printf("OK\n");
 	#ifdef DEBUG_MODE_ 
 		print_stack(a, CHECKER);
 	#endif
+	clear_stack(a);
+	clear_stack(*b);
+	free(b);
 	return (0);
 }

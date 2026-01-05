@@ -26,7 +26,7 @@ int		ft_puterr_nb_u(unsigned int n, char *str_base, unsigned int base);
 int		ft_voidperr_writer(void *vp);
 int		ft_put_err_char(char arg);
 int		ft_put_err_str(char *arg);
-int     printerr_float(float nbr);
+int		printerr_float(float nbr);
 int		print_errf(const char *s, ...);
 
 #endif

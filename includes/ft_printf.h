@@ -21,7 +21,7 @@
 
 size_t	ft_strlen_upto(char const *s, char end);
 size_t	ft_strlen(const char *c);
-int print_float(float nb);
+int		print_float(float nb);
 int		ft_putnb(int n, char *str_base, int base);
 int		ft_putnb_u(unsigned int n, char *str_base, unsigned int base);
 int		ft_voidp_writer(void *vp);

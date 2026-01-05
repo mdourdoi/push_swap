@@ -36,14 +36,14 @@ static void	ft_fill_b(t_list **a, t_list **b, int size, t_rule *rules)
 	}
 }
 
-static void	print_stack_index(t_list *lst)
+/*static void	print_stack_index(t_list *lst)
 {
 	while (lst != NULL)
 	{
 		printf("content : %d index : %d\n",  lst->content, lst->index);
 		lst = lst->next;
 	}
-}
+}*/
 
 void	ft_bucketsort(t_list **a, t_list **b, t_rule *rules)
 {
