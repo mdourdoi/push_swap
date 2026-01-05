@@ -52,9 +52,9 @@ static void	check_adaptive(t_rule *rule)
 {
 	print_errf("Adaptive / ");
 	if (rule->mode == SIMPLE)
-		print_errf("O(n%s)\n", "\u00B2");
+		print_errf("O(n * n)\n");
 	if (rule->mode == MEDIUM)
-		print_errf("O(n%sn)\n", "\u221A");
+		print_errf("O(n * sqrt(n))\n");
 	if (rule->mode == COMPLEX)
 		print_errf("O(nlog(n))\n");
 }
