@@ -21,7 +21,7 @@
  *			It will clear all the stack used, clear  
  *			op if it's dynamically allocated and
  *			exit with failure signals
- * */
+ */
 
 void	panic_exit(t_list **a, t_list **b, char *op)
 {

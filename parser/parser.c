@@ -13,9 +13,11 @@
 #include "libft.h"
 #include "rules.h"
 
-// Clear_stack : 
-//
-// 		This function will clear the stack && return NULL
+/*
+	Clear_stack : 
+
+ 		This function will clear the stack && return NULL
+*/
 
 void	*clear_stack(t_list *stack)
 {
@@ -31,13 +33,15 @@ void	*clear_stack(t_list *stack)
 	return (NULL);
 }
 
-// Check_double : 
-//
-// 		This function will if there's double value in the stack 
-// 			by checking a dictionary using hash set algorithm
-//
-// 		return (TRUE) if double exist 
-// 		return (FALSE) if everything is fine
+/*
+ Check_double : 
+
+ 		This function will if there's double value in the stack 
+ 			by checking a dictionary using hash set algorithm
+
+ 		return (TRUE) if double exist 
+ 		return (FALSE) if everything is fine
+*/
 
 t_bool	check_double(t_list *stack)
 {
@@ -54,17 +58,18 @@ t_bool	check_double(t_list *stack)
 	return (FALSE);
 }
 
-//	Check_stack_creation : 
-//
-//		This function will check if the stack created from 
-//			the user input is correct
-//		A correct stack :
-//			Has no double element number
-//			Has the correct number of element 
-//
-//		return the stack if everything is fine 
-//		return NULL if the stack is false
-//
+/*
+	Check_stack_creation : 
+
+		This function will check if the stack created from 
+			the user input is correct
+		A correct stack :
+			Has no double element number
+			Has the correct number of element 
+
+		return the stack if everything is fine 
+		return NULL if the stack is false
+*/
 
 t_list	*check_stack_creation(t_list *stack, int nb_elem, t_rule *rule)
 {
@@ -86,12 +91,14 @@ t_list	*check_stack_creation(t_list *stack, int nb_elem, t_rule *rule)
 	return (stack);
 }
 
-//	Get_stack : 
-//
-//		This function create the stack using the args given by the user
-//
-//		return a pointer to the first node of the stack if everything is fine
-//		return NULL if an error occur 
+/*
+	Get_stack : 
+
+		This function create the stack using the args given by the user
+
+		return a pointer to the first node of the stack if everything is fine
+		return NULL if an error occur 
+*/
 
 t_list	*get_stack(char **av, int ac, t_list *stack, t_rule *rule)
 {
@@ -109,13 +116,16 @@ t_list	*get_stack(char **av, int ac, t_list *stack, t_rule *rule)
 	return (check_stack_creation(stack, number_of_elem(rule, ac), rule));
 }
 
-// Parse_args : 
-//
-// 		This function will verify, parse and return a pointer to the stack list of element
-// 			
-// 		return value : 
-// 			t_list **stack if everything is fine
-// 			NULL if the stack is empty or an error occur
+/*
+	Parse_args : 
+
+ 		This function will verify, parse and return a pointer 
+ 			to the stack list of element
+ 			
+ 		return value : 
+ 			t_list **stack if everything is fine
+ 			NULL if the stack is empty or an error occur
+*/
 
 t_list	*parse_args(int ac, char **av, t_rule *rule)
 {

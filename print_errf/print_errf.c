@@ -36,9 +36,9 @@ static int	ft_handler(char type, va_list args)
 	if (type == 'u')
 		return (ft_puterr_nb_u(va_arg(args, unsigned int), "0123456789", 10));
 	if (type == 'x')
-		return (ft_puterr_nb_u(va_arg(args, unsigned int), "0123456789abcdef", 16));
+		return (ft_puterr_nb_u(va_arg(args, unsigned int), HEX_DICT, 16));
 	if (type == 'X')
-		return (ft_puterr_nb_u(va_arg(args, unsigned int), "0123456789ABCDEF", 16));
+		return (ft_puterr_nb_u(va_arg(args, unsigned int), UHEX_DICT, 16));
 	if (type == 'f')
 		return (printerr_float(va_arg(args, double)));
 	return (0);

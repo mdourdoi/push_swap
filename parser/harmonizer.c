@@ -12,10 +12,12 @@
 
 #include "libft.h"
 
-// Get_args_len : 
-//
-//      This function will count the total of char + space needed for 
-//          the concatenation
+/*
+ 	Get_args_len : 
+
+      This function will count the total of char + space needed for 
+          the concatenation
+*/
 
 static size_t	get_args_len(char **argv)
 {
@@ -31,10 +33,6 @@ static size_t	get_args_len(char **argv)
 	}
 	return (i + len - 1);
 }
-
-// ft_strcat : 
-//
-//      because strlcat is shitty function
 
 static size_t	ft_strcat(char *dest, char *src)
 {
@@ -52,10 +50,12 @@ static size_t	ft_strcat(char *dest, char *src)
 	return (len_dst + i);
 }
 
-// Concatenate : 
-//
-//      This will concatenate multiple strings into one string,
-//          each string will be separated by a space
+/*
+ 	Concatenate : 
+
+      This will concatenate multiple strings into one string,
+          each string will be separated by a space
+*/
 
 static void	concatenate(char **argv, char *str)
 {
@@ -71,8 +71,11 @@ static void	concatenate(char **argv, char *str)
 	}
 }
 
-// Args_len : 
-//      return the number of args
+/* 
+	Args_len :
+
+      return the number of args
+*/
 
 int	args_len(char **args)
 {
@@ -86,11 +89,13 @@ int	args_len(char **args)
 	return (i + 1);
 }
 
-// Harmonize_args : 
-//
-//      The purpose of this function is to harmonize 
-//          the args given by the user so they can follow the same
-//          standard in every case during the parsing
+/* 
+	Harmonize_args : 
+
+      The purpose of this function is to harmonize 
+          the args given by the user so they can follow the same
+          standard in every case during the parsing
+*/
 
 char	**harmonize_args(char **argv)
 {

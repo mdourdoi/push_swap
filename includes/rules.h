@@ -16,9 +16,11 @@
 # include "libft.h"
 # include <limits.h>
 
-// Enum t_oper : 
-// 		to enumerate the index of the operation list in 
-// 			rule->operation[]
+/*
+ Enum t_oper : 
+ 		to enumerate the index of the operation list in 
+ 			rule->operation[]
+*/
 
 typedef enum e_oper
 {
@@ -35,8 +37,10 @@ typedef enum e_oper
 	RRR = 10
 }	t_oper;
 
-// Enum t_mode : For having different mode link with a value,
-// 		so readability of the code is OK for our tiny little eyes
+/*
+	Enum t_mode : For having different mode link with a value,
+ 		so readability of the code is OK for our tiny little eyes
+*/
 
 typedef enum e_mode
 {
@@ -46,13 +50,15 @@ typedef enum e_mode
 	COMPLEX = 4
 }	t_mode;
 
-// Struct t_rule : 
-//
-// 		For saving state, program mode, the entropy level 
-// 		and the number of element in the initial stack
-//
-// 		operation[] will store each operation, by increasing
-// 			the number stored in his corresponding key
+/*
+	Struct t_rule : 
+
+ 		For saving state, program mode, the entropy level 
+ 		and the number of element in the initial stack
+
+ 		operation[] will store each operation, by increasing
+ 			the number stored in his corresponding key
+*/
 
 typedef struct s_rule
 {
