@@ -52,15 +52,15 @@ t_bool	check_stack_b(t_list *b)
 		return (FALSE);
 }
 
-void	processing(t_list *a, t_list **b, t_rule *rules)
+void	processing(t_list **a, t_list **b, t_rule *rules)
 {
 	char	*op;
 
 	op = get_next_line(0);
 	while (op)
 	{
-		check_op(op, &a, b);
-		execute(op, &a, b, rules);
+		check_op(op, a, b);
+		execute(op, a, b, rules);
 		if (op)
 			free(op);
 		op = get_next_line(0);
@@ -81,8 +81,9 @@ int	main(int argc, char **argv)
 		a = init_checker(argv, &rules);
 		if (a == NULL)
 			panic_exit(&a, b, NULL, PRINT_ERROR);
+		print_stack(a, "checker");
 		if (ft_issorted(a) != 1)
-			processing(a, b, &rules);
+			processing(&a, b, &rules);
 		if ((check_stack_b(*b) == TRUE) && (ft_issorted(a) == 1))
 			ft_printf("OK\n");
 		else
