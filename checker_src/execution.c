@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include "checker.h"
 
-/*	Exxecute : 
+/*	Execute : 
  *
  *		This function will read the actual operation
  *			sent in stdin and will execution the corresponding
