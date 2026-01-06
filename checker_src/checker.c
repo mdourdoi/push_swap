@@ -81,7 +81,6 @@ int	main(int argc, char **argv)
 		a = init_checker(argv, &rules);
 		if (a == NULL)
 			panic_exit(&a, b, NULL, PRINT_ERROR);
-		print_stack(a, "checker");
 		if (ft_issorted(a) != 1)
 			processing(&a, b, &rules);
 		if ((check_stack_b(*b) == TRUE) && (ft_issorted(a) == 1))
