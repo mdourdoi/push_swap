@@ -29,7 +29,8 @@ void	*clear_stack(t_list *stack)
 		stack = stack->next;
 		free(tmp);
 	}
-	free(stack);
+	if (stack != NULL)
+		free(stack);
 	return (NULL);
 }
 
