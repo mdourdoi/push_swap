@@ -37,7 +37,7 @@ void	*clear_stack(t_list *stack)
 /*
  Check_double : 
 
- 		This function will if there's double value in the stack 
+ 		This function will check if there's double value in the stack 
  			by checking a dictionary using hash set algorithm
 
  		return (TRUE) if double exist 
