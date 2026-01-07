@@ -40,7 +40,8 @@ t_list	*init_checker(char **av, t_rule *rules)
 	init_rule(rules);
 	rules->checker = TRUE;
 	a = parse_args(args_len(args), args, rules);
-	free_args(args);
+	if (args != NULL)
+		free_args(args);
 	return (a);
 }
 
