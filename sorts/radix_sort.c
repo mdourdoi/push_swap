@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 14:23:06 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/05 16:37:13 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/07 16:45:11 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	ft_true_radix_sort(t_list **a, t_list **b, t_rule *rules)
 	len = ft_lstsize(*a);
 	k = -1;
 	set_index(*a);
-	while (++k < 32 && !ft_issorted(*a))
+	while (++k < 64 && !ft_issorted(*a))
 	{
 		proc = 0;
 		while (ft_get_zeros(*a, k))
