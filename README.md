@@ -102,7 +102,7 @@ $$
 
 ## Medium : Bucket sort
 
-We (virtualy) cut the initial stack into several interval of size k (we will transform this k later into S$\sqrt{n}$). The first bucket contains the k first elements, the second the k next etc ...
+We (virtualy) cut the initial stack into several interval of size k (we will transform this k later into $\sqrt{n}$). The first bucket contains the k first elements, the second the k next etc ...
 
 #### Step 1
 
@@ -126,7 +126,7 @@ $$
 
 #### Step 2
 
-For each bucket, we search the maximum of the stack B, which is always on the top bucket so in the first $\sqrt{n}$ elements (with rotations, they may go to the end of the stack, that's why we use ft_select_rot, and maybe it will gain us some operations with the last bucket as well).
+We search the maximum of the stack B, which is always on the top bucket so in the first $\sqrt{n}$ elements (with rotations, they may go to the end of the stack, that's why we use ft_select_rot, and maybe it will gain us some operations with the last bucket as well).
 
 Each time, we do at most $\sqrt{n}+1$ operations :
 
@@ -146,13 +146,11 @@ $$
 n\sqrt{n}+\sqrt{n}-+\frac{n\sqrt{n}-1}{2}=\frac{3}{2}n\sqrt{n}+\sqrt{n}-\frac{1}{2}=O(n\sqrt{n})
 $$
 
-I'm sorry.
-
 ## Complex : Radix sort
 
 Prerequisite : We need to get the final index of each element (0 for the top of the stack, 1 for the second, ..., len - 1 for the last). We have a function called set_index for that.
 
-We will check every bit of the index of each element in A. For each bit, if it is 1 we push it to B, else we rotate A and repeat until we've checked each element, then we push everything back to A and scan for the next bit.
+We will check every bit of the index of each element in A. For each bit, if it is 0 we push it to B, else we rotate A and repeat until we've checked each element, then we push everything back to A and scan for the next bit.
 
 #### Optimization :
 
