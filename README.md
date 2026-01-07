@@ -80,7 +80,7 @@ For the justifications :
 
 - Radix sort for the complex algorithm because we wanted to see what bitwise operations are, and it seemed very easy to implement
 
-Before each sort, we calculate the metric disorder as asked. If the adaptive method is selected, it select the correct way according to it ( O(n²) iif disorder < 0.2, O(n*sqrt(n)) if 0.2 ≤ disorder < 0.5 and O(nlog(n)) otherwise).
+Before each sort, we calculate the metric disorder as asked. If the adaptive method is selected, it select the correct way according to it ( $O(n^2)$ iif disorder < 0.2, $O(n\sqrt{n})$ if 0.2 ≤ disorder < 0.5 and $O(nlog(n))$ otherwise).
 
 ## Simple : Selection sort
 
@@ -115,7 +115,7 @@ At the end of the bucket m, we did at most $n-(m-1)k+k=n-mk$ operations (n-m*k i
 When A is fully pushed, we did in terms of operations :
 
 $$
-\sum_{m=1}^{\frac{n}{k}}n-mk=\frac{n}{k}*n-k\sum_{m=1}^{\frac{n}{k}}m=\frac{n^2}{k}-k*\frac{\frac{n}{k}*(\frac{n}{k}-1)}{2}=\frac{n^2}{k}-\frac{n*(\frac{n}{k}-1)}{2}=\frac{n^2}{k}-\frac{n^2-k}{2k}=\frac{n^2-k}{2k}
+\sum_{m=1}^{\frac{n}{k}}n-mk=\frac{n}{k}n-k\sum_{m=1}^{\frac{n}{k}}m=\frac{n^2}{k}-k\frac{\frac{n}{k}(\frac{n}{k}-1)}{2}=\frac{n^2}{k}-\frac{n(\frac{n}{k}-1)}{2}=\frac{n^2}{k}-\frac{n^2-k}{2k}=\frac{n^2-k}{2k}
 $$
 
 If now we take $k=\sqrt{n}$ (and that's what we do and what we will do now):
@@ -183,5 +183,5 @@ The lowest b is then exactly $\lceil\frac{log(n-1)}{log(2)}\rceil$.
 So in the end, since log is strictly increasing and 1/log(2) is roughly 1.44, we do in term of push_swap operations :
 
 $$
-n*\lceil\frac{log(n-1)}{log(2)}\rceil{\le}1.45*nlog(n)=O(nlog(n))
+n\lceil\frac{log(n-1)}{log(2)}\rceil{\le}1.45nlog(n)=O(nlog(n))
 $$
