@@ -110,7 +110,7 @@ We push each bucket one by one in A, starting with the first one (with the lower
 
 We repeat this step until all the buckets are pushed, so we do this k times.
 
-At the end of the bucket m, we did at most $n-(m-1)*k+k=n-mk$ operations (n-m*k is the size of A and the number of rotation in the worst case scenario, k is the number of pushes)
+At the end of the bucket m, we did at most $n-(m-1)k+k=n-mk$ operations (n-m*k is the size of A and the number of rotation in the worst case scenario, k is the number of pushes)
 
 When A is fully pushed, we did in terms of operations :
 
