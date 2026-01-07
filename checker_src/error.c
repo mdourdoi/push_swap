@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:04:07 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/05 11:04:09 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:45:24 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	panic_exit(t_list **a, t_list **b, char *op, int flag)
 	clear_stack(*b);
 	if (op != NULL)
 		free(op);
+	if (b)
+		free(b);
 	exit(EXIT_FAILURE);
 }
 
@@ -68,5 +70,26 @@ static t_bool	is_op(char *op)
 void	check_op(char *op, t_list **a, t_list **b)
 {
 	if (is_op(op) == FALSE)
+	{
+		drain_pipe();
 		panic_exit(a, b, op, PRINT_ERROR);
+	}
+}
+
+/*
+ * 	drain_pipe : 
+ *
+ * 		drain all stdin in case of error
+ * */
+void	drain_pipe(void)
+{
+	char	*op;
+
+	op = get_next_line(0);
+	while (op)
+	{
+		free(op);
+		op = get_next_line(0);
+	}
+	free(op);
 }
