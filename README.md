@@ -88,17 +88,21 @@ We search each time in the stack A the minimum with ft_select_rot and push it in
 
 Worst case scenario : We need to rotate the full stack each time (most likely never happens), so the number of operations is :
 
- ![sum-full](https://latex.codecogs.com/svg.image?\sum_{k=1}^{n}k=\frac{n(n+1)}{2}=\frac{1}{2}n^2+\frac{1}{2}n)
+$$
+\sum_{k=1}^{n}k=\frac{n(n+1)}{2}=\frac{1}{2}n^2+\frac{1}{2}n
+$$
 
 We then push this reverse-sorted stack in A, giving us a correctly-sorted stack A. It takes exactly n operations.
 
 In the end, we have in term of push_swap operations :
 
- ![latex](https://latex.codecogs.com/svg.image?\frac{1}{2}n^2+\frac{1}{2}n+n=\frac{1}{2}n^2+\frac{3}{2}n=O(n^2))
+$$
+\frac{1}{2}n^2+\frac{1}{2}n+n=\frac{1}{2}n^2+\frac{3}{2}n=O(n^2)
+$$
 
 ## Medium : Bucket sort
 
-We (virtualy) cut the initial stack into several interval of size k (we will transform this k later into ![latex](https://latex.codecogs.com/svg.image?\sqrt{n})). The first bucket contains the k first elements, the second the k next etc ...
+We (virtualy) cut the initial stack into several interval of size k (we will transform this k later into S$\sqrt{n}$). The first bucket contains the k first elements, the second the k next etc ...
 
 #### Step 1
 
@@ -106,37 +110,41 @@ We push each bucket one by one in A, starting with the first one (with the lower
 
 We repeat this step until all the buckets are pushed, so we do this k times.
 
-At the end of the bucket m, we did at most ![latex](https://latex.codecogs.com/svg.image?n-(m-1)*k+k=n-mk) operations (n-m*k is the size of A and the number of rotation in the worst case scenario, k is the number of pushes)
+At the end of the bucket m, we did at most $n-(m-1)*k+k=n-mk$ operations (n-m*k is the size of A and the number of rotation in the worst case scenario, k is the number of pushes)
 
 When A is fully pushed, we did in terms of operations :
 
-![sum-full](https://latex.codecogs.com/svg.image?\sum_{m=1}^{\frac{n}{k}}n-mk=\frac{n}{k}*n-k\sum_{m=1}^{\frac{n}{k}}m=\frac{n^2}{k}-k*\frac{\frac{n}{k}*(\frac{n}{k}-1)}{2}=\frac{n^2}{k}-\frac{n*(\frac{n}{k}-1)}{2}=\frac{n^2}{k}-\frac{n^2-k}{2k}=\frac{n^2-k}{2k})
+$$
+\sum_{m=1}^{\frac{n}{k}}n-mk=\frac{n}{k}*n-k\sum_{m=1}^{\frac{n}{k}}m=\frac{n^2}{k}-k*\frac{\frac{n}{k}*(\frac{n}{k}-1)}{2}=\frac{n^2}{k}-\frac{n*(\frac{n}{k}-1)}{2}=\frac{n^2}{k}-\frac{n^2-k}{2k}=\frac{n^2-k}{2k}
+$$
 
-If now we take ![latex](https://latex.codecogs.com/svg.image?k=\sqrt{n}) (and that's what we do and what we will do now):
+If now we take $k=\sqrt{n}$ (and that's what we do and what we will do now):
 
-![latex](https://latex.codecogs.com/svg.image?\frac{n^2-k}{2k}=\frac{n^2-\sqrt{n}}{2\sqrt{n}}=\frac{n\sqrt{n}-1}{2})
+$$
+\frac{n^2-k}{2k}=\frac{n^2-\sqrt{n}}{2\sqrt{n}}=\frac{n\sqrt{n}-1}{2}
+$$
 
 #### Step 2
 
-For each bucket, we search the maximum of the stack B, which is always on the top bucket so in the first ![latex](https://latex.codecogs.com/svg.image?\sqrt{n}) elements (with rotations, they may go to the end of the stack, that's why we use ft_select_rot, and maybe it will gain us some operations with the last bucket as well).
+For each bucket, we search the maximum of the stack B, which is always on the top bucket so in the first $\sqrt{n}$ elements (with rotations, they may go to the end of the stack, that's why we use ft_select_rot, and maybe it will gain us some operations with the last bucket as well).
 
-Each time, we do at most in terms of push_swap operations :
+Each time, we do at most $\sqrt{n}+1$ operations :
 
-![latex](https://latex.codecogs.com/svg.image?\sqrt{n}+1)
+So for each bucket, we do $\sqrt{n}(\sqrt{n}+1)=n+\sqrt{n}$ operations.
 
-So for each bucket, we do :
+We have $\sqrt{n}$ buckets, so after we did all the bucket, we did in term of operations : 
 
-![latex](https://latex.codecogs.com/svg.image?\sqrt{n}(\sqrt{n}+1)=n)
-
-We have ![latex](https://latex.codecogs.com/svg.image?\sqrt{n}) buckets, so after we did all the bucket, we did in term of operations : 
-
-![latex](https://latex.codecogs.com/svg.image?\sqrt{n}*n)
+$$
+\sqrt{n}(n+\sqrt{n})=n\sqrt{n}+\sqrt{n}
+$$
 
 #### Final count
 
-In the end, we did :
+In the end, we did in term of operations :
 
-![latex](https://latex.codecogs.com/svg.image?\sqrt{n}*n+\frac{n\sqrt{n}-1}{2}=\frac{3}{2}n\sqrt{n}-\frac{1}{2}=O(n\sqrt{n}))
+$$
+n\sqrt{n}+\sqrt{n}-+\frac{n\sqrt{n}-1}{2}=\frac{3}{2}n\sqrt{n}+\sqrt{n}-\frac{1}{2}=O(n\sqrt{n})
+$$
 
 I'm sorry.
 
@@ -160,16 +168,20 @@ We go to each element of the stack each time, so we do n operations at most for 
 
 In binary, a number represented on b bits is always lower than 2^b, so if n is the number of elements (and n-1 the biggest index) we need the lowest b where :
 
-![latex](https://latex.codecogs.com/svg.image?2^b{\le}n-1{\iff}b{\le}log_{2}(n-1))
+$$
+2^b{\le}n-1{\iff}b{\le}log_{2}(n-1)
+$$
 
 And then
 
-![latex](https://latex.codecogs.com/svg.image?log_{2}(n-1)=\frac{log(n-1)}{log(2)})
+$$
+log_{2}(n-1)=\frac{log(n-1)}{log(2)}
+$$
 
-The lowest b is exactly
+The lowest b is then exactly $\lceil\frac{log(n-1)}{log(2)}\rceil$.
 
-![latex](https://latex.codecogs.com/svg.image?\lceil\frac{log(n-1)}{log(2)}\rceil)
+So in the end, since log is strictly increasing and 1/log(2) is roughly 1.44, we do in term of push_swap operations :
 
-So in total, since log is strictly increasing and 1/log(2) is roughly 1.44, we do in term of push_swap operations :
-
-![latex](https://latex.codecogs.com/svg.image?n*\lceil\frac{log(n-1)}{log(2)}\rceil{\le}1.45*nlog(n)=O(nlog(n)))
+$$
+n*\lceil\frac{log(n-1)}{log(2)}\rceil{\le}1.45*nlog(n)=O(nlog(n))
+$$
