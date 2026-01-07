@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 21:57:33 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/05 16:32:48 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/06 17:50:57 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef struct s_list
 {
 	int				content;
-	int				index;
+	long			index;
 	struct s_list	*next;
 }					t_list;
 
@@ -48,7 +48,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void*));
 t_list	*ft_lstnew(int content);
-int		ft_lstsize(t_list *lst);
+long	ft_lstsize(t_list *lst);
 void	*ft_memset(void *src, int c, size_t n);
 char	**ft_split(char const *s, char c);
 int		ft_strcmp(char *str1, char *str2);
