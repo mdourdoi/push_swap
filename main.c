@@ -27,7 +27,8 @@ t_list	*init_program(char **av, t_rule *rules)
 	rules->checker = FALSE;
 	a = parse_args(args_len(args), args, rules);
 	rules->disorder = ft_get_disorder(a);
-	free_args(args);
+	if (args != NULL)
+		free_args(args);
 	return (a);
 }
 

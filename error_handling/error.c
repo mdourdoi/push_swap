@@ -43,7 +43,8 @@ void	panic_exit(t_list **a, t_list **b, char *op)
 {
 	print_errf("Error\n");
 	clear_stack(*a);
-	clear_stack(*b);
+	if (b != NULL)
+		clear_stack(*b);
 	if (op != NULL)
 		free(op);
 	if (b != NULL)
