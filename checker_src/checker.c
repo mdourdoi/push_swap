@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:55:45 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/05 11:08:10 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:02:44 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,18 @@ t_bool	check_stack_b(t_list *b)
 		return (FALSE);
 }
 
-void	processing(t_list *a, t_list **b, t_rule *rules)
+void	processing(t_list **a, t_list **b, t_rule *rules)
 {
 	char	*op;
 
 	op = get_next_line(0);
-	check_error(&a, b, op);
-	execute(op, &a, b, rules);
 	while (op)
 	{
+		check_op(op, a, b);
+		execute(op, a, b, rules);
 		if (op)
 			free(op);
 		op = get_next_line(0);
-		if (op)
-		{
-			check_error(&a, b, op);
-			execute(op, &a, b, rules);
-		}
 	}
 }
 
@@ -81,13 +76,20 @@ int	main(int argc, char **argv)
 	argc++;
 	a = NULL;
 	b = ft_calloc(1, sizeof(t_list *));
-	a = init_checker(argv, &rules);
-	if (a == NULL)
-		panic_exit(&a, b, NULL);
-	if (ft_issorted(a) != 1)
-		processing(a, b, &rules);
-	if ((check_stack_b(*b) == TRUE) && (ft_issorted(a) == 1))
-		ft_printf("OK\n");
+	if (argc > 2)
+	{
+		a = init_checker(argv, &rules);
+		if (a == NULL)
+		{
+			drain_pipe();
+			panic_exit(&a, b, NULL, PRINT_ERROR);
+		}
+		processing(&a, b, &rules);
+		if ((check_stack_b(*b) == TRUE) && (ft_issorted(a) == 1))
+			ft_printf("OK\n");
+		else
+			ft_printf("KO\n");
+	}
 	clear_stack(a);
 	clear_stack(*b);
 	free(b);

@@ -93,7 +93,6 @@ SRC_TEST=parser/parser.c \
 	sorts/is_sorted.c \
 	sorts/selectionsort.c \
 	error_handling/error.c \
-	disorder.c \
 	main.c
 
 OBJ=$(SRC_TEST:.c=.o)
@@ -120,5 +119,8 @@ fclean: clean
 
 re: fclean
 	make all
+recheck: fclean
+	make all
+	make checker
 
-.PHONY : all checker clean fclean re
+.PHONY : all checker clean fclean re recheck

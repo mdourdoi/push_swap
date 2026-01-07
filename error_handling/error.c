@@ -41,11 +41,13 @@ void	free_args(char **args)
 
 void	panic_exit(t_list **a, t_list **b, char *op)
 {
-	print_errf("error\n");
+	print_errf("Error\n");
 	clear_stack(*a);
 	clear_stack(*b);
 	if (op != NULL)
 		free(op);
+	if (b != NULL)
+		free(b);
 	exit(EXIT_FAILURE);
 }
 

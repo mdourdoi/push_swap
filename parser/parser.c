@@ -29,14 +29,15 @@ void	*clear_stack(t_list *stack)
 		stack = stack->next;
 		free(tmp);
 	}
-	free(stack);
+	if (stack != NULL)
+		free(stack);
 	return (NULL);
 }
 
 /*
  Check_double : 
 
- 		This function will if there's double value in the stack 
+ 		This function will check if there's double value in the stack 
  			by checking a dictionary using hash set algorithm
 
  		return (TRUE) if double exist 

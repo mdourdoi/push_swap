@@ -49,3 +49,28 @@ void	ft_select_rot_b(t_list **stack, int rot, int rev_rot, t_rule *rules)
 			ft_rotate(stack, 'b', 1, rules);
 	}
 }
+
+float	ft_get_disorder(t_list *stack)
+{
+	long		errors;
+	long		pairs;
+	t_list		*rest;
+
+	if (!stack || !stack->next)
+		return (0.0);
+	pairs = 0;
+	errors = 0;
+	while (stack)
+	{
+		rest = stack->next;
+		while (rest)
+		{
+			pairs++;
+			if (stack->content > rest->content)
+				errors++;
+			rest = rest->next;
+		}
+		stack = stack->next;
+	}
+	return ((float)errors / (float)pairs);
+}

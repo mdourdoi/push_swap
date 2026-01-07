@@ -57,6 +57,8 @@ static void	check_adaptive(t_rule *rule)
 		print_errf("O(n * sqrt(n))\n");
 	if (rule->mode == COMPLEX)
 		print_errf("O(nlog(n))\n");
+	if (rule->mode == ADAPTIVE)
+		print_errf("\n");
 }
 
 static void	print_strategy(t_rule *rule)
