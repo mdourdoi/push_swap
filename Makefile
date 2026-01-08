@@ -47,7 +47,7 @@ SRCS_CHKR=libft/ft_atoi.c \
 	  	checker_src/get_next_line_utils.c \
 	  	checker_src/checker.c
 
-SRC_TEST=parser/parser.c \
+SRC=parser/parser.c \
 	parser/rules.c \
 	parser/rules_set.c \
 	parser/gateway.c \
@@ -95,14 +95,12 @@ SRC_TEST=parser/parser.c \
 	error_handling/error.c \
 	main.c
 
-OBJ=$(SRC_TEST:.c=.o)
+OBJ=$(SRC:.c=.o)
 OBJ_CHKR=$(SRCS_CHKR:.c=.o)
 
 all: $(EXEC)
 
-checker: $(CHECKER)
-
-$(CHECKER): $(OBJ_CHKR)
+checker: $(OBJ_CHKR)
 	$(CC) $(FLAGS) -I$(INCLUDES) $^ -o $@
 
 $(EXEC): $(OBJ) 
@@ -123,4 +121,4 @@ recheck: fclean
 	make all
 	make checker
 
-.PHONY : all checker clean fclean re recheck
+.PHONY : all clean fclean re recheck
