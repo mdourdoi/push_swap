@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:55:45 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/08 13:26:58 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/08 15:09:51 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,22 +74,22 @@ int	main(int argc, char **argv)
 	t_list	*a;
 	t_list	**b;
 
-	a = NULL;
+	if (argc < 2)
+		return (0);
 	b = ft_calloc(1, sizeof(t_list *));
-	if (argc > 2)
+	if (!b)
+		return (0);
+	a = init_checker(argv, &rules);
+	if (a == NULL)
 	{
-		a = init_checker(argv, &rules);
-		if (a == NULL)
-		{
-			drain_pipe();
-			panic_exit(&a, b, NULL, PRINT_ERROR);
-		}
-		processing(&a, b, &rules);
-		if ((check_stack_b(*b) == TRUE) && (ft_issorted(a) == 1))
-			ft_printf("OK\n");
-		else
-			ft_printf("KO\n");
+		drain_pipe();
+		panic_exit(&a, b, NULL, PRINT_ERROR);
 	}
+	processing(&a, b, &rules);
+	if ((check_stack_b(*b) == TRUE) && (ft_issorted(a) == 1))
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 	clear_stack(a);
 	clear_stack(*b);
 	free(b);

@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 12:31:03 by melschmi          #+#    #+#             */
-/*   Updated: 2026/01/08 13:27:03 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/08 15:09:56 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ int	main(int ac, char **av)
 	t_list	*a;
 	t_list	**b;
 
-	if (ac <= 2)
+	if (ac < 2)
 		return (0);
-	a = NULL;
 	b = ft_calloc(1, sizeof(t_list *));
+	if (!b)
+		return (0);
 	a = init_program(av, &rules);
 	if (a == NULL)
 		panic_exit(&a, b, NULL);
