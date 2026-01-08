@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:04:07 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/07 14:45:24 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/08 13:29:45 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ void	drain_pipe(void)
 		free(op);
 		op = get_next_line(0);
 	}
-	free(op);
+	if (op)
+		free(op);
 }

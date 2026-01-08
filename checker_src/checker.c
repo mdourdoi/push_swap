@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:55:45 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/07 14:02:44 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/08 13:26:58 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ int	main(int argc, char **argv)
 	t_list	*a;
 	t_list	**b;
 
-	argc++;
 	a = NULL;
 	b = ft_calloc(1, sizeof(t_list *));
 	if (argc > 2)

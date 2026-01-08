@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:26:27 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/05 11:26:31 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/08 13:28:26 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,11 @@ char	**harmonize_args(char **argv)
 		return (NULL);
 	concatenate(argv, str);
 	res = ft_split(str, ' ');
+	if (!res)
+	{
+		free(str);
+		return (NULL);
+	}
 	if (str != NULL)
 		free(str);
 	return (res);
