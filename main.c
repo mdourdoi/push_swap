@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 12:31:03 by melschmi          #+#    #+#             */
-/*   Updated: 2026/01/05 12:31:08 by melschmi         ###   ########.fr       */
+/*   Updated: 2026/01/08 13:27:03 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
-#include "print_errf.h"
+
 #include "error_handling.h"
-#include "rules.h"
-#include "libft.h"
-#include "ft_printf.h"
+#include "push_swap.h"
 
 t_list	*init_program(char **av, t_rule *rules)
 {
@@ -48,7 +45,8 @@ int	main(int ac, char **av)
 	t_list	*a;
 	t_list	**b;
 
-	ac++;
+	if (ac <= 2)
+		return (0);
 	a = NULL;
 	b = ft_calloc(1, sizeof(t_list *));
 	a = init_program(av, &rules);
@@ -57,9 +55,7 @@ int	main(int ac, char **av)
 	if (rules.disorder > 0)
 		gateway(&rules, &a, b);
 	if (rules.bench == TRUE)
-	{
 		display_benchmark(&rules);
-	}
 	exit_program(a, b);
 	return (0);
 }
