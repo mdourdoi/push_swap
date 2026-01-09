@@ -115,27 +115,27 @@ At the end of the bucket m, we did at most $n-(m-1)k+k=n-mk$ operations (n-m*k i
 When A is fully pushed, we did in terms of operations :
 
 $$
-\sum_{m=1}^{\frac{n}{k}}n-mk=\frac{n}{k}n-k\sum_{m=1}^{\frac{n}{k}}m=\frac{n^2}{k}-k\frac{\frac{n}{k}(\frac{n}{k}-1)}{2}=\frac{n^2}{k}-\frac{n(\frac{n}{k}-1)}{2}=\frac{n^2}{k}-\frac{n^2-k}{2k}=\frac{n^2-k}{2k}
+\sum_{m=1}^{\frac{n}{k}}n-mk=\frac{n}{k}n-k\sum_{m=1}^{\frac{n}{k}}m=\frac{n^2}{k}-k\frac{\frac{n}{k}(\frac{n}{k}+1)}{2}=\frac{n^2}{k}-\frac{n(\frac{n}{k}+1)}{2}=\frac{n^2}{k}-\frac{n^2+k}{2k}=\frac{n^2+k}{2k}
 $$
 
 If now we take $k=\sqrt{n}$ (and that's what we do and what we will do now):
 
 $$
-\frac{n^2-k}{2k}=\frac{n^2-\sqrt{n}}{2\sqrt{n}}=\frac{n\sqrt{n}-1}{2}
+\frac{n^2+k}{2k}=\frac{n^2+\sqrt{n}}{2\sqrt{n}}=\frac{n\sqrt{n}+1}{2}
 $$
 
 #### Step 2
 
 We search the maximum of the stack B, which is always on the top bucket so in the first $\sqrt{n}$ elements (with rotations, they may go to the end of the stack, that's why we use ft_select_rot, and maybe it will gain us some operations with the last bucket as well).
 
-Each time, we do at most $\sqrt{n}+1$ operations :
+Each time, we do at most $\sqrt{n}$ operations :
 
-So for each bucket, we do $\sqrt{n}(\sqrt{n}+1)=n+\sqrt{n}$ operations.
+So for each bucket, we do $\sqrt{n}\sqrt{n}=n$ operations.
 
 We have $\sqrt{n}$ buckets, so after we did all the bucket, we did in term of operations : 
 
 $$
-\sqrt{n}(n+\sqrt{n})=n\sqrt{n}+\sqrt{n}
+n\sqrt{n}
 $$
 
 #### Final count
@@ -143,7 +143,7 @@ $$
 In the end, we did in term of operations :
 
 $$
-n\sqrt{n}+\sqrt{n}-+\frac{n\sqrt{n}-1}{2}=\frac{3}{2}n\sqrt{n}+\sqrt{n}-\frac{1}{2}=O(n\sqrt{n})
+n\sqrt{n}+\frac{n\sqrt{n}+1}{2}=\frac{3}{2}n\sqrt{n}+\frac{1}{2}=O(n\sqrt{n})
 $$
 
 ## Complex : Radix sort
