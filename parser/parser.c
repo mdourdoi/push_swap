@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:20:33 by melschmi          #+#    #+#             */
-/*   Updated: 2026/01/05 11:03:53 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/12 20:04:05 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,11 @@ t_list	*get_stack(char **av, int ac, t_list *stack, t_rule *rule)
 	{
 		if (is_valid_digit(av[i]) == TRUE && ft_atoi(av[i], &content) == TRUE)
 			ft_lstadd_back(&stack, ft_lstnew(content));
+		else
+		{
+			rule->is_valid = 0;
+			break ;
+		}
 		i++;
 	}
 	return (check_stack_creation(stack, number_of_elem(rule, ac), rule));
@@ -132,11 +137,13 @@ t_list	*get_stack(char **av, int ac, t_list *stack, t_rule *rule)
 t_list	*parse_args(int ac, char **av, t_rule *rule)
 {
 	t_list	*stack;
+	int		nb_rules;
 
 	stack = NULL;
 	if (ac == 0 || av == NULL || av[0] == NULL)
 		return (NULL);
-	if (check_for_rules(av, rule) == TRUE)
-		stack = get_stack(av, ac, stack, rule);
+	nb_rules = check_for_rules(av, rule);
+	if (nb_rules >= 0)
+		stack = get_stack(&av[nb_rules], ac, stack, rule);
 	return (stack);
 }

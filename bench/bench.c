@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 15:30:37 by melschmi          #+#    #+#             */
-/*   Updated: 2025/12/19 15:37:53 by melschmi         ###   ########.fr       */
+/*   Updated: 2026/01/12 18:19:41 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ static int	get_total_op(int *op)
 
 static void	check_adaptive(t_rule *rule)
 {
-	print_errf("Adaptive / ");
+	print_errf("Adaptive | ");
 	if (rule->mode == SIMPLE)
-		print_errf("O(n * n)\n");
+		print_errf("Selection sort | O(n * n)\n");
 	if (rule->mode == MEDIUM)
-		print_errf("O(n * sqrt(n))\n");
+		print_errf("Bucket sort | O(n * sqrt(n))\n");
 	if (rule->mode == COMPLEX)
-		print_errf("O(nlog(n))\n");
+		print_errf("Radix sort | O(nlog(n))\n");
 	if (rule->mode == ADAPTIVE)
 		print_errf("\n");
 }
@@ -70,11 +70,11 @@ static void	print_strategy(t_rule *rule)
 		return ;
 	}
 	if (rule->mode == SIMPLE)
-		print_errf("SIMPLE\n");
+		print_errf("SIMPLE | Selection sort | O(n * n)\n");
 	if (rule->mode == MEDIUM)
-		print_errf("MEDIUM\n");
+		print_errf("MEDIUM | Bucket sort | O(n * sqrt(n))\n");
 	if (rule->mode == COMPLEX)
-		print_errf("COMPLEX\n");
+		print_errf("COMPLEX | Radix sort | O(nlog(n))\n");
 }
 
 /* Display_benchmark : 

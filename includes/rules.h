@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:34:40 by melschmi          #+#    #+#             */
-/*   Updated: 2026/01/05 16:35:21 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/12 19:53:33 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct s_rule
 	t_bool	adaptive;
 	float	disorder;
 	size_t	nb_element;
+	int		is_valid;
 	int		operation[11];
 }	t_rule;
 
@@ -78,7 +79,7 @@ t_bool	set_complex(t_bool *mode, t_rule *rule);
 t_bool	set_adaptive(t_bool *mode, t_rule *rule);
 t_bool	set_bench(t_bool *bench, t_rule *rule);
 t_bool	determine_mode(char *av, t_rule *rule, t_bool *mode, t_bool *bench);
-t_bool	check_for_rules(char **av, t_rule *rule);
+int		check_for_rules(char **av, t_rule *rule);
 t_bool	check_double(t_list *stack);
 t_bool	is_valid_digit(char *nb);
 t_list	*parse_args(int ac, char **av, t_rule *rule);
