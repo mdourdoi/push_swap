@@ -1,53 +1,59 @@
-
 EXEC=push_swap
 CHECKER=checker
 
 INCLUDES=includes/
 FLAGS=-Wall -Wextra -Werror
 
-SRCS_CHKR=libft/ft_atoi.c \
-		libft/ft_bzero.c \
-		libft/ft_calloc.c \
-		libft/ft_isascii.c \
-		libft/ft_isdigit.c \
-		libft/ft_lstadd_back.c \
-		libft/ft_lstadd_front.c \
-		libft/ft_lstlast.c \
-		libft/ft_lstnew.c \
-		libft/ft_memset.c \
-		libft/ft_strlen.c \
-		libft/ft_split.c \
-		libft/ft_strcmp.c \
-		libft/ft_substr.c \
-		parser/parser.c \
-		parser/rules.c \
-		parser/rules_set.c \
-		parser/harmonizer.c \
-		primitives/push.c \
-		primitives/reverse_rotate.c \
-		primitives/rotate.c \
-		primitives/swap.c \
-		ft_printf/ft_printf.c \
-		ft_printf/ft_printf_chars.c \
-		ft_printf/ft_printf_nbrs.c \
-		ft_printf/ft_printf_nbrs_unsigned.c \
-		ft_printf/ft_printf_utils.c \
-		ft_printf/ft_printf_voidp.c \
-		ft_printf/float.c \
-		print_errf/print_errf.c \
-		print_errf/print_errf_chars.c \
-		print_errf/print_errf_nbrs.c \
-		print_errf/print_errf_nbrs_unsigned.c \
-		print_errf/print_errf_voidp.c \
-		print_errf/print_errfloat.c \
-		sorts/is_sorted.c \
-		checker_src/error.c \
-		checker_src/execution.c \
-		checker_src/get_next_line.c \
-	  	checker_src/get_next_line_utils.c \
-	  	checker_src/checker.c
+LIBFT_DIR=libft
+LIBFT=$(LIBFT_DIR)/libft.a
+LIBS=-L$(LIBFT_DIR) -lft
+HEADER_LIBFT = includes/libft.h
 
-SRC=parser/parser.c \
+SRCS_LIBFT = libft/ft_atoi.c \
+	libft/ft_bzero.c \
+	libft/ft_calloc.c \
+	libft/ft_isascii.c \
+	libft/ft_isdigit.c \
+	libft/ft_lstadd_back.c \
+	libft/ft_lstadd_front.c \
+	libft/ft_lstlast.c \
+	libft/ft_lstnew.c \
+	libft/ft_lstsize.c\
+	libft/ft_memset.c \
+	libft/ft_split.c \
+	libft/ft_strcmp.c \
+	libft/ft_strlen.c \
+	libft/ft_substr.c
+
+SRCS_BONUS=parser/parser.c \
+	parser/rules.c \
+	parser/rules_set.c \
+	parser/harmonizer.c \
+	primitives/push.c \
+	primitives/reverse_rotate.c \
+	primitives/rotate.c \
+	primitives/swap.c \
+	ft_printf/ft_printf.c \
+	ft_printf/ft_printf_chars.c \
+	ft_printf/ft_printf_nbrs.c \
+	ft_printf/ft_printf_nbrs_unsigned.c \
+	ft_printf/ft_printf_utils.c \
+	ft_printf/ft_printf_voidp.c \
+	ft_printf/float.c \
+	print_errf/print_errf.c \
+	print_errf/print_errf_chars.c \
+	print_errf/print_errf_nbrs.c \
+	print_errf/print_errf_nbrs_unsigned.c \
+	print_errf/print_errf_voidp.c \
+	print_errf/print_errfloat.c \
+	sorts/is_sorted.c \
+	checker_src_bonus/error_bonus.c \
+	checker_src_bonus/execution_bonus.c \
+	checker_src_bonus/get_next_line_bonus.c \
+	checker_src_bonus/get_next_line_utils_bonus.c \
+	checker_src_bonus/checker_bonus.c
+
+SRCS=parser/parser.c \
 	parser/rules.c \
 	parser/rules_set.c \
 	parser/gateway.c \
@@ -56,21 +62,6 @@ SRC=parser/parser.c \
 	primitives/reverse_rotate.c \
 	primitives/rotate.c \
 	primitives/swap.c \
-	libft/ft_atoi.c \
-	libft/ft_bzero.c \
-	libft/ft_calloc.c \
-	libft/ft_isascii.c \
-	libft/ft_isdigit.c \
-	libft/ft_lstadd_back.c \
-	libft/ft_lstnew.c \
-	libft/ft_memset.c \
-	libft/ft_strlen.c \
-	libft/ft_strcmp.c \
-	libft/ft_split.c \
-	libft/ft_lstadd_front.c \
-	libft/ft_lstlast.c \
-	libft/ft_lstsize.c \
-	libft/ft_substr.c \
 	ft_printf/ft_printf_chars.c \
 	ft_printf/ft_printf_nbrs.c \
 	ft_printf/ft_printf_nbrs_unsigned.c \
@@ -95,25 +86,34 @@ SRC=parser/parser.c \
 	error_handling/error.c \
 	main.c
 
-OBJ=$(SRC:.c=.o)
-OBJ_CHKR=$(SRCS_CHKR:.c=.o)
+OBJ_DIR=.obj
+OBJ=$(SRCS:%.c=$(OBJ_DIR)/%.o)
+OBJ_BONUS=$(SRCS_BONUS:%.c=$(OBJ_DIR)/%.o)
 
 all: $(EXEC)
 
-checker: $(OBJ_CHKR)
-	$(CC) $(FLAGS) -I$(INCLUDES) $^ -o $@
+bonus: $(CHECKER)
 
-$(EXEC): $(OBJ) 
-	$(CC) $(FLAGS) -I$(INCLUDES) $^ -o $@
+$(LIBFT): $(HEADER_LIBFT) $(SRCS_LIBFT)
+	$(MAKE) -C $(LIBFT_DIR)
 
-%.o: %.c
+$(EXEC): $(OBJ) $(LIBFT)
+	$(CC) $(FLAGS) -I$(INCLUDES) $(OBJ) $(LIBS) -o $@
+
+$(CHECKER): $(OBJ_BONUS) $(LIBFT)
+	$(CC) $(FLAGS) -I$(INCLUDES) $(OBJ_BONUS) $(LIBS) -o $@
+
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
 	$(CC) $(FLAGS) -I$(INCLUDES) -c $< -o $@
 
 clean: 
-	rm -rf $(OBJ) $(OBJ_CHKR)
+	rm -rf $(OBJ_DIR) $(OBJ_BONUS_DIR)
+	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -rf $(EXEC) $(CHECKER)
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean
 	make all
@@ -121,4 +121,4 @@ recheck: fclean
 	make all
 	make checker
 
-.PHONY : all clean fclean re recheck
+.PHONY : all bonus clean fclean re recheck

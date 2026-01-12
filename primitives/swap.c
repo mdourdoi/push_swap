@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:29:41 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/05 16:37:07 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:33:56 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ void	ft_swap(t_list **stack, char c, int flag, t_rule *rule)
 	}
 }
 
-void	ft_swap_both(t_list *a, t_list *b, t_rule *rule)
+void	ft_swap_both(t_list **a, t_list **b, t_rule *rule)
 {
-	ft_swap(&a, 0, 0, rule);
-	ft_swap(&b, 0, 0, rule);
-	if (rule->bench == FALSE)
+	ft_swap(a, 0, 0, rule);
+	ft_swap(b, 0, 0, rule);
+	if (rule->checker == FALSE)
 		ft_printf("ss");
 	else
 		rule->operation[SS] += 1;

@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:28:11 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/05 10:56:13 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:35:10 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 # include "bench.h"
 
 void	ft_swap(t_list **stack, char c, int flag, t_rule *rule);
-void	ft_swap_both(t_list *a, t_list *b, t_rule *rule);
+void	ft_swap_both(t_list **a, t_list **b, t_rule *rule);
 void	ft_push(t_list **stack1, char c1, t_list **stack2, t_rule *rule);
 void	ft_rotate(t_list **stack, char c, int flag, t_rule *rule);
-void	ft_rotate_both(t_list *a, t_list *b, t_rule *rule);
+void	ft_rotate_both(t_list **a, t_list **b, t_rule *rule);
 void	ft_reverse_rotate(t_list **stack, char c, int flag, t_rule *rule);
-void	ft_reverse_rotate_both(t_list *a, t_list *b, t_rule *rule);
+void	ft_reverse_rotate_both(t_list **a, t_list **b, t_rule *rule);
 float	ft_get_disorder(t_list *stack);
 void	ft_selectionsort(t_list **a, t_list **b, t_rule *rule);
 int		ft_issorted(t_list *a);

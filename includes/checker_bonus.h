@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:03:57 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/07 14:44:40 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/12 17:24:46 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
-# include "get_next_line.h"
+# include "get_next_line_bonus.h"
 # include "libft.h"
 # include "rules.h"
 # include "push_swap.h"
 # include "ft_printf.h"
+# include "print_errf.h"
 
 # define PRINT_ERROR 1
 # define NO_ERROR 0

@@ -46,7 +46,7 @@ TLDR : these examples have the same output
 ARG="5 4 9 8 6 0"; ./push_swap $ARG
 </pre>
 
-## checker (make checker)
+## bonus (make bonus)
 
 Creates the checker binary.
 
@@ -65,6 +65,20 @@ Bucket sort : https://en.wikipedia.org/wiki/Bucket_sort
 Radix sort : https://en.wikipedia.org/wiki/Radix_sort && kapinarc's brain
 
 Usage of AI : To debug the bucket sort because we didn't see a tiny detail that made us switch to the next bucket too soon.
+
+# Contribution
+
+#### melschmi
+
+Parser, bench, checker
+
+#### mdourdoi
+
+Sorting algorithm, primitive operations, README.md
+
+#### both
+
+Libft tweaking to fit our needs in this project, debugging, mutual code review
 
 # In depth explaination of each algorithm (trigger warning : maths)
 

@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   error_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:04:07 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/08 13:29:45 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:52:21 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
-#include "print_errf.h"
-#include "rules.h"
+#include "checker_bonus.h"
 
 /*	Panic_exit : 
  *	
@@ -46,6 +44,8 @@ static t_bool	is_op(char *op)
 	if (ft_strcmp(op, "sa\n") == 0)
 		return (TRUE);
 	if (ft_strcmp(op, "sb\n") == 0)
+		return (TRUE);
+	if (ft_strcmp(op, "ss\n") == 0)
 		return (TRUE);
 	if (ft_strcmp(op, "ra\n") == 0)
 		return (TRUE);
