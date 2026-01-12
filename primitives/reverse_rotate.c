@@ -43,7 +43,7 @@ void	ft_reverse_rotate_both(t_list *a, t_list *b, t_rule *rule)
 {
 	ft_reverse_rotate(&a, 0, 0, rule);
 	ft_reverse_rotate(&b, 0, 0, rule);
-	if (rule->bench == FALSE)
+	if (rule->checker == FALSE)
 		ft_printf("rrr");
 	else
 		rule->operation[RRR] += 1;

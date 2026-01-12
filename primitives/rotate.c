@@ -40,7 +40,7 @@ void	ft_rotate_both(t_list *a, t_list *b, t_rule *rule)
 {
 	ft_rotate(&a, 0, 0, rule);
 	ft_rotate(&b, 0, 0, rule);
-	if (rule->bench == FALSE)
+	if (rule->checker == FALSE)
 		ft_printf("rr");
 	else
 		rule->operation[RR] += 1;
