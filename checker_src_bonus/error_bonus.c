@@ -6,34 +6,11 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:04:07 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/12 16:52:21 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/13 17:13:56 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
-
-/*	Panic_exit : 
- *	
- *		This function is called when something wrong
- *			happen's during the program runtime.
- *			It will clear all the stack used, clear  
- *			op if it's dynamically allocated and
- *			exit with failure signals
- */
-
-void	panic_exit(t_list **a, t_list **b, char *op, int flag)
-{
-	if (flag == PRINT_ERROR)
-		print_errf("Error\n");
-	clear_stack(*a);
-	if (b != NULL)
-		clear_stack(*b);
-	if (op != NULL)
-		free(op);
-	if (b != NULL)
-		free(b);
-	exit(EXIT_FAILURE);
-}
 
 static t_bool	is_op(char *op)
 {

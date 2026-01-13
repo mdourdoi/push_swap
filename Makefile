@@ -47,6 +47,7 @@ SRCS_BONUS=parser/parser.c \
 	print_errf/print_errf_voidp.c \
 	print_errf/print_errfloat.c \
 	sorts/is_sorted.c \
+	error_handling/error.c \
 	checker_src_bonus/error_bonus.c \
 	checker_src_bonus/execution_bonus.c \
 	checker_src_bonus/get_next_line_bonus.c \
