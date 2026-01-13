@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:20:33 by melschmi          #+#    #+#             */
-/*   Updated: 2026/01/12 20:04:05 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/13 13:41:19 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,10 @@ t_list	*check_stack_creation(t_list *stack, int nb_elem, t_rule *rule)
 	while (test != NULL)
 	{
 		if (check_double(test) == TRUE)
+		{
+			rule->is_valid = 0;
 			return (clear_stack(stack));
+		}
 		len++;
 		test = test->next;
 	}

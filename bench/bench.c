@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 15:30:37 by melschmi          #+#    #+#             */
-/*   Updated: 2026/01/12 18:19:41 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/13 13:35:23 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,12 @@ static void	print_strategy(t_rule *rule)
 	}
 	if (rule->mode == SIMPLE)
 		print_errf("SIMPLE | Selection sort | O(n * n)\n");
-	if (rule->mode == MEDIUM)
+	else if (rule->mode == MEDIUM)
 		print_errf("MEDIUM | Bucket sort | O(n * sqrt(n))\n");
-	if (rule->mode == COMPLEX)
+	else if (rule->mode == COMPLEX)
 		print_errf("COMPLEX | Radix sort | O(nlog(n))\n");
+	else
+		print_errf("NONE | The stack is already sorted\n");
 }
 
 /* Display_benchmark : 

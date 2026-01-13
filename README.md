@@ -64,7 +64,7 @@ Bucket sort : https://en.wikipedia.org/wiki/Bucket_sort
 
 Radix sort : https://en.wikipedia.org/wiki/Radix_sort && kapinarc's brain
 
-Usage of AI : To debug the bucket sort because we didn't see a tiny detail that made us switch to the next bucket too soon.
+Usage of AI : To debug the bucket sort because we didn't see a tiny detail that made us switch to the next bucket too soon and to understand how our root Makefile can call libft's Makefile.
 
 # Contribution
 
