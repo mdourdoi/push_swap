@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:55:45 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/15 10:50:58 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/15 15:49:16 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,11 @@ int	main(int argc, char **argv)
 	if (!b)
 		return (0);
 	a = init_checker(argv, &rules);
-	if (a == NULL)
+	if (a == NULL || rules.bench || rules.flags)
 	{
 		drain_pipe();
-		panic_exit(&a, b, NULL, rules.is_valid);
+		panic_exit(&a, b, NULL, rules.is_valid * (1 - rules.bench)
+			* (1 - rules.flags));
 	}
 	processing(&a, b, &rules);
 	if ((check_stack_b(*b) == TRUE) && (ft_issorted(a) == 1))
