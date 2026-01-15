@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:04:07 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/13 17:13:56 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/15 10:52:24 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	check_op(char *op, t_list **a, t_list **b)
 	if (is_op(op) == FALSE)
 	{
 		drain_pipe();
-		panic_exit(a, b, op, PRINT_ERROR);
+		panic_exit(a, b, op, 0);
 	}
 }
 

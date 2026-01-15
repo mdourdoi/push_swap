@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:03:57 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/13 17:20:04 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/15 10:53:20 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@
 # include "ft_printf.h"
 # include "print_errf.h"
 # include "error_handling.h"
-
-# define PRINT_ERROR 1
-# define NO_ERROR 0
 
 void	check_op(char *op, t_list **a, t_list **b);
 void	panic_exit(t_list **a, t_list **b, char *op, int flag);
