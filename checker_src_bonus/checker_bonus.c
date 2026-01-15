@@ -1,34 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:55:45 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/08 15:09:51 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/15 10:50:58 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include "rules.h"
-#include "checker.h"
-#include "print_errf.h"
-
-void	free_args(char **args)
-{
-	size_t	i;
-
-	i = 0;
-	while (args[i])
-	{
-		if (args[i])
-			free(args[i]);
-		i++;
-	}
-	if (args)
-		free(args);
-}
+#include "checker_bonus.h"
 
 t_list	*init_checker(char **av, t_rule *rules)
 {
@@ -83,7 +65,7 @@ int	main(int argc, char **argv)
 	if (a == NULL)
 	{
 		drain_pipe();
-		panic_exit(&a, b, NULL, PRINT_ERROR);
+		panic_exit(&a, b, NULL, rules.is_valid);
 	}
 	processing(&a, b, &rules);
 	if ((check_stack_b(*b) == TRUE) && (ft_issorted(a) == 1))

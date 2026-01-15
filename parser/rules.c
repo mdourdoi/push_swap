@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:36:37 by melschmi          #+#    #+#             */
-/*   Updated: 2026/01/05 11:26:47 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/12 20:04:50 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	init_rule(t_rule *rule)
 	rule->adaptive = FALSE;
 	rule->disorder = 0;
 	rule->nb_element = 0;
+	rule->is_valid = 1;
 	while (i < 11)
 	{
 		rule->operation[i] = 0;
@@ -103,28 +104,31 @@ t_bool	determine_mode(char *av, t_rule *rule, t_bool *mode, t_bool *bench)
  		return (FALSE) if an error occur
 */
 
-t_bool	check_for_rules(char **av, t_rule *rule)
+int	check_for_rules(char **av, t_rule *rule)
 {
 	size_t	i;
 	t_bool	mode;
 	t_bool	bench;
+	int		j;
 
 	i = 0;
+	j = 0;
 	mode = FALSE;
 	bench = FALSE;
-	rule->mode = ADAPTIVE;
 	while (av[i] && i < 2)
 	{
 		if (av[i][0] == '-' && av[i][1] == '-')
+		{
 			if (determine_mode(av[i], rule, &mode, &bench) == FALSE)
-				return (FALSE);
+			{
+				rule->is_valid = 0;
+				return (-1);
+			}
+			j++;
+		}
 		i++;
 	}
-	if (rule->mode == ADAPTIVE)
-	{
-		rule->adaptive = TRUE;
-	}
-	return (TRUE);
+	return (j);
 }
 
 /*

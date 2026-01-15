@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execution.c                                        :+:      :+:    :+:   */
+/*   execution_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:04:11 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/05 11:04:12 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:52:58 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "checker.h"
+#include "checker_bonus.h"
 
 /*	Execute : 
  *
@@ -35,11 +34,11 @@ void	execute(char *op, t_list **a, t_list **b, t_rule *rules)
 	if (ft_strcmp(op, "rb\n") == 0)
 		ft_rotate(b, '\0', 0, rules);
 	if (ft_strcmp(op, "rr\n") == 0)
-		ft_rotate_both(*a, *b, rules);
+		ft_rotate_both(a, b, rules);
 	if (ft_strcmp(op, "rra\n") == 0)
 		ft_reverse_rotate(a, '\0', 0, rules);
 	if (ft_strcmp(op, "rrb\n") == 0)
 		ft_reverse_rotate(b, '\0', 0, rules);
 	if (ft_strcmp(op, "rrr\n") == 0)
-		ft_reverse_rotate_both(*a, *b, rules);
+		ft_reverse_rotate_both(a, b, rules);
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:34:37 by melschmi          #+#    #+#             */
-/*   Updated: 2025/11/17 18:36:43 by melschmi         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:53:18 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "checker_bonus.h"
 
 char	*ft_realloc(size_t size, char *line)
 {

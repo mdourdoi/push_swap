@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:06:19 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/05 11:06:27 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/12 19:52:33 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,10 @@ void	free_args(char **args)
  *			exit with failure signals
  */
 
-void	panic_exit(t_list **a, t_list **b, char *op)
+void	panic_exit(t_list **a, t_list **b, char *op, int flag)
 {
-	print_errf("Error\n");
+	if (!flag)
+		print_errf("Error\n");
 	clear_stack(*a);
 	if (b != NULL)
 		clear_stack(*b);

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melschmi <melschmi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 15:15:41 by melschmi          #+#    #+#             */
-/*   Updated: 2025/11/17 15:16:37 by melschmi         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:53:13 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "checker_bonus.h"
 
 t_file	check_file(char *file)
 {

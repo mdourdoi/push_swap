@@ -1,41 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   error_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:04:07 by mdourdoi          #+#    #+#             */
-/*   Updated: 2026/01/08 13:29:45 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/15 10:52:24 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
-#include "print_errf.h"
-#include "rules.h"
-
-/*	Panic_exit : 
- *	
- *		This function is called when something wrong
- *			happen's during the program runtime.
- *			It will clear all the stack used, clear  
- *			op if it's dynamically allocated and
- *			exit with failure signals
- */
-
-void	panic_exit(t_list **a, t_list **b, char *op, int flag)
-{
-	if (flag == PRINT_ERROR)
-		print_errf("Error\n");
-	clear_stack(*a);
-	if (b != NULL)
-		clear_stack(*b);
-	if (op != NULL)
-		free(op);
-	if (b != NULL)
-		free(b);
-	exit(EXIT_FAILURE);
-}
+#include "checker_bonus.h"
 
 static t_bool	is_op(char *op)
 {
@@ -46,6 +21,8 @@ static t_bool	is_op(char *op)
 	if (ft_strcmp(op, "sa\n") == 0)
 		return (TRUE);
 	if (ft_strcmp(op, "sb\n") == 0)
+		return (TRUE);
+	if (ft_strcmp(op, "ss\n") == 0)
 		return (TRUE);
 	if (ft_strcmp(op, "ra\n") == 0)
 		return (TRUE);
@@ -73,7 +50,7 @@ void	check_op(char *op, t_list **a, t_list **b)
 	if (is_op(op) == FALSE)
 	{
 		drain_pipe();
-		panic_exit(a, b, op, PRINT_ERROR);
+		panic_exit(a, b, op, 0);
 	}
 }
 

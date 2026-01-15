@@ -6,7 +6,7 @@
 /*   By: mdourdoi <mdourdoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 12:31:03 by melschmi          #+#    #+#             */
-/*   Updated: 2026/01/08 15:09:56 by mdourdoi         ###   ########.fr       */
+/*   Updated: 2026/01/12 19:53:52 by mdourdoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_list	*init_program(char **av, t_rule *rules)
 void	exit_program(t_list *a, t_list **b)
 {
 	if (ft_issorted(a) != 1)
-		panic_exit(&a, b, NULL);
+		panic_exit(&a, b, NULL, 0);
 	clear_stack(a);
 	clear_stack(*b);
 	free(b);
@@ -52,7 +52,7 @@ int	main(int ac, char **av)
 		return (0);
 	a = init_program(av, &rules);
 	if (a == NULL)
-		panic_exit(&a, b, NULL);
+		panic_exit(&a, b, NULL, rules.is_valid);
 	if (rules.disorder > 0)
 		gateway(&rules, &a, b);
 	if (rules.bench == TRUE)
