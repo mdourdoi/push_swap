@@ -2,7 +2,7 @@ EXEC=push_swap
 CHECKER=checker
 
 INCLUDES=includes/
-FLAGS=-Wall -Wextra -Werror -g
+FLAGS=-Wall -Wextra -Werror
 
 LIBFT_DIR=libft
 LIBFT=$(LIBFT_DIR)/libft.a
